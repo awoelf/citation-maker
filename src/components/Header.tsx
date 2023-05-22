@@ -7,31 +7,21 @@ import { MoonStars, Sun } from 'react-bootstrap-icons';
 import { Switch } from 'antd';
 
 function Header() {
-  // const [isDark, setIsDark] = useState(true);
   const [isDark, setIsDark] = useLocalStorageState('isDark', {
     defaultValue: true,
   });
 
   const systemPrefersDark = useMediaQuery(
     {
-      query: '(prefers-color-scheme: dark)',
+      query: "(prefers-color-scheme: dark)",
     },
-    undefined,
-    (isSystemDark) => setIsDark(isSystemDark)
+    undefined
   );
-
+  
   const value = useMemo(
     () => (isDark === undefined ? !!systemPrefersDark : isDark),
     [isDark, systemPrefersDark]
   );
-
-  useEffect(() => {
-    if (isDark) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
-    }
-  }, [isDark]);
 
   useEffect(() => {
     if (value) {
