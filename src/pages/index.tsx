@@ -1,4 +1,5 @@
-import { ReactElement } from 'react';
+import { ReactElement, useContext } from 'react';
+import { ThemeContext } from '@/contexts/themeContext';
 
 import Link from 'next/link';
 import type { NextPageWithLayout } from './_app';
@@ -6,10 +7,14 @@ import type { NextPageWithLayout } from './_app';
 import Layout from '../components/Layout';
 
 const Home: NextPageWithLayout = () => {
+  const theme = useContext(ThemeContext)
+
   return (
     <>
-      <p>hello world</p>
-      <Link href={'dashboard'}>Go to dashboard</Link>
+      <div className={`theme-light`}>
+        <p>hello world</p>
+        <Link href={'dashboard'}>Go to dashboard</Link>
+      </div>
     </>
   );
 };

@@ -39,3 +39,11 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     </ThemeContext.Provider>
   );
 }
+
+// export async function getStaticProps() {
+//   return {
+//     props: {
+//       theme,
+//     },
+//   };
+// }
