@@ -1,7 +1,9 @@
-import type { ReactElement } from 'react';
-import Layout from '../components/Layout';
+import { ReactElement } from 'react';
+
 import Link from 'next/link';
 import type { NextPageWithLayout } from './_app';
+
+import Layout from '../components/Layout';
 
 const Home: NextPageWithLayout = () => {
   return (
