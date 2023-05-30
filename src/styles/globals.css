@@ -1,16 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Inter&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Inter&display=swap');
-
-body {
-  background-color: rgb(255, 255, 255);
-  color: black;
-  font-family: 'Bitter', serif;
+/* || Light theme */
+:root {
+  --foreground: #000000;
+  --background: #FFFFFF;
+  --font-inter: 'Inter', sans-serif;
+  --font-crete-round: 'Crete Round', serif
 }
-.theme-dark {
-  background-color: rgb(0, 0, 0);
-  color: white;
-  font-family: 'Bitter', serif;
+
+/* || Dark theme */
+[data-theme='dark'] {
+  --foreground: #FFFFFF;
+  --background: #000000;
+}
+
+/* || HTML Elements */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter);
+}
+
+/* || Classes */
+.icon {
+  color: var(--foreground);
+}
+
+.header {
+  font-family: var(--font-crete-round);
 }

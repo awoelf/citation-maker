@@ -1,18 +1,12 @@
-import { ReactElement } from 'react';
-
-import Link from 'next/link';
+import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
-
 import Layout from '../components/Layout';
 
 const Home: NextPageWithLayout = () => {
   return (
-    <>
-      <div>
-        <p>hello world</p>
-        <Link href={'dashboard'}>Go to dashboard</Link>
-      </div>
-    </>
+    <div className=''>
+      <p>Site content here</p>
+    </div>
   );
 };
 
