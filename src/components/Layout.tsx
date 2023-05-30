@@ -1,20 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { ThemeProvider } from 'next-themes';
 
 // Components
 import Header from '@/components/Header';
 
-export default function DashboardLayout({
-  children,
-   // will be a page or nested layout
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <link rel='icon' href='/favicon.ico' />
-      <Header />
-      {children}
-    </div>
+    <ThemeProvider>
+      <div className='container mx-auto'>
+        <link rel='icon' href='/favicon.ico' />
+        <Header />
+        {children}
+      </div>
+    </ThemeProvider>
   );
 }
-
