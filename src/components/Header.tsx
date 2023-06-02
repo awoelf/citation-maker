@@ -26,32 +26,37 @@ function Header() {
 
   return mounted ? (
     <div>
-      <div>
-        <p className='text-4xl header'>Citation Maker</p>
-        <Link href={'/citations'}><Button
-            onClick={() => setTheme('light')}
-            icon={<BlockquoteRight className='h-6 w-auto icon' />}
-            type='text'
-            shape='circle'
-          /></Link>
-        {theme === 'dark' ? (
-          <Button
-            onClick={() => setTheme('light')}
-            icon={<MoonStars className='h-6 w-auto icon' />}
-            type='text'
-            shape='circle'
-          />
-        ) : (
-          <Button
-            onClick={() => setTheme('dark')}
-            icon={<Sun className='h-6 w-auto icon' />}
-            type='text'
-            shape='circle'
-          />
-        )}
+      <div className='grid grid-cols-3 border-b py-3 mb-3'>
+        <div />
+        <p className='text-4xl header flex-grow text-center'>Citation Maker</p>
+        <div className='place-self-end flex align-center'>
+          <Link href={'/citations'}>
+            <Button
+              onClick={() => setTheme('light')}
+              icon={<BlockquoteRight className='h-6 w-auto icon' />}
+              type='text'
+              shape='circle'
+            />
+          </Link>
+          {theme === 'dark' ? (
+            <Button
+              onClick={() => setTheme('light')}
+              icon={<MoonStars className='h-6 w-auto icon' />}
+              type='text'
+              shape='circle'
+            />
+          ) : (
+            <Button
+              onClick={() => setTheme('dark')}
+              icon={<Sun className='h-6 w-auto icon' />}
+              type='text'
+              shape='circle'
+            />
+          )}
+        </div>
       </div>
       <div>
-        <p>A simple citation generator.</p>
+        <p className='text-center'>A simple citation generator.</p>
       </div>
     </div>
   ) : null;
