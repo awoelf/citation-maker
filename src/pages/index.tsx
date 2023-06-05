@@ -1,11 +1,14 @@
 import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
+
+// Components
 import Layout from '../components/Layout';
+import CitationForm from '@/components/Form/CitationForm';
 
 const Home: NextPageWithLayout = () => {
   return (
     <div className=''>
-      <p>Site content here</p>
+      <CitationForm />
     </div>
   );
 };

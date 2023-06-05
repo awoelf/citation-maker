@@ -13,18 +13,19 @@ function SourceDropdown() {
     <div>
       <Dropdown>
         <Dropdown.Button light css={{ tt: 'capitalize' }}>
-          {selected ? selected : 'Style'}
+          {selected ? selected : 'Source'}
         </Dropdown.Button>
         <Dropdown.Menu
-          aria-label='Styles'
+          aria-label='Sources'
           variant='light'
           disallowEmptySelection
           selectionMode='single'
           selectedKeys={selected}
           onSelectionChange={() => setSelected}
         >
-          <Dropdown.Item key='mla'>MLA</Dropdown.Item>
-          <Dropdown.Item key='apa'>APA</Dropdown.Item>
+          <Dropdown.Item key='website'>Website</Dropdown.Item>
+          <Dropdown.Item key='book'>Book</Dropdown.Item>
+          <Dropdown.Item key='journal'>Journal</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div>

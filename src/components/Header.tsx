@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import useLocalStorageState from 'use-local-storage-state';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-
+import { Button } from '@nextui-org/react';
 import { MoonStars, Sun, BlockquoteRight } from 'react-bootstrap-icons';
-import { Button } from 'antd';
 
 function Header() {
   const [mounted, setMounted] = useState(false);
@@ -32,25 +31,26 @@ function Header() {
         <div className='place-self-end flex align-center'>
           <Link href={'/citations'}>
             <Button
-              onClick={() => setTheme('light')}
-              icon={<BlockquoteRight className='h-6 w-auto icon' />}
-              type='text'
-              shape='circle'
+              onPress={() => setTheme('light')}
+              icon={<BlockquoteRight className='h-6 w-auto' />}
+              auto
+              light
             />
           </Link>
+          &nbsp;
           {theme === 'dark' ? (
             <Button
-              onClick={() => setTheme('light')}
-              icon={<MoonStars className='h-6 w-auto icon' />}
-              type='text'
-              shape='circle'
+              onPress={() => setTheme('light')}
+              icon={<MoonStars className='h-6 w-auto' />}
+              auto
+              light
             />
           ) : (
             <Button
-              onClick={() => setTheme('dark')}
-              icon={<Sun className='h-6 w-auto icon' />}
-              type='text'
-              shape='circle'
+              onPress={() => setTheme('dark')}
+              icon={<Sun className='h-6 w-auto' />}
+              auto
+              light
             />
           )}
         </div>
