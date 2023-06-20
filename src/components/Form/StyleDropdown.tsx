@@ -17,9 +17,14 @@ function SourceDropdown() {
   return (
     <div>
       <Dropdown>
-        <Dropdown.Button light css={{ tt: 'uppercase' }}>
-          {selected ? selected : 'Style'}
-        </Dropdown.Button>
+        {selected ? (
+          <Dropdown.Button light css={{ tt: 'uppercase' }}>
+            {selected}
+          </Dropdown.Button>
+        ) : (
+          <Dropdown.Button light>Style</Dropdown.Button>
+        )}
+
         <Dropdown.Menu
           aria-label='Styles'
           variant='light'
