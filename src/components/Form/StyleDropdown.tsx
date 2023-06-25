@@ -32,9 +32,10 @@ function SourceDropdown() {
           selectionMode='single'
           selectedKeys={selected}
           onSelectionChange={setSelectedValue}
+          disabledKeys={['apa']}
         >
           <Dropdown.Item key='mla'>MLA</Dropdown.Item>
-          <Dropdown.Item key='apa'>APA</Dropdown.Item>
+          <Dropdown.Item key='apa'>APA - Coming soon</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div>
