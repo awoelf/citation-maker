@@ -6,11 +6,7 @@ import Layout from '../components/Layout';
 import CitationForm from '@/components/Form/CitationForm';
 
 const Home: NextPageWithLayout = () => {
-  return (
-    <div className=''>
-      <CitationForm />
-    </div>
-  );
+  return <CitationForm />;
 };
 
 Home.getLayout = function getLayout(home: ReactElement) {

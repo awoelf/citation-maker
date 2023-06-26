@@ -5,3 +5,7 @@ export const capitalize = (str: string) => {
 export const addSpace = (str: string) => {
   return str.replace(/([A-Z])/g, ' $1').trim();
 };
+
+export const filterList = (list: [string], str: string) => {
+  return list.filter((item) => item !== str) as [string];
+};
