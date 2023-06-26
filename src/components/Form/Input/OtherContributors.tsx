@@ -1,15 +1,15 @@
 import { useState, ChangeEvent } from 'react';
 import { Grid, Input, Tooltip, Button, PressEvent, FormElement } from '@nextui-org/react';
-import { formProps, formSetContributors, formChange } from '@/@types/form';
+import { formProps } from '@/@types/form';
 import { QuestionSquare, PlusSquare, Trash } from 'react-bootstrap-icons';
 import { capitalize, addSpace, filterList } from '@/utils/helpers';
 import { nanoid } from 'nanoid';
+import FormStorage from '@/utils/FormStorage';
 
 const OtherContributors: React.FC<formProps> = (props) => {
   const [contributor, setContributor] = useState<string>('');
-  const addContributors = props.addContributors as formSetContributors;
-  const removeContributors = props.removeContributors as formSetContributors;
-  const otherContributors = props.formValue as [string];
+  const { form, setForm } = FormStorage();
+  const otherContributors = form.otherContributors as [string];
 
   const updateContributor = (e: ChangeEvent<FormElement>) => {
     const { value } = e.target;
@@ -17,14 +17,17 @@ const OtherContributors: React.FC<formProps> = (props) => {
   };
 
   const addContributor = (e: PressEvent) => {
-    addContributors([contributor]);
+    const contributorsList = [];
+    if (form.otherContributors) contributorsList.push(...form.otherContributors);
+    contributorsList.push(contributor);
+    setForm({ ...form, otherContributors: contributorsList as [string] });
     setContributor('');
   };
 
   const handleRemoveContributor = (e: PressEvent) => {
     const { id } = e.target;
     const filteredContributors = filterList(otherContributors, id);
-    removeContributors(filteredContributors);
+    setForm({ ...form, otherContributors: filteredContributors as [string] });
   };
 
   return (
@@ -61,10 +64,10 @@ const OtherContributors: React.FC<formProps> = (props) => {
       />
       {props.formValue ? (
         <div className='pt-3'>
-          {otherContributors.map((item, count) => (
+          {otherContributors.map((item) => (
             <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
               <p className='pl-2'>{item}</p>
-              <Button id={item} value={item} onPress={handleRemoveContributor} icon={<Trash className='h-4 w-auto' />} auto light />
+              <Button id={item} onPress={handleRemoveContributor} icon={<Trash className='h-4 w-auto' />} auto light />
             </div>
           ))}
         </div>

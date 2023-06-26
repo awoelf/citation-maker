@@ -15,30 +15,26 @@ function SourceDropdown() {
   );
 
   return (
-    <div>
-      <Dropdown>
-        {selected ? (
-          <Dropdown.Button light css={{ tt: 'uppercase' }}>
-            {selected}
-          </Dropdown.Button>
-        ) : (
-          <Dropdown.Button light>Style</Dropdown.Button>
-        )}
+    <Dropdown>
+      {selected ? (
+        <Dropdown.Button css={{ tt: 'uppercase' }}>{selected}</Dropdown.Button>
+      ) : (
+        <Dropdown.Button >Style</Dropdown.Button>
+      )}
 
-        <Dropdown.Menu
-          aria-label='Styles'
-          variant='light'
-          disallowEmptySelection
-          selectionMode='single'
-          selectedKeys={selected}
-          onSelectionChange={setSelectedValue}
-          disabledKeys={['apa']}
-        >
-          <Dropdown.Item key='mla'>MLA</Dropdown.Item>
-          <Dropdown.Item key='apa'>APA - Coming soon</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-    </div>
+      <Dropdown.Menu
+        aria-label='Styles'
+        variant='light'
+        disallowEmptySelection
+        selectionMode='single'
+        selectedKeys={selected}
+        onSelectionChange={setSelectedValue}
+        disabledKeys={['apa']}
+      >
+        <Dropdown.Item key='mla'>MLA</Dropdown.Item>
+        <Dropdown.Item key='apa'>APA - Coming soon</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
 

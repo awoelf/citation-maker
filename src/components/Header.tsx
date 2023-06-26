@@ -55,9 +55,6 @@ function Header() {
           )}
         </div>
       </div>
-      <div>
-        <p className='text-center'>A simple citation generator.</p>
-      </div>
     </div>
   ) : null;
 }
