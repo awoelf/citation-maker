@@ -5,13 +5,9 @@ export type formEvent = ChangeEvent<FormElement>;
 
 export type formChange = (e: ChangeEvent<FormElement>) => void;
 
-export type formSetContributors = (contributors: [string]) => void;
-
 export interface formProps {
   formValue?: string | [string];
   updateForm?: formChange;
-  addContributors?: formSetContributors;
-  removeContributors?: formSetContributors;
   inputName: string;
   tooltipMessage?: string;
   fullWidth?: boolean;

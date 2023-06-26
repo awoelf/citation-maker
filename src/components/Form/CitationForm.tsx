@@ -1,30 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Grid, Button } from '@nextui-org/react';
 import { formEvent, form } from '@/@types/form';
-import useLocalStorageState from 'use-local-storage-state';
+import FormStorage from '@/utils/FormStorage';
 
 // Components
 import StyleDropdown from './StyleDropdown';
 import SourceDropdown from './SourceDropdown';
 import TextInput from './Input/TextInput';
 import OtherContributors from './Input/OtherContributors';
+import ClearButton from './ClearButton';
 
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
-  const [form, setForm] = useLocalStorageState<form>('form', {
-    defaultValue: {
-      author: '',
-      title: '',
-      source: '',
-      otherContributors: undefined,
-      version: '',
-      volume: '',
-      publisher: '',
-      location: '',
-      datePublished: '',
-      dateAccessed: '',
-    },
-  });
+  const { form, setForm } = FormStorage();
 
   // Prevent hydration errors
   useEffect(() => {
@@ -36,24 +24,16 @@ function CitationForm() {
     setForm({ ...form, [name]: value });
   }
 
-  function addContributors(contributors: [string]) {
-    const contributorsList = [];
-    if (form.otherContributors) contributorsList.push(...form.otherContributors);
-    contributorsList.push(...contributors);
-    setForm({ ...form, otherContributors: contributorsList as [string] });
-  }
-
-  function removeContributors(contributors: [string]) {
-    setForm({ ...form, otherContributors: contributors as [string] });
-  }
-
   function handleSubmit() {}
 
   return mounted ? (
     <div className='grid'>
-      <div className='flex justify-between'>
-        <StyleDropdown />
-        <SourceDropdown />
+      <div className='flex justify-between px-3'>
+        <div className='flex gap-2'>
+          <StyleDropdown />
+          <SourceDropdown />
+        </div>
+        <ClearButton />
       </div>
       <Grid.Container gap={2}>
         {/* || Title */}
@@ -69,9 +49,6 @@ function CitationForm() {
         <OtherContributors
           formValue={form.otherContributors}
           inputName='otherContributors'
-          updateForm={updateForm}
-          addContributors={addContributors}
-          removeContributors={removeContributors}
         />
 
         {/* || Version */}
