@@ -16,7 +16,10 @@ export interface formProps {
 }
 
 export interface form {
-  author?: string;
+  firstName?: string;
+  lastName?: string;
+  middleInitial?: string;
+  suffix?: string;
   title?: string;
   source?: string;
   otherContributors?: [string];

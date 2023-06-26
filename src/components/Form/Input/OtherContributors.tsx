@@ -24,7 +24,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
     setContributor('');
   };
 
-  const handleRemoveContributor = (e: PressEvent) => {
+  const removeContributor = (e: PressEvent) => {
     const { id } = e.target;
     const filteredContributors = filterList(otherContributors, id);
     setForm({ ...form, otherContributors: filteredContributors as [string] });
@@ -45,7 +45,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
         contentRightStyling={false}
         contentRight={
           <Button light auto onPress={addContributor}>
-            <PlusSquare className='h-4 w-auto' />
+            <PlusSquare className='h-4 w-auto opacity-50' />
           </Button>
         }
         contentLeft={
@@ -67,7 +67,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
           {otherContributors.map((item) => (
             <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
               <p className='pl-2'>{item}</p>
-              <Button id={item} onPress={handleRemoveContributor} icon={<Trash className='h-4 w-auto' />} auto light />
+              <Button id={item} onPress={removeContributor} icon={<Trash className='h-4 w-auto' />} auto light />
             </div>
           ))}
         </div>

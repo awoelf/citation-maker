@@ -4,7 +4,10 @@ import { form } from '@/@types/form';
 export default function FormStorage() {
   const [form, setForm, { removeItem }] = useLocalStorageState<form>('form', {
     defaultValue: {
-      author: '',
+      firstName: '',
+      lastName: '',
+      middleInitial: '',
+      suffix: '',
       title: '',
       source: '',
       otherContributors: undefined,
