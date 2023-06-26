@@ -3,7 +3,11 @@ import type { NextPageWithLayout } from './_app';
 import Layout from '../components/Layout'; 
 
 const Citations: NextPageWithLayout = () => {
-  return <p>hello world</p>;
+  return (
+    <>
+      
+    </>
+  );
 };
  
 Citations.getLayout = function getLayout(citations: ReactElement) {

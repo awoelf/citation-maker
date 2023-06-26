@@ -1,13 +1,15 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, SetStateAction, Dispatch } from 'react';
 import { FormElement } from '@nextui-org/react';
 
 export type formEvent = ChangeEvent<FormElement>;
 
 export type formChange = (e: ChangeEvent<FormElement>) => void;
 
+export type formSetContributors = (contributors: string) => void;
+
 export interface formProps {
-  formValue?: string;
-  updateForm: formChange;
+  formValue?: string | [string];
+  updateForm: formChange | formSetContributors;
   inputName: string;
   tooltipMessage?: string;
   fullWidth?: boolean;
