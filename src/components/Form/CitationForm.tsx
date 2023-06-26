@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Grid, Input, Tooltip, Button } from '@nextui-org/react';
+import { Grid, Button } from '@nextui-org/react';
 import { formEvent, form } from '@/@types/form';
-import { QuestionSquare, PlusSquare } from 'react-bootstrap-icons';
+import useLocalStorageState from 'use-local-storage-state';
 
 // Components
 import StyleDropdown from './StyleDropdown';
@@ -11,17 +11,19 @@ import OtherContributors from './Input/OtherContributors';
 
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
-  const [form, setForm] = useState<form>({
-    author: '',
-    title: '',
-    source: '',
-    otherContributors: [''],
-    version: '',
-    volume: '',
-    publisher: '',
-    location: '',
-    datePublished: '',
-    dateAccessed: '',
+  const [form, setForm] = useLocalStorageState<form>('form', {
+    defaultValue: {
+      author: '',
+      title: '',
+      source: '',
+      otherContributors: undefined,
+      version: '',
+      volume: '',
+      publisher: '',
+      location: '',
+      datePublished: '',
+      dateAccessed: '',
+    },
   });
 
   // Prevent hydration errors
@@ -34,10 +36,15 @@ function CitationForm() {
     setForm({ ...form, [name]: value });
   }
 
-  function updateContributors(contributors:string) {
-    const contributorsList = form.otherContributors;
-    contributorsList?.push(contributors);
-    setForm({...form, otherContributors: contributorsList});
+  function addContributors(contributors: [string]) {
+    const contributorsList = [];
+    if (form.otherContributors) contributorsList.push(...form.otherContributors);
+    contributorsList.push(...contributors);
+    setForm({ ...form, otherContributors: contributorsList as [string] });
+  }
+
+  function removeContributors(contributors: [string]) {
+    setForm({ ...form, otherContributors: contributors as [string] });
   }
 
   function handleSubmit() {}
@@ -62,7 +69,9 @@ function CitationForm() {
         <OtherContributors
           formValue={form.otherContributors}
           inputName='otherContributors'
-          updateForm={updateContributors}
+          updateForm={updateForm}
+          addContributors={addContributors}
+          removeContributors={removeContributors}
         />
 
         {/* || Version */}
