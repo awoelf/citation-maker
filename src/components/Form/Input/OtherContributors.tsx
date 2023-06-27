@@ -1,8 +1,8 @@
 import { useState, ChangeEvent } from 'react';
 import { Grid, Input, Tooltip, Button, PressEvent, FormElement } from '@nextui-org/react';
-import { formProps } from '@/@types/form';
+import { formProps } from '@/@types/Form';
 import { QuestionSquare, PlusSquare, Trash } from 'react-bootstrap-icons';
-import { capitalize, addSpace, filterList } from '@/utils/helpers';
+import { capitalize, addSpace, filterList } from '@/utils/Helpers';
 import { nanoid } from 'nanoid';
 import FormStorage from '@/utils/FormStorage';
 
@@ -11,16 +11,21 @@ const OtherContributors: React.FC<formProps> = (props) => {
   const { form, setForm } = FormStorage();
   const otherContributors = form.otherContributors as [string];
 
+  // Updates contributor state when user types in text input
   const updateContributor = (e: ChangeEvent<FormElement>) => {
     const { value } = e.target;
     setContributor(value);
   };
 
+  // Adds contributor to form storage
   const addContributor = (e: PressEvent) => {
     const contributorsList = [];
+    // Only push current form data if otherContributors contains valid data
     if (form.otherContributors) contributorsList.push(...form.otherContributors);
     contributorsList.push(contributor);
     setForm({ ...form, otherContributors: contributorsList as [string] });
+
+    // Clear text input after contributor is added
     setContributor('');
   };
 
@@ -45,7 +50,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
         contentRightStyling={false}
         contentRight={
           <Button light auto onPress={addContributor}>
-            <PlusSquare className='h-4 w-auto opacity-50' />
+            <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100' />
           </Button>
         }
         contentLeft={
@@ -63,11 +68,11 @@ const OtherContributors: React.FC<formProps> = (props) => {
         }
       />
       {props.formValue ? (
-        <div className='pt-3'>
+        <div className='pt-3 '>
           {otherContributors.map((item) => (
             <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
               <p className='pl-2'>{item}</p>
-              <Button id={item} onPress={removeContributor} icon={<Trash className='h-4 w-auto' />} auto light />
+              <Button id={item} onPress={removeContributor} icon={<Trash className='h-4 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />} auto light />
             </div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Grid, Button } from '@nextui-org/react';
-import { formEvent, form } from '@/@types/form';
+import { formEvent, form } from '@/@types/Form';
 import FormStorage from '@/utils/FormStorage';
 
 // Components
@@ -94,6 +94,7 @@ function CitationForm() {
           updateForm={updateForm}
         />
 
+        {/* Submission button */}
         <Grid xs={12} className='place-content-center'>
           <Button>Create Citation</Button>
         </Grid>

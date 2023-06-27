@@ -1,5 +1,5 @@
 import useLocalStorageState from 'use-local-storage-state';
-import { form } from '@/@types/form';
+import { form } from '@/@types/Form';
 
 export default function FormStorage() {
   const [form, setForm, { removeItem }] = useLocalStorageState<form>('form', {
