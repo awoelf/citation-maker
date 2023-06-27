@@ -68,7 +68,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
         }
       />
       {props.formValue ? (
-        <div className='pt-3 '>
+        <div className='pt-3'>
           {otherContributors.map((item) => (
             <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
               <p className='pl-2'>{item}</p>

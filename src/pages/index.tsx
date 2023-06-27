@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
 
 // Components
-import Layout from '../components/Layout';
+import Layout from '../components/Shared/Layout';
 import CitationForm from '@/components/Form/CitationForm';
 
 const Home: NextPageWithLayout = () => {
