@@ -1,4 +1,5 @@
-import CitationStorage from '@/utils/CitationStorage';
+import { CitationRaw } from '@/utils/CitationStorage';
+import { form } from '@/@types/Form';
 
 // Components
 import { Text } from '@nextui-org/react';
@@ -6,23 +7,24 @@ import DeleteButton from './DeleteButton';
 import CopyButton from './CopyButton';
 
 function CitationList() {
-  const { citationList } = CitationStorage();
+  const { citationRaw } = CitationRaw();
 
   return (
     <div className='grid'>
-      <div className='flex justify-between'>
-        <CopyButton />
-        <DeleteButton />
-      </div>
-
-      {citationList ? (
-        <div className=''>
-          {citationList.map((item) => (
-            <p>{item.firstName}</p>
-          ))}
+      {citationRaw ? (
+        <div>
+          <div className='flex justify-between'>
+            <CopyButton />
+            <DeleteButton />
+          </div>
+          <div className=''>
+            {citationRaw.map((item: form) => (
+              <p>{item.firstName}</p>
+            ))}
+          </div>
         </div>
       ) : (
-        <p>Return to the home page to start creating citations!</p>
+        <p className='text-center'>Return to the home page to start creating citations!</p>
       )}
     </div>
   );

@@ -12,3 +12,11 @@ export function CitationFormatted() {
     useLocalStorageState<[string]>('citationFormat');
   return { citationFormat, setCitationFormat, removeItem };
 }
+
+export function CitationStyle() {
+  const [citationStyle, setCitationStyle, { removeItem }] = useLocalStorageState<string>(
+    'citationStyle',
+    { defaultValue: '' }
+  );
+  return { citationStyle, setCitationStyle, removeItem };
+}
