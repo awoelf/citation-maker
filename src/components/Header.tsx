@@ -32,7 +32,7 @@ function Header() {
           <Link href={'/citations'}>
             <Button
               onPress={() => setTheme('light')}
-              icon={<BlockquoteRight className='h-6 w-auto' />}
+              icon={<BlockquoteRight className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />}
               auto
               light
             />
@@ -41,14 +41,14 @@ function Header() {
           {theme === 'dark' ? (
             <Button
               onPress={() => setTheme('light')}
-              icon={<MoonStars className='h-6 w-auto' />}
+              icon={<MoonStars className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />}
               auto
               light
             />
           ) : (
             <Button
               onPress={() => setTheme('dark')}
-              icon={<Sun className='h-6 w-auto' />}
+              icon={<Sun className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />}
               auto
               light
             />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Grid, Button } from '@nextui-org/react';
-import { formEvent, form } from '@/@types/form';
+import { formEvent, form } from '@/@types/Form';
 import FormStorage from '@/utils/FormStorage';
 
 // Components
@@ -40,16 +40,16 @@ function CitationForm() {
         <TextInput formValue={form.title} inputName={'title'} updateForm={updateForm} />
 
         {/* || Author */}
-        <TextInput formValue={form.author} inputName={'author'} updateForm={updateForm} />
+        <TextInput formValue={form.firstName} inputName={'firstName'} updateForm={updateForm} cols={4} />
+        <TextInput formValue={form.lastName} inputName={'lastName'} updateForm={updateForm} cols={4}/>
+        <TextInput formValue={form.middleInitial} inputName={'middleInitial'} updateForm={updateForm} cols={2}/>
+        <TextInput formValue={form.suffix} inputName={'suffix'} updateForm={updateForm} cols={2} />
 
         {/* || Source */}
         <TextInput formValue={form.source} inputName={'source'} updateForm={updateForm} />
 
         {/* || Other contributors */}
-        <OtherContributors
-          formValue={form.otherContributors}
-          inputName='otherContributors'
-        />
+        <OtherContributors formValue={form.otherContributors} inputName='otherContributors' />
 
         {/* || Version */}
         <TextInput
@@ -94,6 +94,7 @@ function CitationForm() {
           updateForm={updateForm}
         />
 
+        {/* Submission button */}
         <Grid xs={12} className='place-content-center'>
           <Button>Create Citation</Button>
         </Grid>
