@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { formEvent } from '@/@types/Form';
 import { Citations } from '@/@types/Citation';
 import FormStorage from '@/utils/FormStorage';
-import CitationStorage from '@/utils/CitationStorage';
+import { CitationRaw } from '@/utils/CitationStorage';
 
 // Components
 import StyleDropdown from './StyleDropdown';
@@ -16,7 +16,7 @@ import ClearButton from './ClearButton';
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
   const { form, setForm, removeItem } = FormStorage();
-  const { citationList, setCitationList } = CitationStorage();
+  const { citationRaw, setCitationRaw } = CitationRaw();
   const router = useRouter();
 
   // Prevent hydration errors
@@ -34,9 +34,9 @@ function CitationForm() {
       // Add new citation to citation list
       // Push data only to existing array citation list might be undefined if cleared.
       const citations = [];
-      if (citationList) citations.push(citationList);
+      if (citationRaw) citations.push(citationRaw);
       citations.push(form)
-      setCitationList(citations as Citations);
+      setCitationRaw(citations as Citations);
 
       // Clear form contents
       removeItem();
@@ -61,7 +61,7 @@ function CitationForm() {
         {/* || Title */}
         <TextInput formValue={form.title} inputName={'title'} updateForm={updateForm} />
 
-        {/* || Author */}
+        {/* || Author first name, last name, middle initial, and suffix */}
         <TextInput
           formValue={form.firstName}
           inputName={'firstName'}

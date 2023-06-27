@@ -3,7 +3,7 @@ import { ThemeProvider } from 'next-themes';
 import { createTheme, NextUIProvider } from '@nextui-org/react';
 
 // Components
-import Header from '@/components/Header';
+import Header from './Header';
 import Footer from './Footer';
 
 const lightTheme = createTheme({
