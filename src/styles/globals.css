@@ -29,5 +29,7 @@ body {
   font-family: var(--font-crete-round);
 }
 
-/* || Components */
-
+.citation {
+  padding-left: 36px;
+  text-indent: -36px;
+}

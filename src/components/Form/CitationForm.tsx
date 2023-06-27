@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Grid, Button } from '@nextui-org/react';
-import { formEvent, form } from '@/@types/Form';
+import { useRouter } from 'next/router';
+import { formEvent } from '@/@types/Form';
+import { Citations } from '@/@types/Citation';
 import FormStorage from '@/utils/FormStorage';
+import CitationStorage from '@/utils/CitationStorage';
 
 // Components
 import StyleDropdown from './StyleDropdown';
@@ -12,7 +15,9 @@ import ClearButton from './ClearButton';
 
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
-  const { form, setForm } = FormStorage();
+  const { form, setForm, removeItem } = FormStorage();
+  const { citationList, setCitationList } = CitationStorage();
+  const router = useRouter();
 
   // Prevent hydration errors
   useEffect(() => {
@@ -24,7 +29,24 @@ function CitationForm() {
     setForm({ ...form, [name]: value });
   }
 
-  function handleSubmit() {}
+  function handleSubmit() {
+    try {
+      // Add new citation to citation list
+      // Push data only to existing array citation list might be undefined if cleared.
+      const citations = [];
+      if (citationList) citations.push(citationList);
+      citations.push(form)
+      setCitationList(citations as Citations);
+
+      // Clear form contents
+      removeItem();
+
+      // Route to citation dashboard
+      router.push('/citations');
+    } catch (error) {
+      console.error('Error: ', error);
+    }
+  }
 
   return mounted ? (
     <div className='grid'>
@@ -40,9 +62,24 @@ function CitationForm() {
         <TextInput formValue={form.title} inputName={'title'} updateForm={updateForm} />
 
         {/* || Author */}
-        <TextInput formValue={form.firstName} inputName={'firstName'} updateForm={updateForm} cols={4} />
-        <TextInput formValue={form.lastName} inputName={'lastName'} updateForm={updateForm} cols={4}/>
-        <TextInput formValue={form.middleInitial} inputName={'middleInitial'} updateForm={updateForm} cols={2}/>
+        <TextInput
+          formValue={form.firstName}
+          inputName={'firstName'}
+          updateForm={updateForm}
+          cols={4}
+        />
+        <TextInput
+          formValue={form.lastName}
+          inputName={'lastName'}
+          updateForm={updateForm}
+          cols={4}
+        />
+        <TextInput
+          formValue={form.middleInitial}
+          inputName={'middleInitial'}
+          updateForm={updateForm}
+          cols={2}
+        />
         <TextInput formValue={form.suffix} inputName={'suffix'} updateForm={updateForm} cols={2} />
 
         {/* || Source */}
@@ -96,7 +133,7 @@ function CitationForm() {
 
         {/* Submission button */}
         <Grid xs={12} className='place-content-center'>
-          <Button>Create Citation</Button>
+          <Button onPress={handleSubmit}>Create Citation</Button>
         </Grid>
       </Grid.Container>
     </div>
