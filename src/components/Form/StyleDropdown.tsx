@@ -1,6 +1,6 @@
 import React, { Key } from 'react';
 import { Dropdown } from '@nextui-org/react';
-import { CitationStyle } from '@/utils/citationStorage';
+import { CitationStyle } from '../../utils/citationStorage';
 
 function SourceDropdown() {
   const { citationStyle, setCitationStyle } = CitationStyle();

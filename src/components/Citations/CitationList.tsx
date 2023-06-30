@@ -1,4 +1,4 @@
-import { CitationRaw } from '@/utils/citationStorage';
+import { CitationRaw } from '../../utils/citationStorage';
 import { form } from '@/@types/form';
 
 // Components
