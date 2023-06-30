@@ -1,4 +1,4 @@
-import { Citations } from '@/@types/Form';
+import { Citations } from '@/@types/form';
 import useLocalStorageState from 'use-local-storage-state';
 
 export function CitationRaw() {

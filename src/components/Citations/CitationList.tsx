@@ -1,5 +1,5 @@
 import { CitationRaw } from '@/utils/CitationStorage';
-import { form } from '@/@types/Form';
+import { form } from '@/@types/form';
 
 // Components
 import DeleteButton from './DeleteButton';
