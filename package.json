@@ -6,11 +6,10 @@
   "homepage": "https://awoelf.github.io/citation-maker/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open",
-    "deploy": "gh-pages -d dist"
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.13",
@@ -35,7 +34,6 @@
   },
   "devDependencies": {
     "cypress": "^12.16.0",
-    "gh-pages": "^5.0.0",
     "prettier": "^2.8.8"
   }
 }
