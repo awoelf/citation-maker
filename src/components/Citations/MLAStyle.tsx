@@ -30,7 +30,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
           {citationSource == 'book' ? (
             <span className='italic'>{form.title}.</span>
           ) : (
-            <span>"{form.title}. " </span>
+            <span>&quot;{form.title}.&quot; </span>
           )}
           {/* Source */}
           {form.source ? <span className='italic'>{form.source}. </span> : null}

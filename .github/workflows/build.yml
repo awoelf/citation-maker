@@ -1,0 +1,9 @@
+- name: Next Pages
+  uses: anorcle/next-pages@v1.0
+- name: Commit and push changes
+  run: |
+    git config --global user.name "awoelf"
+    git config --global user.email "98348782+awoelf@users.noreply.github.com"
+    git add -A
+    git commit -m "New Build"
+    git push
