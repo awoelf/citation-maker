@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Grid, Button } from '@nextui-org/react';
 import { useRouter } from 'next/router';
 import { formEvent } from '@/@types/Form';
 import { Citations } from '@/@types/Citation';
@@ -7,6 +6,7 @@ import FormStorage from '@/utils/FormStorage';
 import { CitationRaw } from '@/utils/CitationStorage';
 
 // Components
+import { Grid, Button, Text } from '@nextui-org/react';
 import StyleDropdown from './StyleDropdown';
 import SourceDropdown from './SourceDropdown';
 import TextInput from './Input/TextInput';
@@ -50,6 +50,8 @@ function CitationForm() {
 
   return mounted ? (
     <div className='grid'>
+      {/* TO DO: Delete later */}
+      <Text className='text-center pb-3'>Note: This page is a work in progress. This page will <em>not</em> create accurate citations in its current state.</Text>
       <div className='flex justify-between px-3'>
         <div className='flex gap-2'>
           <StyleDropdown />
