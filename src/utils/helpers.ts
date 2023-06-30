@@ -1,5 +1,3 @@
-import { Citations } from '@/@types/Citation';
-
 export const capitalize = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
@@ -12,10 +10,18 @@ export const filterList = (list: [string], str: string) => {
   return list.filter((item) => item !== str) as [string];
 };
 
-export const sortAlpha = (arr: [string]) => {}
-
-export const MLAFormat = (citationRaw: Citations): [string] => {
-  
-
-  
-}
+// This might be unused
+const formatElement = (element: string, type?: string ) => {
+  // switch(type) {
+  //   case 'lastName':
+  //     return element ? element + ', ' : '';
+  //   case 'title':
+  //     return element ? '"' + element + '." ': '';
+  //   case 'datePublished':
+  //     return element ? dayjs(element).format('D MMM. YYYY. ') : '';
+  //   case 'dateAccessed':
+  //     return element ? 'Accessed ' + dayjs(element).format('D MMM. YYYY. ') : '';
+  //   default:
+  //     return element ? element + '. ': '';
+  // }
+};

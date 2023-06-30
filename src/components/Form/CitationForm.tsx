@@ -34,8 +34,8 @@ function CitationForm() {
       // Add new citation to citation list
       // Push data only to existing array citation list might be undefined if cleared.
       const citations = [];
-      if (citationRaw) citations.push(citationRaw);
-      citations.push(form)
+      if (citationRaw) citations.push(...citationRaw);
+      citations.push(form);
       setCitationRaw(citations as Citations);
 
       // Clear form contents
@@ -98,10 +98,10 @@ function CitationForm() {
           updateForm={updateForm}
         />
 
-        {/* || Volume */}
+        {/* || Number */}
         <TextInput
-          formValue={form.volume}
-          inputName={'volume'}
+          formValue={form.number}
+          inputName={'number'}
           cols={6}
           fullWidth={false}
           type='number'
@@ -110,6 +110,9 @@ function CitationForm() {
 
         {/* || Publisher */}
         <TextInput formValue={form.publisher} inputName={'publisher'} updateForm={updateForm} />
+
+        {/* || Location */}
+        <TextInput formValue={form.location} inputName={'location'} updateForm={updateForm} />
 
         {/* || Date published */}
         <TextInput

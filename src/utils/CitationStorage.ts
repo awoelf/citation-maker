@@ -8,9 +8,11 @@ export function CitationRaw() {
 }
 
 export function CitationFormatted() {
-  const [citationFormat, setCitationFormat, { removeItem }] =
-    useLocalStorageState<[string]>('citationFormat');
-  return { citationFormat, setCitationFormat, removeItem };
+  const [citationFormatted, setCitationFormatted, { removeItem }] = useLocalStorageState<string>(
+    'citationFormatted',
+    { defaultValue: '' }
+  );
+  return { citationFormatted, setCitationFormatted, removeItem };
 }
 
 export function CitationStyle() {
@@ -19,4 +21,12 @@ export function CitationStyle() {
     { defaultValue: '' }
   );
   return { citationStyle, setCitationStyle, removeItem };
+}
+
+export function CitationSource() {
+  const [citationSource, setCitationSource, { removeItem }] = useLocalStorageState<string>(
+    'citationSource',
+    { defaultValue: '' }
+  );
+  return { citationSource, setCitationSource, removeItem };
 }

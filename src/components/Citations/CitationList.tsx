@@ -2,26 +2,28 @@ import { CitationRaw } from '@/utils/CitationStorage';
 import { form } from '@/@types/Form';
 
 // Components
-import { Text } from '@nextui-org/react';
 import DeleteButton from './DeleteButton';
 import CopyButton from './CopyButton';
+import SourceDropdown from '../Form/StyleDropdown';
+import MLAStyle from './MLAStyle';
 
 function CitationList() {
   const { citationRaw } = CitationRaw();
 
   return (
-    <div className='grid'>
+    <div>
       {citationRaw ? (
-        <div>
+        <div className='grid gap-2'>
           <div className='flex justify-between'>
-            <CopyButton />
+            <div className='flex gap-2'>
+              <CopyButton />
+              <SourceDropdown />
+            </div>
             <DeleteButton />
           </div>
-          <div className=''>
-            {citationRaw.map((item: form) => (
-              <p>{item.firstName}</p>
-            ))}
-          </div>
+          {citationRaw.map((item: form) => (
+            <MLAStyle form={item} key={item.lastName} />
+          ))}
         </div>
       ) : (
         <p className='text-center'>Return to the home page to start creating citations!</p>

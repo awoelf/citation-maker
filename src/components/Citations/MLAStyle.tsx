@@ -1,0 +1,53 @@
+import { form, citationProps } from '@/@types/Form';
+import { CitationSource } from '@/utils/CitationStorage';
+import dayjs from 'dayjs';
+
+// Components
+import { Text, Card } from '@nextui-org/react';
+
+const MLAStyle: React.FC<citationProps> = (props) => {
+  const formatDate = (date?: string): string => {
+    return date ? dayjs(date).format('D MMM. YYYY') : '';
+  };
+  const form = props.form as form;
+
+  const { citationSource } = CitationSource();
+  return (
+    <Card variant='flat' className='flex'>
+      {/* TO DO: Update so multiple authors are accepted. 
+          TO DO: Update so contributor role is included.
+          TO DO: Add input validation so that formatting can be simplified
+          TO DO: Add a filter for dates that contain May so that the . is removed.
+      */}
+      <Card.Body>
+        <Text>
+          {/* Author */}
+          {form.lastName ? <span>{form.lastName},</span> : null}
+          {form.firstName ? <span> {form.firstName}</span> : null}
+          {form.middleInitial ? <span> {form.middleInitial}</span> : null}
+          {form.lastName || form.firstName || form.middleInitial ? <span>. </span> : null}
+          {/* Title */}
+          {citationSource == 'book' ? (
+            <span className='italic'>{form.title}.</span>
+          ) : (
+            <span>"{form.title}. " </span>
+          )}
+          {/* Source */}
+          {form.source ? <span className='italic'>{form.source}. </span> : null}
+          {/* Version */}
+          {form.version ? <span>{form.version}. </span> : null}
+          {/* Number */}
+          {form.number ? <span>{form.number}. </span> : null}
+          {/* Publisher */}
+          {form.publisher ? <span>{form.publisher}. </span> : null}
+          {/* Publication Date */}
+          {form.datePublished ? <span>{formatDate(form.datePublished)}. </span> : null}
+          {/* Location */}
+          {form.location ? <span>{form.location}. </span> : null}
+        </Text>
+      </Card.Body>
+    </Card>
+  );
+};
+
+export default MLAStyle;
