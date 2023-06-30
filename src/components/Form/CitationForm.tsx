@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { formEvent } from '@/@types/Form';
-import { Citations } from '@/@types/Citation';
+import { Citations } from '@/@types/Form';
 import FormStorage from '@/utils/FormStorage';
 import { CitationRaw } from '@/utils/CitationStorage';
 

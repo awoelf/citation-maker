@@ -38,3 +38,5 @@ export interface form {
   datePublished?: string;
   dateAccessed?: string;
 }
+
+export type Citations = [form];
