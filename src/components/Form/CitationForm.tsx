@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { formEvent } from '@/@types/form';
 import { Citations } from '@/@types/form';
-import FormStorage from '@/utils/formStorage';
-import { CitationRaw } from '@/utils/citationStorage';
+import FormStorage from '../../utils/formStorage';
+import { CitationRaw } from '../../utils/citationStorage';
 
 // Components
 import { Grid, Button, Text } from '@nextui-org/react';

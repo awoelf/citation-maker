@@ -1,7 +1,7 @@
 import React, { Key } from 'react';
 import { Dropdown } from '@nextui-org/react';
 import { LayoutTextWindow, Book, Journal } from 'react-bootstrap-icons';
-import { CitationSource } from '@/utils/citationStorage';
+import { CitationSource } from '../../utils/citationStorage';
 
 function SourceDropdown() {
   const { citationSource, setCitationSource } = CitationSource();
