@@ -15,6 +15,10 @@ export interface formProps {
   cols?: number;
 }
 
+export interface citationProps {
+  form?: form;
+}
+
 export interface form {
   firstName?: string;
   lastName?: string;
@@ -24,7 +28,7 @@ export interface form {
   source?: string;
   otherContributors?: [string];
   number?: string;
-  volume?: string;
+  version?: string;
   publisher?: string;
   location?: string;
   url?: string;

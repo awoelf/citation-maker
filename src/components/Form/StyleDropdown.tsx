@@ -1,23 +1,22 @@
 import React, { Key } from 'react';
 import { Dropdown } from '@nextui-org/react';
-import { CitationFormatted } from '@/utils/CitationStorage';
+import { CitationStyle } from '@/utils/CitationStorage';
 
 function SourceDropdown() {
-  const { citationFormat, setCitationFormat } = CitationFormatted();
+  const { citationStyle, setCitationStyle } = CitationStyle();
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
     // Not sure if this is the best way to get string value from set, but it works
-    setCitationFormat(Array.from(keys)[0] as string);
+    setCitationStyle(Array.from(keys)[0] as string);
   };
 
   return (
     <Dropdown>
-      {citationFormat !== '' ? (
-        <Dropdown.Button css={{ tt: 'uppercase' }}>{citationFormat}</Dropdown.Button>
+      {citationStyle !== '' ? (
+        <Dropdown.Button css={{ tt: 'uppercase' }}>{citationStyle}</Dropdown.Button>
       ) : (
         <Dropdown.Button>Style</Dropdown.Button>
       )}
-
       <Dropdown.Menu
         aria-label='Styles'
         variant='light'

@@ -8,11 +8,19 @@ export function CitationRaw() {
 }
 
 export function CitationFormatted() {
-  const [citationFormat, setCitationFormat, { removeItem }] = useLocalStorageState<string>(
-    'citationFormat',
+  const [citationFormatted, setCitationFormatted, { removeItem }] = useLocalStorageState<string>(
+    'citationFormatted',
     { defaultValue: '' }
   );
-  return { citationFormat, setCitationFormat, removeItem };
+  return { citationFormatted, setCitationFormatted, removeItem };
+}
+
+export function CitationStyle() {
+  const [citationStyle, setCitationStyle, { removeItem }] = useLocalStorageState<string>(
+    'citationStyle',
+    { defaultValue: '' }
+  );
+  return { citationStyle, setCitationStyle, removeItem };
 }
 
 export function CitationSource() {
