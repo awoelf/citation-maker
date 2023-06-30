@@ -1,25 +1,21 @@
-import React, { useMemo, useState, Key } from 'react';
+import React, { Key } from 'react';
 import { Dropdown } from '@nextui-org/react';
+import { CitationFormatted } from '@/utils/CitationStorage';
 
 function SourceDropdown() {
-  const [selected, setSelected] = useState('');
+  const { citationFormat, setCitationFormat } = CitationFormatted();
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
-    const value = keys as string;
-    setSelected(value);
+    // Not sure if this is the best way to get string value from set, but it works
+    setCitationFormat(Array.from(keys)[0] as string);
   };
-
-  const selectedValue = useMemo(
-    () => Array.from(selected).join(', ').replaceAll('_', ' '),
-    [selected]
-  );
 
   return (
     <Dropdown>
-      {selected ? (
-        <Dropdown.Button css={{ tt: 'uppercase' }}>{selected}</Dropdown.Button>
+      {citationFormat !== '' ? (
+        <Dropdown.Button css={{ tt: 'uppercase' }}>{citationFormat}</Dropdown.Button>
       ) : (
-        <Dropdown.Button >Style</Dropdown.Button>
+        <Dropdown.Button>Style</Dropdown.Button>
       )}
 
       <Dropdown.Menu
@@ -27,7 +23,6 @@ function SourceDropdown() {
         variant='light'
         disallowEmptySelection
         selectionMode='single'
-        selectedKeys={selected}
         onSelectionChange={setSelectedValue}
         disabledKeys={['apa']}
       >

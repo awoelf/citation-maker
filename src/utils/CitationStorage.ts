@@ -8,15 +8,17 @@ export function CitationRaw() {
 }
 
 export function CitationFormatted() {
-  const [citationFormat, setCitationFormat, { removeItem }] =
-    useLocalStorageState<[string]>('citationFormat');
+  const [citationFormat, setCitationFormat, { removeItem }] = useLocalStorageState<string>(
+    'citationFormat',
+    { defaultValue: '' }
+  );
   return { citationFormat, setCitationFormat, removeItem };
 }
 
-export function CitationStyle() {
-  const [citationStyle, setCitationStyle, { removeItem }] = useLocalStorageState<string>(
-    'citationStyle',
+export function CitationSource() {
+  const [citationSource, setCitationSource, { removeItem }] = useLocalStorageState<string>(
+    'citationSource',
     { defaultValue: '' }
   );
-  return { citationStyle, setCitationStyle, removeItem };
+  return { citationSource, setCitationSource, removeItem };
 }

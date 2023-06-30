@@ -2,7 +2,7 @@ import { CitationRaw } from '@/utils/CitationStorage';
 import { form } from '@/@types/Form';
 
 // Components
-import { Text } from '@nextui-org/react';
+import { Card, Text } from '@nextui-org/react';
 import DeleteButton from './DeleteButton';
 import CopyButton from './CopyButton';
 
@@ -17,11 +17,13 @@ function CitationList() {
             <CopyButton />
             <DeleteButton />
           </div>
-          <div className=''>
-            {citationRaw.map((item: form) => (
-              <p>{item.firstName}</p>
-            ))}
-          </div>
+          {citationRaw.map((item: form) => (
+            <Card variant='flat'>
+              <Card.Body>
+                <Text>{item.firstName}</Text>
+              </Card.Body>
+            </Card>
+          ))}
         </div>
       ) : (
         <p className='text-center'>Return to the home page to start creating citations!</p>
