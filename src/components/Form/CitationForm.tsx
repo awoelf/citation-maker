@@ -88,10 +88,10 @@ function CitationForm() {
         {/* || Other contributors */}
         <OtherContributors formValue={form.otherContributors} inputName='otherContributors' />
 
-        {/* || Version */}
+        {/* || Number */}
         <TextInput
-          formValue={form.version}
-          inputName={'version'}
+          formValue={form.number}
+          inputName={'numbern'}
           cols={6}
           fullWidth={false}
           type='number'
@@ -110,6 +110,9 @@ function CitationForm() {
 
         {/* || Publisher */}
         <TextInput formValue={form.publisher} inputName={'publisher'} updateForm={updateForm} />
+
+        {/* || Location */}
+        <TextInput formValue={form.location} inputName={'location'} updateForm={updateForm} />
 
         {/* || Date published */}
         <TextInput

@@ -23,10 +23,14 @@ export interface form {
   title?: string;
   source?: string;
   otherContributors?: [string];
-  version?: string;
+  number?: string;
   volume?: string;
   publisher?: string;
   location?: string;
+  url?: string;
+  pageStart?: string;
+  pageEnd?: string;
+  doi?: string;
   datePublished?: string;
   dateAccessed?: string;
 }
