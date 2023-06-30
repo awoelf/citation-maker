@@ -1,4 +1,4 @@
-import { form, citationProps } from '@/@types/Form';
+import { form, citationProps } from '@/@types/form';
 import { CitationSource } from '@/utils/CitationStorage';
 import dayjs from 'dayjs';
 

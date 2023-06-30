@@ -1,5 +1,5 @@
 import { Grid, Input, Tooltip } from '@nextui-org/react';
-import { formProps, formChange } from '@/@types/Form';
+import { formProps, formChange } from '@/@types/form';
 import { QuestionSquare } from 'react-bootstrap-icons';
 import { capitalize, addSpace } from '@/utils/Helpers';
 

@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from 'react';
 import { Grid, Input, Tooltip, Button, PressEvent, FormElement } from '@nextui-org/react';
-import { formProps } from '@/@types/Form';
+import { formProps } from '@/@types/form';
 import { QuestionSquare, PlusSquare, Trash } from 'react-bootstrap-icons';
 import { capitalize, addSpace, filterList } from '@/utils/Helpers';
 import { nanoid } from 'nanoid';
