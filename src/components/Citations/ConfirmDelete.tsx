@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Text, Button, Grid } from '@nextui-org/react';
-import { CitationRaw } from '@/utils/CitationStorage';
+import { CitationRaw } from '@/utils/citationStorage';
 
 function ConfirmDelete(): ReactNode {
   const { removeItem } = CitationRaw();

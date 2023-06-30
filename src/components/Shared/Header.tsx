@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MoonStars, Sun, BlockquoteRight, House } from 'react-bootstrap-icons';
-import { CitationRaw } from '@/utils/CitationStorage';
+import { CitationRaw } from '@/utils/citationStorage';
 
 // Components
 import { Button, Badge } from '@nextui-org/react';
