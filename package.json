@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
-  "types": "",
   "homepage": "https://awoelf.github.io/citation-maker/",
   "scripts": {
     "dev": "next dev",
