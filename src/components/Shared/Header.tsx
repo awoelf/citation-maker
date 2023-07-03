@@ -33,7 +33,7 @@ function Header() {
     <div>
       <div className='grid grid-cols-3 border-b-2 py-3 mb-3'>
         <div />
-        <Link href={'/'} className='text-4xl header flex-grow text-center'>
+        <Link href={'/'} className='text-4xl header flex-grow text-center text-inherit'>
           Citation Maker
         </Link>
         <div className='place-self-end flex align-center gap-2'>

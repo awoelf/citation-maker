@@ -3,33 +3,17 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Inter&display=swap');
 
-/* || Light theme */
 :root {
-  --foreground: #000000;
-  --background: #ffffff;
   --font-inter: 'Inter', sans-serif;
   --font-crete-round: 'Crete Round', serif;
 }
 
-/* || Dark theme */
-[data-theme='dark'] {
-  --foreground: #ffffff;
-  --background: #000000;
-}
-
-/* || HTML Elements */
+/* || All other Elements */
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: var(--font-inter);
 }
 
-/* || Classes */
+/* || Header */
 .header {
   font-family: var(--font-crete-round);
-}
-
-.citation {
-  text-indent: -2ch;
-  padding-left: 2ch;
 }
