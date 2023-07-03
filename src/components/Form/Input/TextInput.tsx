@@ -1,7 +1,9 @@
-import { Grid, Input, Tooltip } from '@nextui-org/react';
 import { formProps, formChange } from '@/@types/form';
 import { QuestionSquare } from 'react-bootstrap-icons';
 import { capitalize, addSpace } from '../../../utils/helpers';
+
+// Components
+import { Grid, Input, Tooltip } from '@nextui-org/react';
 
 const TextInput: React.FC<formProps> = (props) => {
   const updateForm = props.updateForm as formChange;

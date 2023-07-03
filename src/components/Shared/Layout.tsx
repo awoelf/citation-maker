@@ -1,8 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'next-themes';
-import { createTheme, NextUIProvider } from '@nextui-org/react';
 
 // Components
+import { createTheme, NextUIProvider } from '@nextui-org/react';
 import Header from './Header';
 import Footer from './Footer';
 
