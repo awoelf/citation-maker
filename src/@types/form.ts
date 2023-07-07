@@ -1,9 +1,7 @@
 import { ChangeEvent, SetStateAction, Dispatch } from 'react';
-import { FormElement } from '@nextui-org/react';
-
 export type formEvent = ChangeEvent<FormElement>;
-
 export type formChange = (e: ChangeEvent<FormElement>) => void;
+import { FormElement } from '@nextui-org/react';
 
 export interface formProps {
   formValue?: string | [string];

@@ -1,6 +1,8 @@
-import { Button } from '@nextui-org/react';
 import FormStorage from '../../utils/formStorage';
 import { CitationStyle, CitationSource } from '../../utils/citationStorage';
+
+// Components
+import { Button } from '@nextui-org/react';
 
 function ClearButton() {
   const formStorage = FormStorage();
