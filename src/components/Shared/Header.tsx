@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import useLocalStorageState from 'use-local-storage-state';
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MoonStars, Sun, BlockquoteRight, House } from 'react-bootstrap-icons';
 import { CitationRaw } from '../../utils/citationStorage';
+import { useTheme } from 'next-themes';
 
 // Components
 import { Button, Badge } from '@nextui-org/react';
 
 function Header() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
   const { citationRaw } = CitationRaw();
   const router = useRouter();
+  const { theme, setTheme } = useTheme();
 
-  // Save user theme preference in local storage
-  const [themeState, setThemeState] = useLocalStorageState('theme', {
-    defaultValue: `${theme}`,
-  });
+  // const handleTheme = useCallback((newTheme: string) => {
+  // }, []);
+
+  // useEffect(() => {
+  //   if (typeof theme === 'string') setThemeState(theme);
+  // }, [theme]);
 
   // Prevent hydration errors
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (typeof theme === 'string') setThemeState(theme);
-  }, [theme]);
 
   return mounted ? (
     <div>
@@ -48,15 +45,16 @@ function Header() {
               />
             </Link>
           ) : (
-            <Link href={'/citations'}  className='transition ease-in-out hover:-translate-y-1 hover:scale-110'>
-              <Badge color='primary' size='md' content={citationRaw?.length ? citationRaw?.length : ''}>
-                <Button
-                  icon={
-                    <BlockquoteRight className='h-6 w-auto ' />
-                  }
-                  auto
-                  light
-                />
+            <Link
+              href={'/citations'}
+              className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+            >
+              <Badge
+                color='primary'
+                size='md'
+                content={citationRaw?.length ? citationRaw?.length : ''}
+              >
+                <Button icon={<BlockquoteRight className='h-6 w-auto ' />} auto light />
               </Badge>
             </Link>
           )}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
 import { themeColors } from '@/utils/themeColors';
 
@@ -12,7 +12,6 @@ const lightTheme = createTheme({
   theme: {
     colors: {
       ...themeColors
-      
     }
   }
 });
@@ -25,7 +24,6 @@ const darkTheme = createTheme({
       primary: '#3B4472',
       link: '#000000',
       background: '#222438',
-      shadowColor: '#000000'
     }
   }
 });
@@ -33,6 +31,8 @@ const darkTheme = createTheme({
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider
+      storageKey='theme'
+      enableSystem={true}
       defaultTheme='system'
       attribute='class'
       value={{
