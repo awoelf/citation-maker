@@ -28,12 +28,12 @@ function Header() {
 
   return mounted ? (
     <div>
-      <div className='grid grid-cols-3 border-b-2 py-3 mb-3'>
-        <div />
-        <Link href={'/'} className='text-4xl header flex-grow text-center text-inherit'>
+      <div className='md:grid md:grid-cols-6 max-sm:flex border-b-2 py-3 mb-3'>
+        <div className='col-span-1 max-sm:hidden'/>
+        <Link href={'/'} className='text-4xl header text-inherit text-center col-span-4'>
           Citation Maker
         </Link>
-        <div className='place-self-end flex align-center gap-2'>
+        <div className='justify-end flex align-center gap-1 col-span-1'>
           {router.route === '/citations' ? (
             <Link href={'/'}>
               <Button
