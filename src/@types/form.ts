@@ -11,6 +11,7 @@ export interface formProps {
   fullWidth?: boolean;
   type?: string;
   cols?: number;
+  mobileCols?: number;
 }
 
 export interface citationProps {

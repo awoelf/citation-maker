@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'next-themes';
-import { themeColors } from '@/utils/themeColors';
 
 // Components
 import { createTheme, NextUIProvider } from '@nextui-org/react';
@@ -11,21 +10,23 @@ const lightTheme = createTheme({
   type: 'light',
   theme: {
     colors: {
-      ...themeColors
-    }
-  }
+      primary: '#6EA894',
+      background: '#E0F1DC',
+      primaryLightActive: '#3C6D5C',
+    },
+  },
 });
 
 const darkTheme = createTheme({
   type: 'dark',
   theme: {
     colors: {
-      ...themeColors,
       primary: '#3B4472',
       link: '#000000',
       background: '#222438',
-    }
-  }
+      primaryLightActive: '#282F53',
+    },
+  },
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {
