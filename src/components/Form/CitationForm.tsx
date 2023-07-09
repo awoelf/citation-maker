@@ -6,7 +6,7 @@ import FormStorage from '../../utils/formStorage';
 import { CitationRaw } from '../../utils/citationStorage';
 
 // Components
-import { Grid, Button, Text } from '@nextui-org/react';
+import { Grid, Button } from '@nextui-org/react';
 import StyleDropdown from './StyleDropdown';
 import SourceDropdown from './SourceDropdown';
 import TextInput from './Input/TextInput';
@@ -50,8 +50,6 @@ function CitationForm() {
 
   return mounted ? (
     <div className='grid'>
-      {/* TO DO: Delete later */}
-      <Text className='text-center pb-3'>Note: This page is a work in progress. This page will <em>not</em> create accurate citations in its current state.</Text>
       <div className='flex justify-between px-3'>
         <div className='flex gap-2'>
           <StyleDropdown />
@@ -69,20 +67,29 @@ function CitationForm() {
           inputName={'firstName'}
           updateForm={updateForm}
           cols={4}
+          mobileCols={6}
         />
         <TextInput
           formValue={form.lastName}
           inputName={'lastName'}
           updateForm={updateForm}
           cols={4}
+          mobileCols={6}
         />
         <TextInput
           formValue={form.middleInitial}
           inputName={'middleInitial'}
           updateForm={updateForm}
           cols={2}
+          mobileCols={6}
         />
-        <TextInput formValue={form.suffix} inputName={'suffix'} updateForm={updateForm} cols={2} />
+        <TextInput
+          formValue={form.suffix}
+          inputName={'suffix'}
+          updateForm={updateForm}
+          cols={2}
+          mobileCols={6}
+        />
 
         {/* || Source */}
         <TextInput formValue={form.source} inputName={'source'} updateForm={updateForm} />

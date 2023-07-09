@@ -6,7 +6,7 @@ import { CitationRaw } from '../../utils/citationStorage';
 import { useTheme } from 'next-themes';
 
 // Components
-import { Button, Badge } from '@nextui-org/react';
+import { Button, Badge, Spacer } from '@nextui-org/react';
 
 function Header() {
   const [mounted, setMounted] = useState(false);
@@ -28,12 +28,12 @@ function Header() {
 
   return mounted ? (
     <div>
-      <div className='md:grid md:grid-cols-6 max-sm:flex border-b-2 py-3 mb-3'>
-        <div className='col-span-1 max-sm:hidden'/>
-        <Link href={'/'} className='text-4xl header text-inherit text-center col-span-4'>
+      <div className='flex justify-between py-3 sm:grid sm:grid-cols-6 sm:flex-none sm:justify-normal'>
+        <div className='col-span-1 hidden sm:grid'/>
+        <Link href={'/'} className='text-4xl header text-inherit sm:text-center sm:col-span-4'>
           Citation Maker
         </Link>
-        <div className='justify-end flex align-center gap-1 col-span-1'>
+        <div className='flex col-span-1 sm:gap-1 sm:justify-end '>
           {router.route === '/citations' ? (
             <Link href={'/'}>
               <Button
