@@ -13,8 +13,6 @@ export interface formProps {
   type?: string;
   cols?: number;
   mobileCols?: number;
-  errorMsg?: string;
-  validate?: LiteralExpression;
 }
 
 export interface citationProps {

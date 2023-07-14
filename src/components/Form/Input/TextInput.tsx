@@ -2,16 +2,16 @@ import { useMemo } from 'react';
 import { formProps, formChange } from '@/@types/form';
 import { QuestionSquare } from 'react-bootstrap-icons';
 import { capitalize, addSpace } from '../../../utils/helpers';
+import { validateInput } from '../../../utils/helpers';
 
 // Components
-import { Grid, Input, Tooltip, useInput, SimpleColors,  } from '@nextui-org/react';
+import { Grid, Input, Tooltip, SimpleColors } from '@nextui-org/react';
 
 const TextInput: React.FC<formProps> = (props) => {
   const updateForm = props.updateForm as formChange;
 
   const validate = (value: string) => {
-    // return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
-    return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+    return validateInput(value);
   };
 
   const helper = useMemo(() => {
@@ -22,7 +22,7 @@ const TextInput: React.FC<formProps> = (props) => {
       };
     const isValid = validate(props.formValue as string);
     return {
-      text: isValid ? '' : props.errorMsg,
+      text: isValid ? '' : 'Only alphanumeric characters allowed.',
       color: isValid ? 'default' : 'error',
     };
   }, [props.formValue]);

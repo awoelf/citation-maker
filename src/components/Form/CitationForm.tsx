@@ -68,7 +68,6 @@ function CitationForm() {
           updateForm={updateForm}
           cols={4}
           mobileCols={6}
-          errorMsg='No dsadsads'
         />
         <TextInput
           formValue={form.lastName}
