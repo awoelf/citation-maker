@@ -4,9 +4,10 @@ import { formEvent } from '@/@types/form';
 import { Citations } from '@/@types/form';
 import FormStorage from '../../utils/formStorage';
 import { CitationRaw } from '../../utils/citationStorage';
+// import Tabs, { TabPane } from 'rc-tabs';
 
 // Components
-import { Grid, Button } from '@nextui-org/react';
+import { Grid, Button, Loading } from '@nextui-org/react';
 import StyleDropdown from './StyleDropdown';
 import SourceDropdown from './SourceDropdown';
 import TextInput from './Input/TextInput';
@@ -149,7 +150,7 @@ function CitationForm() {
         </Grid>
       </Grid.Container>
     </div>
-  ) : null;
+  ) : <Loading />;
 }
 
 export default CitationForm;

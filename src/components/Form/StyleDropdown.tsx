@@ -4,7 +4,7 @@ import { CitationStyle } from '../../utils/citationStorage';
 // Components
 import { Dropdown } from '@nextui-org/react';
 
-function SourceDropdown() {
+function StyleDropdown() {
   const { citationStyle, setCitationStyle } = CitationStyle();
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
@@ -34,4 +34,4 @@ function SourceDropdown() {
   );
 }
 
-export default SourceDropdown;
+export default StyleDropdown;
