@@ -2,7 +2,6 @@ import { ChangeEvent, SetStateAction, Dispatch } from 'react';
 export type formEvent = ChangeEvent<FormElement>;
 export type formChange = (e: ChangeEvent<FormElement>) => void;
 import { FormElement } from '@nextui-org/react';
-import { LiteralExpression } from 'typescript';
 
 export interface formProps {
   formValue?: string | [string];
@@ -13,10 +12,7 @@ export interface formProps {
   type?: string;
   cols?: number;
   mobileCols?: number;
-}
-
-export interface citationProps {
-  form?: form;
+  label?: string;
 }
 
 export interface form {
@@ -29,6 +25,7 @@ export interface form {
   otherContributors?: [string];
   number?: string;
   version?: string;
+  issue?: string;
   publisher?: string;
   location?: string;
   url?: string;

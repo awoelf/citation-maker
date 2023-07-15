@@ -1,6 +1,6 @@
 import React, { Key } from 'react';
 import { Dropdown } from '@nextui-org/react';
-import { LayoutTextWindow, Book, Journal } from 'react-bootstrap-icons';
+import { LayoutTextWindow, Book, Journal, Files } from 'react-bootstrap-icons';
 import { CitationSource } from '../../utils/citationStorage';
 
 function SourceDropdown() {
@@ -20,6 +20,13 @@ function SourceDropdown() {
         selectionMode='single'
         onSelectionChange={setSelectedValue}
       >
+        <Dropdown.Item
+          key='generic'
+          textValue='Generic'
+          icon={<Files className='h-6 w-auto mr-2' />}
+        >
+          Generic
+        </Dropdown.Item>
         <Dropdown.Item
           key='website'
           textValue='Website'
