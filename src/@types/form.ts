@@ -36,4 +36,9 @@ export interface form {
   dateAccessed?: string;
 }
 
+export interface citationProps {
+  form: form;
+  key: string | undefined;
+}
+
 export type Citations = [form];

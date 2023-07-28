@@ -22,7 +22,7 @@ const TextInput: React.FC<formProps> = (props) => {
       };
     const isValid = validate(props.formValue as string);
     return {
-      text: isValid ? '' : 'Only alphanumeric characters allowed.',
+      text: isValid ? '' : 'Only alphanumeric and punctuation characters allowed.',
       color: isValid ? 'default' : 'error',
     };
   }, [props.formValue]);
