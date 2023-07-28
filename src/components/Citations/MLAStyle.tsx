@@ -5,11 +5,15 @@ import dayjs from 'dayjs';
 // Components
 import { Text, Card } from '@nextui-org/react';
 
+// Ideally, I'd like to repurpose this for each of the types of sources (book, journal, website).
+// If I add more sources, I will have to split it up into different files because
+// it will get unreadable and confusing.
 const MLAStyle: React.FC<citationProps> = (props) => {
+  // TO DO: Remove period when month is may.
   const formatDate = (date?: string): string => {
     return date ? dayjs(date).format('D MMM. YYYY') : '';
   };
-  const form = props.form as form;
+  const form = props.form;
 
   const { citationSource } = CitationSource();
   return (
