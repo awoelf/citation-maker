@@ -5,7 +5,7 @@ import { form } from '@/@types/form';
 import DeleteButton from './DeleteButton';
 import CopyButton from './CopyButton';
 import SourceDropdown from '../Form/StyleDropdown';
-import MLAStyle from './MLAStyle';
+import MLAStyle from './MLA/MLAStyle';
 
 function CitationList() {
   const { citationRaw } = CitationRaw();
