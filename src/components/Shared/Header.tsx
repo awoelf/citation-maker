@@ -6,20 +6,13 @@ import { Citations } from '../../utils/citationStorage';
 import { useTheme } from 'next-themes';
 
 // Components
-import { Button, Badge, Spacer } from '@nextui-org/react';
+import { Button, Badge } from '@nextui-org/react';
 
 function Header() {
   const [mounted, setMounted] = useState(false);
   const { citations } = Citations();
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-
-  // const handleTheme = useCallback((newTheme: string) => {
-  // }, []);
-
-  // useEffect(() => {
-  //   if (typeof theme === 'string') setThemeState(theme);
-  // }, [theme]);
 
   // Prevent hydration errors
   useEffect(() => {
@@ -52,7 +45,7 @@ function Header() {
               <Badge
                 color='primary'
                 size='md'
-                content={citations?.length ? citations?.length : ''}
+                content={citations?.length ? citations?.length : <></>}
               >
                 <Button icon={<BlockquoteRight className='h-6 w-auto ' />} auto light />
               </Badge>

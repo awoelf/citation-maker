@@ -12,7 +12,7 @@ import SourceSwitcher from './Sources/SourceSwitcher';
 
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
-  const { form, removeItem } = FormStorage();
+  const { removeItem } = FormStorage();
   const { citationStyle } = CitationStyle();
   const { citations, setCitations } = Citations();
   const router = useRouter();

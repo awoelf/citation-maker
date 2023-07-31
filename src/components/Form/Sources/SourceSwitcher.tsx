@@ -2,10 +2,11 @@ import { CitationSource } from '@/utils/citationStorage';
 
 // Components
 import Website from './Website';
-import Generic from './Generic';
 import Book from './Book';
 import Journal from './Journal';
+import Misc from './Misc';
 
+// Displays appropriate form contents based on selected source (eg. website, book, journal, misc)
 function SourceSwitcher() {
   const { citationSource } = CitationSource();
   switch (citationSource) {
@@ -16,7 +17,7 @@ function SourceSwitcher() {
     case 'journal':
       return <Journal />;
     default:
-      return <Generic />;
+      return <Misc />;
   }
 }
 

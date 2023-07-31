@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Citations } from '../../utils/citationStorage';
+import { Citations } from '../../../utils/citationStorage';
 
 // Components
 import { Text, Button, Grid } from '@nextui-org/react';
@@ -16,7 +16,7 @@ function ConfirmDelete(): ReactNode {
       }}
     >
       <Text>
-        Are you sure you want to delete your citations? This cannot be undone.
+        Are you sure you want to delete all of your citations? This cannot be undone.
       </Text>
       <Grid.Container justify='space-between' alignContent='center'>
         <Grid>

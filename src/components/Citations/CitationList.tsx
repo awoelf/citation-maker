@@ -2,8 +2,8 @@ import { Citations } from '../../utils/citationStorage';
 import { form } from '@/@types/form';
 
 // Components
-import DeleteButton from './DeleteButton';
-import CopyButton from './CopyButton';
+import DeleteButton from './Input/DeleteButton';
+import CopyButton from './Input/CopyButton';
 import SourceDropdown from '../Form/Input/StyleDropdown';
 import MLAStyle from './MLA/MLAStyle';
 

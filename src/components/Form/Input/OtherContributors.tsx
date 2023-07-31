@@ -1,15 +1,17 @@
 import { useState, ChangeEvent } from 'react';
-import { Grid, Input, Tooltip, Button, PressEvent, FormElement } from '@nextui-org/react';
 import { formProps } from '@/@types/form';
-import { QuestionSquare, PlusSquare, Trash } from 'react-bootstrap-icons';
+import { PlusSquare, Trash } from 'react-bootstrap-icons';
 import { capitalize, addSpace, filterList } from '../../../utils/helpers';
 import { nanoid } from 'nanoid';
 import FormStorage from '../../../utils/formStorage';
 
+// Components
+import { Grid, Input, Button, PressEvent, FormElement, Text } from '@nextui-org/react';
+
 const OtherContributors: React.FC<formProps> = (props) => {
   const [contributor, setContributor] = useState<string>('');
   const { form, setForm } = FormStorage();
-  const otherContributors = form.otherContributors as [string];
+  const otherContributors = form.otherContributors;
 
   // Updates contributor state when user types in text input
   const updateContributor = (e: ChangeEvent<FormElement>) => {
@@ -37,42 +39,39 @@ const OtherContributors: React.FC<formProps> = (props) => {
 
   return (
     <Grid xs={props.cols || 12} direction='column' aria-labelledby={props.inputName}>
-      <Input
-        label={capitalize(addSpace(props.inputName))}
-        name={props.inputName}
-        value={contributor}
-        onChange={updateContributor}
-        fullWidth={props.fullWidth || true}
-        type={props.type || 'text'}
-        bordered
-        contentLeftStyling={false}
-        contentClickable={true}
-        contentRightStyling={false}
-        contentRight={
-          <Button light auto onPress={addContributor}>
-            <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100' />
-          </Button>
-        }
-        contentLeft={
-          props.tooltipMessage ? (
-            <Tooltip
-              color='invert'
-              className='pl-4'
-              trigger='hover'
-              placement='right'
-              content={props.tooltipMessage}
-            >
-              <QuestionSquare className='opacity-50' />
-            </Tooltip>
-          ) : null
-        }
-      />
+      
+      <Text size="$sm" className='pb-1 pl-1'>Other Contributors</Text>
+      <div className='flex items-center'>
+        <Input
+          name={props.inputName}
+          value={contributor}
+          onChange={updateContributor}
+          fullWidth={props.fullWidth || true}
+          type={props.type || 'text'}
+          bordered
+          contentLeftStyling={false}
+          contentClickable={true}
+          contentRightStyling={false}
+        />
+        <Button light auto onPress={addContributor}>
+          <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100' />
+        </Button>
+      </div>
+
       {props.formValue ? (
         <div className='pt-3'>
           {otherContributors.map((item) => (
             <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
               <p className='pl-2'>{item}</p>
-              <Button id={item} onPress={removeContributor} icon={<Trash className='h-4 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />} auto light />
+              <Button
+                id={item}
+                onPress={removeContributor}
+                icon={
+                  <Trash className='h-4 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />
+                }
+                auto
+                light
+              />
             </div>
           ))}
         </div>
