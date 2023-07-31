@@ -1,4 +1,4 @@
-import { form, citationProps } from '@/@types/form';
+import { citationProps } from '@/@types/form';
 import { CitationSource } from '../../../utils/citationStorage';
 import dayjs from 'dayjs';
 
@@ -8,7 +8,7 @@ import { Text, Card } from '@nextui-org/react';
 // Ideally, I'd like to repurpose this for each of the types of sources (book, journal, website).
 // If I add more sources, I will have to split it up into different files because
 // it will get unreadable and confusing.
-const MLAStyle: React.FC<citationProps> = (props) => {
+const MLAGeneric: React.FC<citationProps> = (props) => {
   // TO DO: Remove period when month is may.
   const formatDate = (date?: string): string => {
     return date ? dayjs(date).format('D MMM. YYYY') : '';
@@ -31,7 +31,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
           {form.middleInitial ? <span> {form.middleInitial}</span> : null}
           {form.lastName || form.firstName || form.middleInitial ? <span>. </span> : null}
           {/* Title */}
-          <span>&quot;{form.title}.&quot; </span>
+           -[[q<span>&quot;{form.title}.&quot; </span>
           {/* Source */}
           {form.source ? <span className='italic'>{form.source}. </span> : null}
           {/* Version */}
@@ -50,4 +50,4 @@ const MLAStyle: React.FC<citationProps> = (props) => {
   );
 };
 
-export default MLAStyle;
+export default MLAGeneric;

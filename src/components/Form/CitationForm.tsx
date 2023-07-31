@@ -1,21 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Citations } from '@/@types/form';
 import FormStorage from '../../utils/formStorage';
-import { CitationRaw, CitationStyle } from '../../utils/citationStorage';
+import { Citations, CitationStyle } from '../../utils/citationStorage';
 
 // Components
 import { Grid, Button, Loading, Tooltip } from '@nextui-org/react';
-import StyleDropdown from './StyleDropdown';
-import SourceDropdown from './SourceDropdown';
-import ClearButton from './ClearButton';
+import StyleDropdown from '../Form/Input/StyleDropdown';
+import SourceDropdown from './Input/SourceDropdown';
+import ClearButton from './Input/ClearButton';
 import SourceSwitcher from './Sources/SourceSwitcher';
 
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
   const { form, removeItem } = FormStorage();
   const { citationStyle } = CitationStyle();
-  const { citationRaw, setCitationRaw } = CitationRaw();
+  const { citations, setCitations } = Citations();
   const router = useRouter();
 
   // Prevent hydration errors
@@ -28,10 +27,16 @@ function CitationForm() {
       try {
         // Add new citation to citation list
         // Push data only to existing array citation list might be undefined if cleared.
-        const citations = [];
-        if (citationRaw) citations.push(...citationRaw);
-        citations.push(form);
-        setCitationRaw(citations as Citations);
+        // const citations = [];
+        // if (citations) citations.push(...citations);
+        // citations.push(form);
+        // setCitations(citations as Citations);
+
+        // if (!citations) {
+        //   setCitations([form]);
+        // } else {
+          
+        // }
 
         // Clear form contents
         removeItem();
@@ -58,8 +63,14 @@ function CitationForm() {
         <SourceSwitcher />
         {/* Submission button */}
         <Grid xs={12} className='place-content-center'>
-          <Tooltip color='invert' content={'Citation style is required to create a citation.'} isDisabled={!!citationStyle}>
-            <Button onPress={handleSubmit} disabled={!citationStyle}>Create Citation</Button>
+          <Tooltip
+            color='invert'
+            content={'Citation style is required to create a citation.'}
+            isDisabled={!!citationStyle}
+          >
+            <Button onPress={handleSubmit} disabled={!citationStyle}>
+              Create Citation
+            </Button>
           </Tooltip>
         </Grid>
       </Grid.Container>

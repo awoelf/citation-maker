@@ -17,7 +17,7 @@ function Book() {
         inputName={'source'}
         label={'Container'}
         updateForm={updateForm}
-        tooltipMessage={'The larger whole in which the source is located, such as a collection, or book title if citing a chapter.'}
+        tooltipMessage={'The larger whole in which the source is located, such as a collection, database, or book title if citing a chapter.'}
       />
 
       {/* || Version (Edition) */}
@@ -66,7 +66,7 @@ function Book() {
       {/* || URL */}
       <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} />
 
-      {/* || Author first name, last name, middle initial, and suffix */}
+      {/* || Author first name, middle initial, last name, and suffix */}
       <TextInput
         formValue={form.firstName}
         inputName={'firstName'}
@@ -76,17 +76,17 @@ function Book() {
         mobileCols={6}
       />
       <TextInput
-        formValue={form.lastName}
-        inputName={'lastName'}
-        updateForm={updateForm}
-        cols={4}
-        mobileCols={6}
-      />
-      <TextInput
         formValue={form.middleInitial}
         inputName={'middleInitial'}
         updateForm={updateForm}
         cols={2}
+        mobileCols={6}
+      />
+       <TextInput
+        formValue={form.lastName}
+        inputName={'lastName'}
+        updateForm={updateForm}
+        cols={4}
         mobileCols={6}
       />
       <TextInput

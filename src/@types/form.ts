@@ -16,6 +16,7 @@ export interface formProps {
 }
 
 export interface form {
+  id?: string;
   firstName?: string;
   lastName?: string;
   middleInitial?: string;
@@ -40,5 +41,3 @@ export interface citationProps {
   form: form;
   key: string | undefined;
 }
-
-export type Citations = [form];

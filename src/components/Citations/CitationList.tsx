@@ -1,18 +1,18 @@
-import { CitationRaw } from '../../utils/citationStorage';
+import { Citations } from '../../utils/citationStorage';
 import { form } from '@/@types/form';
 
 // Components
 import DeleteButton from './DeleteButton';
 import CopyButton from './CopyButton';
-import SourceDropdown from '../Form/StyleDropdown';
+import SourceDropdown from '../Form/Input/StyleDropdown';
 import MLAStyle from './MLA/MLAStyle';
 
 function CitationList() {
-  const { citationRaw } = CitationRaw();
+  const { citations } = Citations();
 
   return (
     <div>
-      {citationRaw ? (
+      {citations ? (
         <div className='grid gap-2'>
           <div className='flex justify-between'>
             <div className='flex gap-2'>
@@ -21,7 +21,7 @@ function CitationList() {
             </div>
             <DeleteButton />
           </div>
-          {citationRaw.map((item: form) => (
+          {citations.map((item: form) => (
             <MLAStyle form={item} key={item.lastName} />
           ))}
         </div>

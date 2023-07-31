@@ -15,9 +15,9 @@ function Journal() {
       <TextInput
         formValue={form.source}
         inputName={'source'}
-        label={'Container'}
+        label={'Database'}
         updateForm={updateForm}
-        tooltipMessage={'The larger whole in which the source is located, such as a collection, or book title if citing a chapter.'}
+        tooltipMessage={'The larger whole in which the source is located, such as a collection, database, or book title if citing a chapter.'}
       />
 
       {/* || Number (Volume) */}
@@ -73,17 +73,17 @@ function Journal() {
         mobileCols={6}
       />
       <TextInput
-        formValue={form.lastName}
-        inputName={'lastName'}
-        updateForm={updateForm}
-        cols={4}
-        mobileCols={6}
-      />
-      <TextInput
         formValue={form.middleInitial}
         inputName={'middleInitial'}
         updateForm={updateForm}
         cols={2}
+        mobileCols={6}
+      />
+       <TextInput
+        formValue={form.lastName}
+        inputName={'lastName'}
+        updateForm={updateForm}
+        cols={4}
         mobileCols={6}
       />
       <TextInput

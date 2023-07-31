@@ -21,6 +21,7 @@ function Website() {
         inputName={'source'}
         label={'Website Name'}
         updateForm={updateForm}
+        tooltipMessage={'This can also be the name of the database.'}
       />
 
       {/* || URL */}
@@ -36,17 +37,17 @@ function Website() {
         mobileCols={6}
       />
       <TextInput
-        formValue={form.lastName}
-        inputName={'lastName'}
-        updateForm={updateForm}
-        cols={4}
-        mobileCols={6}
-      />
-      <TextInput
         formValue={form.middleInitial}
         inputName={'middleInitial'}
         updateForm={updateForm}
         cols={2}
+        mobileCols={6}
+      />
+       <TextInput
+        formValue={form.lastName}
+        inputName={'lastName'}
+        updateForm={updateForm}
+        cols={4}
         mobileCols={6}
       />
       <TextInput
