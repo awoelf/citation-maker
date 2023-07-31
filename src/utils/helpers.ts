@@ -10,6 +10,7 @@ export const filterList = (list: [string], str: string) => {
   return list.filter((item) => item !== str) as [string];
 };
 
+// May be removed
 export const validateInput = (value: string) => {
-  return value.match(/^[a-zA-Z0-9_\-()\/ .,:]*$/i);
+  return value.match(/^[a-zA-Z0-9_\-()\/ .,:']*$/i);
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MoonStars, Sun, BlockquoteRight, House } from 'react-bootstrap-icons';
-import { CitationRaw } from '../../utils/citationStorage';
+import { Citations } from '../../utils/citationStorage';
 import { useTheme } from 'next-themes';
 
 // Components
@@ -10,7 +10,7 @@ import { Button, Badge, Spacer } from '@nextui-org/react';
 
 function Header() {
   const [mounted, setMounted] = useState(false);
-  const { citationRaw } = CitationRaw();
+  const { citations } = Citations();
   const router = useRouter();
   const { theme, setTheme } = useTheme();
 
@@ -52,7 +52,7 @@ function Header() {
               <Badge
                 color='primary'
                 size='md'
-                content={citationRaw?.length ? citationRaw?.length : ''}
+                content={citations?.length ? citations?.length : ''}
               >
                 <Button icon={<BlockquoteRight className='h-6 w-auto ' />} auto light />
               </Badge>

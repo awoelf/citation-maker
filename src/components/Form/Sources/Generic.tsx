@@ -17,8 +17,13 @@ function Generic() {
         inputName={'source'}
         label={'Container'}
         updateForm={updateForm}
-        tooltipMessage={'The larger whole in which the source is located, such as a collection, or book title if citing a chapter.'}
+        tooltipMessage={
+          'The larger whole in which the source is located, such as a collection, database, or book title if citing a chapter.'
+        }
       />
+
+      {/* || URL */}
+      <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} />
 
       {/* || Author first name, last name, middle initial, and suffix */}
       <TextInput
@@ -30,17 +35,17 @@ function Generic() {
         mobileCols={6}
       />
       <TextInput
-        formValue={form.lastName}
-        inputName={'lastName'}
-        updateForm={updateForm}
-        cols={4}
-        mobileCols={6}
-      />
-      <TextInput
         formValue={form.middleInitial}
         inputName={'middleInitial'}
         updateForm={updateForm}
         cols={2}
+        mobileCols={6}
+      />
+       <TextInput
+        formValue={form.lastName}
+        inputName={'lastName'}
+        updateForm={updateForm}
+        cols={4}
         mobileCols={6}
       />
       <TextInput
