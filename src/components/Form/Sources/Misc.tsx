@@ -62,7 +62,7 @@ function Misc() {
       <TextInput formValue={form.source} inputName={'source'} updateForm={updateForm} />
 
       {/* || Other contributors */}
-      <OtherContributors formValue={form.otherContributors} inputName='otherContributors' />
+      <OtherContributors inputName='otherContributors' />
 
       {/* || Version */}
       <TextInput
