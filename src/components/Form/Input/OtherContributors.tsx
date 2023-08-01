@@ -58,8 +58,11 @@ const OtherContributors: React.FC<formProps> = (props) => {
   };
 
   return (
-    <>
-      <Grid xs={12} aria-labelledby={props.inputName} className='place-items-center grid-flow-row'>
+    <Grid xs={props.cols || 12} direction='column' aria-labelledby={props.inputName}>
+      <Text size='$sm' className='pb-1 pl-1'>
+        Other Contributors
+      </Text>
+      <div className='flex items-center'>
         <TextInput
           formValue={contributor.firstName}
           inputName={'firstName'}
@@ -90,25 +93,24 @@ const OtherContributors: React.FC<formProps> = (props) => {
           mobileCols={6}
           tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."'
         />
-        {/* Button can only be pressed if at least first or last name is added. */}
-        <Button
-          light
-          auto
-          onPress={addContributor}
-          className='mt-7'
-          disabled={!(contributor.firstName || contributor.lastName)}
-        >
-          <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100' />
-        </Button>
-      </Grid>
+          {/* Button can only be pressed if at least first or last name is added. */}
+          <Button
+            light
+            auto
+            onPress={addContributor}
+            className='mt-7'
+            disabled={!(contributor.firstName || contributor.lastName)}
+          >
+            <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100' />
+          </Button>
+      </div>
 
       {otherContributors?.length ? (
-        <Grid xs={12} className='p-2'>
+        <div className='p-2'>
           {otherContributors.map((item) => (
             <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
               <p className='pl-2'>
-                {item.firstName} {item.middleInitial ? `${item.middleInitial}.` : null}{' '}
-                {item.lastName} {item.suffix}
+                {item.firstName} {item.middleInitial ? `${item.middleInitial}.` : null} {item.lastName} {item.suffix}
               </p>
               <Button
                 id={item.id}
@@ -121,9 +123,9 @@ const OtherContributors: React.FC<formProps> = (props) => {
               />
             </div>
           ))}
-        </Grid>
+        </div>
       ) : null}
-    </>
+    </Grid>
   );
 };
 
