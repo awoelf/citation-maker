@@ -16,7 +16,7 @@ export interface contributor {
 
 // Interface that is used for passing props to the TextInput component
 export interface formProps {
-  formValue?: string | [string] | contributor | Array<contributor>;
+  formValue?: string | [string];
   updateForm?: formChange;
   inputName: string;
   tooltipMessage?: string;
