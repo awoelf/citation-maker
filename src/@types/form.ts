@@ -3,9 +3,20 @@ export type formEvent = ChangeEvent<FormElement>;
 export type formChange = (e: ChangeEvent<FormElement>) => void;
 import { FormElement } from '@nextui-org/react';
 
+// Interface for other contributors
+// The role will not be implemented until later
+export interface contributor {
+  id: string;
+  role: string;
+  firstName: string;
+  middleInitial: string;
+  lastName: string;
+  suffix: string;
+}
+
 // Interface that is used for passing props to the TextInput component
 export interface formProps {
-  formValue?: string | [string];
+  formValue?: string | [string] | contributor;
   updateForm?: formChange;
   inputName: string;
   tooltipMessage?: string;
@@ -16,14 +27,9 @@ export interface formProps {
   label?: string;
 }
 
-// Interface for other contributors
-// The role will not be implemented until later
 export interface otherContributors {
-  role: string;
-  firstName: string;
-  middleInitial: string;
-  lastName: string;
-  suffix: string;
+  key: string;
+  value: contributor;
 }
 
 // Interface for form input
@@ -35,7 +41,7 @@ export interface form {
   suffix?: string;
   title?: string;
   source?: string;
-  otherContributors?: [otherContributors];
+  otherContributors?: Array<contributor>;
   number?: string;
   version?: string;
   issue?: string;

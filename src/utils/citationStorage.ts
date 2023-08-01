@@ -28,9 +28,9 @@ export function Citations() {
 
 // User defined citation style (eg. MLA, APA, Chicago)
 export function CitationStyle() {
-  const [citationStyle, setCitationStyle, { removeItem }] = useLocalStorageState<string | undefined>(
+  const [citationStyle, setCitationStyle, { removeItem }] = useLocalStorageState<string>(
     'citationStyle',
-    { defaultValue: undefined }
+    { defaultValue: '' }
   );
   return { citationStyle, setCitationStyle, removeItem };
 }
@@ -39,7 +39,7 @@ export function CitationStyle() {
 export function CitationSource() {
   const [citationSource, setCitationSource, { removeItem }] = useLocalStorageState<string>(
     'citationSource',
-    { defaultValue: 'misc' }
+    { defaultValue: '' }
   );
   return { citationSource, setCitationSource, removeItem };
 }
