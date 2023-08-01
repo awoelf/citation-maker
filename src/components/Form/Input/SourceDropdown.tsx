@@ -1,21 +1,21 @@
 import React, { Key } from 'react';
 import { Dropdown } from '@nextui-org/react';
 import { LayoutTextWindow, Book, Journal, Files } from 'react-bootstrap-icons';
-import { CitationSource } from '../../../utils/citationStorage';
+import FormStorage from '@/utils/formStorage';
 
 // Dropdown selector for the source of the citation (eg. website, book, journal, or misc)
 function SourceDropdown() {
-  const { citationSource, setCitationSource } = CitationSource();
+  const { form, updateCitationSource } = FormStorage();
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
     // Not sure if this is the best way to get string value from set, but it works
-    setCitationSource(Array.from(keys)[0] as string);
+    updateCitationSource(Array.from(keys)[0] as string);
   };
 
   return (
     <Dropdown>
       <Dropdown.Button css={{ tt: 'capitalize' }}>
-        {citationSource ? citationSource : 'Source'}
+        {form.citationSource ? form.citationSource : 'Source'}
       </Dropdown.Button>
       <Dropdown.Menu
         aria-label='Sources'

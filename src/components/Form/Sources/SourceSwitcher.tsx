@@ -1,4 +1,4 @@
-import { CitationSource } from '@/utils/citationStorage';
+import FormStorage from '@/utils/formStorage';
 
 // Components
 import Website from './Website';
@@ -8,8 +8,9 @@ import Misc from './Misc';
 
 // Displays appropriate form contents based on selected source (eg. website, book, journal, misc)
 function SourceSwitcher() {
-  const { citationSource } = CitationSource();
-  switch (citationSource) {
+  const { form } = FormStorage();
+  
+  switch (form.citationSource) {
     case 'website':
       return <Website />;
     case 'book':

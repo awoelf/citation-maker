@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import FormStorage from '../../utils/formStorage';
-import { Citations, CitationStyle } from '../../utils/citationStorage';
+import { Citations, CitationStyle, CitationSource } from '../../utils/citationStorage';
+import { form } from '@/@types/form';
+import { nanoid } from 'nanoid';
 
 // Components
 import { Grid, Button, Loading, Tooltip } from '@nextui-org/react';
@@ -12,7 +14,7 @@ import SourceSwitcher from './Sources/SourceSwitcher';
 
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
-  const { removeItem } = FormStorage();
+  const { form, removeItem, createId } = FormStorage();
   const { citationStyle } = CitationStyle();
   const { citations, setCitations } = Citations();
   const router = useRouter();
@@ -25,28 +27,27 @@ function CitationForm() {
   function handleSubmit() {
     if (citationStyle) {
       try {
+        // TO DO: add this to formStorage.ts
+        createId()
+
         // Add new citation to citation list
         // Push data only to existing array citation list might be undefined if cleared.
-        // const citations = [];
-        // if (citations) citations.push(...citations);
-        // citations.push(form);
-        // setCitations(citations as Citations);
-
-        // if (!citations) {
-        //   setCitations([form]);
-        // } else {
-          
-        // }
+        const citationsList: Array<form> = [];
+        if (citations) citationsList.push(...citations);
+        citationsList.push(form);
+        setCitations(citationsList);
 
         // Clear form contents
         removeItem();
 
         // Route to citation dashboard
+        setMounted(false);
         router.push('/citations');
       } catch (error) {
         console.error('Error: ', error);
       }
     } else {
+      // TO DO: Put something here
     }
   }
 
@@ -76,7 +77,7 @@ function CitationForm() {
       </Grid.Container>
     </div>
   ) : (
-    <Loading />
+    <Loading type='points-opacity' />
   );
 }
 

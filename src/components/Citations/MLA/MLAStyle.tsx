@@ -1,53 +1,56 @@
-import { form, citationProps } from '@/@types/form';
-import { CitationSource } from '../../../utils/citationStorage';
-import dayjs from 'dayjs';
+import { citationProps } from '@/@types/form';
+import { formatDate } from '@/utils/helpers';
 
 // Components
-import { Text, Card } from '@nextui-org/react';
+import { Card } from '@nextui-org/react';
 
-// Ideally, I'd like to repurpose this for each of the types of sources (book, journal, website).
-// If I add more sources, I will have to split it up into different files because
-// it will get unreadable and confusing.
 const MLAStyle: React.FC<citationProps> = (props) => {
-  // TO DO: Remove period when month is may.
-  const formatDate = (date?: string): string => {
-    return date ? dayjs(date).format('D MMM. YYYY') : '';
-  };
-  const form = props.form;
+  const data = props.data;
 
-  const { citationSource } = CitationSource();
-  return (
-    <Card variant='flat' className='flex'>
-      {/* TO DO: Update so multiple authors are accepted. 
-          TO DO: Update so contributor role is included.
-          TO DO: Add input validation so that formatting can be simplified
-          TO DO: Add a filter for dates that contain May so that the . is removed.
-      */}
-      <Card.Body>
-        <Text>
+  switch (data.citationSource) {
+    case 'website':
+      return (
+        <Card.Body className=''>
           {/* Author */}
-          {form.lastName ? <span>{form.lastName},</span> : null}
-          {form.firstName ? <span> {form.firstName}</span> : null}
-          {form.middleInitial ? <span> {form.middleInitial}</span> : null}
-          {form.lastName || form.firstName || form.middleInitial ? <span>. </span> : null}
+          <span>{data.lastName ? `${data.lastName},` : null}</span>
+          <span>{data.firstName ? `&nbsp;${data.firstName}` : null}</span>
+          <span>{data.middleInitial ? `&nbsp;${data.middleInitial[0]}.` : null}</span>
+          <span>{data.lastName || data.firstName || data.middleInitial ? `.&nbsp;` : null}</span>
+
           {/* Title */}
-          <span>&quot;{form.title}.&quot; </span>
+          <span>{data.title ? `&quot;${data.title}.&quot;&nbsp;` : null}</span>
+
           {/* Source */}
-          {form.source ? <span className='italic'>{form.source}. </span> : null}
+          <span className='italic'>{data.source ? `${data.source}.&nbsp;` : null}</span>
+
           {/* Version */}
-          {form.version ? <span>{form.version}. </span> : null}
+          <span>{data.version ? `${data.version}.&nbsp;` : null} </span>
+
           {/* Number */}
-          {form.number ? <span>{form.number}. </span> : null}
+          <span>{data.number ? `${data.number}.&nbsp;` : null} </span>
+
           {/* Publisher */}
-          {form.publisher ? <span>{form.publisher}. </span> : null}
+          <span>{data.publisher ? `${data.publisher},&nbsp;` : null} </span>
+
           {/* Publication Date */}
-          {form.datePublished ? <span>{formatDate(form.datePublished)}. </span> : null}
-          {/* Location */}
-          {form.location ? <span>{form.location}. </span> : null}
-        </Text>
-      </Card.Body>
-    </Card>
-  );
+          <span>{data.datePublished ? `${formatDate(data.datePublished)},&nbsp;` : null} </span>
+
+          {/* URL or DOI */}
+          <span>
+            {data.doi ? `${data.location}.&nbsp;` : data.url ? `${data.url}.&nbsp;` : null}
+          </span>
+
+          {/* Publication Date */}
+          <span>{data.dateAccessed ? `Accessed ${formatDate(data.dateAccessed)}.&nbsp;` : null} </span>
+        </Card.Body>
+      );
+    case 'book':
+      return <></>;
+    case 'journal':
+      return <></>;
+    default:
+      return <></>;
+  }
 };
 
 export default MLAStyle;

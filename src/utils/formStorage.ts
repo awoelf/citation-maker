@@ -1,14 +1,16 @@
 import useLocalStorageState from 'use-local-storage-state';
 import { form, formEvent } from '@/@types/form';
+import { nanoid } from 'nanoid';
 
 export default function FormStorage() {
   const [form, setForm, { removeItem }] = useLocalStorageState<form>('form', {
     defaultValue: {
+      id: '',
       firstName: '',
       lastName: '',
       middleInitial: '',
       suffix: '',
-      title: '',  
+      title: '',
       source: '',
       otherContributors: undefined,
       version: '',
@@ -21,6 +23,7 @@ export default function FormStorage() {
       pageEnd: '',
       doi: '',
       dateAccessed: '',
+      citationSource: '',
     },
   });
 
@@ -29,5 +32,13 @@ export default function FormStorage() {
     setForm({ ...form, [name]: value });
   }
 
-  return {form, setForm, removeItem, updateForm};
+  function updateCitationSource(citationSource: string) {
+    setForm({ ...form, citationSource: citationSource });
+  }
+
+  function createId() {
+    setForm({ ...form, id: nanoid() });
+  }
+
+  return { form, setForm, removeItem, updateForm, updateCitationSource, createId };
 }

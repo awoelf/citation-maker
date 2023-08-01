@@ -5,11 +5,11 @@ import { form } from '@/@types/form';
 import DeleteButton from './Input/DeleteButton';
 import CopyButton from './Input/CopyButton';
 import SourceDropdown from '../Form/Input/StyleDropdown';
+import { Card } from '@nextui-org/react';
 import MLAStyle from './MLA/MLAStyle';
 
-function CitationList() {
+function CitationPage() {
   const { citations } = Citations();
-
   return (
     <div>
       {citations ? (
@@ -22,7 +22,9 @@ function CitationList() {
             <DeleteButton />
           </div>
           {citations.map((item: form) => (
-            <MLAStyle form={item} key={item.lastName} />
+            <Card variant='flat' className='flex' key={item.id}>
+              <MLAStyle data={item} />
+            </Card>
           ))}
         </div>
       ) : (
@@ -32,4 +34,4 @@ function CitationList() {
   );
 }
 
-export default CitationList;
+export default CitationPage;
