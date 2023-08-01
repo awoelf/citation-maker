@@ -59,7 +59,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
 
   return (
     <>
-      <Grid xs={12} aria-labelledby={props.inputName} className='place-items-center'>
+      <Grid xs={12} aria-labelledby={props.inputName} className='place-items-center grid-flow-row'>
         <TextInput
           formValue={contributor.firstName}
           inputName={'firstName'}
@@ -103,7 +103,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
       </Grid>
 
       {otherContributors?.length ? (
-        <div className='p-2'>
+        <Grid xs={12} className='p-2'>
           {otherContributors.map((item) => (
             <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
               <p className='pl-2'>
@@ -121,7 +121,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
               />
             </div>
           ))}
-        </div>
+        </Grid>
       ) : null}
     </>
   );
