@@ -4,11 +4,12 @@ import { CitationStyle } from '../../../utils/citationStorage';
 // Components
 import { Dropdown } from '@nextui-org/react';
 
+// Dropdown selector for citation styles like MLA and APA. More styles will be added upon user request.
 function StyleDropdown() {
   const { citationStyle, setCitationStyle } = CitationStyle();
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
-    // Not sure if this is the best way to get string value from set, but it works
+    // Not sure if this is the best way to get string value from set, but it works.
     setCitationStyle(Array.from(keys)[0] as string);
   };
 

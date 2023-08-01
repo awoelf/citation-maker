@@ -1,9 +1,13 @@
 import { form } from '@/@types/form';
 import useLocalStorageState from 'use-local-storage-state';
+import { nanoid } from 'nanoid';
 
 // Local storage object for storing form data of multiple citations
 export function Citations() {
-  const addNewCitation = () => {};
+  const addNewCitation = (formData: form) => {
+    formData.id = nanoid();
+    
+  };
 
   const updateCitationById = () => {};
 
@@ -31,7 +35,7 @@ export function CitationStyle() {
   return { citationStyle, setCitationStyle, removeItem };
 }
 
-// User defined citation source (eg. Book, Website, Journal, Generic)
+// User defined citation source (eg. Book, Website, Journal, Misc)
 export function CitationSource() {
   const [citationSource, setCitationSource, { removeItem }] = useLocalStorageState<string>(
     'citationSource',

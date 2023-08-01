@@ -3,6 +3,7 @@ import { Dropdown } from '@nextui-org/react';
 import { LayoutTextWindow, Book, Journal, Files } from 'react-bootstrap-icons';
 import { CitationSource } from '../../../utils/citationStorage';
 
+// Dropdown selector for the source of the citation (eg. website, book, journal, or misc)
 function SourceDropdown() {
   const { citationSource, setCitationSource } = CitationSource();
 
@@ -13,20 +14,15 @@ function SourceDropdown() {
 
   return (
     <Dropdown>
-      <Dropdown.Button css={{ tt: 'capitalize' }}>{citationSource ? citationSource : 'Source'}</Dropdown.Button>
+      <Dropdown.Button css={{ tt: 'capitalize' }}>
+        {citationSource ? citationSource : 'Source'}
+      </Dropdown.Button>
       <Dropdown.Menu
         aria-label='Sources'
         variant='light'
         selectionMode='single'
         onSelectionChange={setSelectedValue}
       >
-        <Dropdown.Item
-          key='generic'
-          textValue='Generic'
-          icon={<Files className='h-6 w-auto mr-2' />}
-        >
-          Generic
-        </Dropdown.Item>
         <Dropdown.Item
           key='website'
           textValue='Website'
@@ -43,6 +39,9 @@ function SourceDropdown() {
           icon={<Journal className='h-6 w-auto mr-2' />}
         >
           Journal
+        </Dropdown.Item>
+        <Dropdown.Item key='misc' textValue='Misc' icon={<Files className='h-6 w-auto mr-2' />}>
+          Miscellaneous
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

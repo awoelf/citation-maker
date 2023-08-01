@@ -4,7 +4,8 @@ import FormStorage from '@/utils/formStorage';
 import TextInput from '../Input/TextInput';
 import OtherContributors from '../Input/OtherContributors';
 
-function Generic() {
+// Generic form for any source that isn't a book, website, or journal.
+function Misc() {
   const { form, updateForm } = FormStorage();
   return (
     <>
@@ -112,4 +113,4 @@ function Generic() {
   );
 }
 
-export default Generic;
+export default Misc;
