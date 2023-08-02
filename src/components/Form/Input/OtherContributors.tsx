@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import FormStorage from '../../../utils/formStorage';
 
 // Components
-import { Grid, Button, PressEvent, FormElement, Text } from '@nextui-org/react';
+import { Grid, Button, PressEvent, FormElement, Text, Collapse } from '@nextui-org/react';
 import TextInput from './TextInput';
 
 const OtherContributors: React.FC<formProps> = (props) => {
@@ -58,74 +58,81 @@ const OtherContributors: React.FC<formProps> = (props) => {
   };
 
   return (
-    <Grid xs={props.cols || 12} direction='column' aria-labelledby={props.inputName}>
-      <Text size='$sm' className='pb-1 pl-1'>
-        Other Contributors
-      </Text>
-      <div className='flex items-center'>
-        <TextInput
-          formValue={contributor.firstName}
-          inputName={'firstName'}
-          label={'Author First Name'}
-          updateForm={updateContributor}
-          cols={4}
-          mobileCols={6}
-        />
-        <TextInput
-          formValue={contributor.middleInitial}
-          inputName={'middleInitial'}
-          updateForm={updateContributor}
-          cols={2}
-          mobileCols={6}
-        />
-        <TextInput
-          formValue={contributor.lastName}
-          inputName={'lastName'}
-          updateForm={updateContributor}
-          cols={4}
-          mobileCols={6}
-        />
-        <TextInput
-          formValue={contributor.suffix}
-          inputName={'suffix'}
-          updateForm={updateContributor}
-          cols={2}
-          mobileCols={6}
-          tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."'
-        />
-          {/* Button can only be pressed if at least first or last name is added. */}
-          <Button
-            light
-            auto
-            onPress={addContributor}
-            className='mt-7'
-            disabled={!(contributor.firstName || contributor.lastName)}
-          >
-            <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100' />
-          </Button>
-      </div>
+    <Collapse.Group bordered borderWeight={'normal'} className='m-2'>
+      <Collapse
+        title={
+          <Text size='$sm' className='pl-1'>
+            Other Contributors
+          </Text>
+        }
+      >
+        <Grid xs={props.cols || 12} direction='column' aria-labelledby={props.inputName}>
+          <div className='flex items-center'>
+            <TextInput
+              formValue={contributor.firstName}
+              inputName={'firstName'}
+              label={'Author First Name'}
+              updateForm={updateContributor}
+              cols={4}
+              mobileCols={6}
+            />
+            <TextInput
+              formValue={contributor.middleInitial}
+              inputName={'middleInitial'}
+              updateForm={updateContributor}
+              cols={2}
+              mobileCols={6}
+            />
+            <TextInput
+              formValue={contributor.lastName}
+              inputName={'lastName'}
+              updateForm={updateContributor}
+              cols={4}
+              mobileCols={6}
+            />
+            <TextInput
+              formValue={contributor.suffix}
+              inputName={'suffix'}
+              updateForm={updateContributor}
+              cols={2}
+              mobileCols={6}
+            />
+            {/* Button can only be pressed if at least first or last name is added. */}
+            <Button
+              light
+              auto
+              onPress={addContributor}
+              className='mt-7'
+              disabled={!(contributor.firstName || contributor.lastName)}
+            >
+              <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100' />
+            </Button>
+          </div>
 
-      {otherContributors?.length ? (
-        <div className='p-2'>
-          {otherContributors.map((item) => (
-            <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
-              <p className='pl-2'>
-                {item.firstName} {item.middleInitial ? `${item.middleInitial}.` : null} {item.lastName} {item.suffix}
-              </p>
-              <Button
-                id={item.id}
-                onPress={removeContributor}
-                icon={
-                  <Trash className='h-4 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />
-                }
-                auto
-                light
-              />
+          {otherContributors?.length ? (
+            <div className='p-2'>
+              {otherContributors.map((item) => (
+                <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
+                  <p className='pl-2'>
+                    {item.firstName} {item.middleInitial ? `${item.middleInitial}.` : null}{' '}
+                    {item.lastName} {item.suffix}
+                  </p>
+                  <Button
+                    id={item.id}
+                    onPress={removeContributor}
+                    icon={
+                      <Trash className='h-4 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />
+                    }
+                    auto
+                    light
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      ) : null}
-    </Grid>
+          ) : null}
+        </Grid>
+      </Collapse>
+    </Collapse.Group>
   );
 };
 

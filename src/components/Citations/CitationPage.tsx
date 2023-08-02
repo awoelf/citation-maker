@@ -1,11 +1,12 @@
 import { Citations } from '../../utils/citationStorage';
 import { form } from '@/@types/form';
+import { ThreeDots } from 'react-bootstrap-icons';
 
 // Components
 import DeleteButton from './Input/DeleteButton';
 import CopyButton from './Input/CopyButton';
 import SourceDropdown from '../Form/Input/StyleDropdown';
-import { Card } from '@nextui-org/react';
+import { Card, Popover } from '@nextui-org/react';
 import MLAStyle from './MLA/MLAStyle';
 
 function CitationPage() {
@@ -15,7 +16,7 @@ function CitationPage() {
       {citations ? (
         <div className='grid gap-2'>
           <div className='flex justify-between'>
-            <div className='flex gap-2'>
+            <div className='flex gap-2 pb-2'>
               <CopyButton />
               <SourceDropdown />
             </div>
@@ -23,6 +24,7 @@ function CitationPage() {
           </div>
           {citations.map((item: form) => (
             <Card variant='flat' className='flex' key={item.id}>
+
               <MLAStyle data={item} />
             </Card>
           ))}

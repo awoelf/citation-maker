@@ -2,10 +2,8 @@ import { ChangeEvent } from 'react';
 export type formEvent = ChangeEvent<FormElement>;
 export type formChange = (e: ChangeEvent<FormElement>) => void;
 import { FormElement } from '@nextui-org/react';
-import { StringLiteral } from 'typescript';
 
 // Interface for other contributors
-// The role will not be implemented until later
 export interface contributor {
   id: string;
   role: string;
