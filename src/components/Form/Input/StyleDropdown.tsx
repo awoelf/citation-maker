@@ -20,6 +20,7 @@ function StyleDropdown() {
       ) : (
         <Dropdown.Button>Style</Dropdown.Button>
       )}
+      {/* TO DO: Add more styles later */}
       <Dropdown.Menu
         aria-label='Styles'
         variant='light'
@@ -29,7 +30,7 @@ function StyleDropdown() {
         disabledKeys={['apa']}
       >
         <Dropdown.Item key='mla'>MLA</Dropdown.Item>
-        <Dropdown.Item key='apa'>APA - Coming soon</Dropdown.Item>
+        <Dropdown.Item key='apa'>APA</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

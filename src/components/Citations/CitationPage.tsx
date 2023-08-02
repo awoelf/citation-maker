@@ -5,7 +5,7 @@ import { ThreeDots } from 'react-bootstrap-icons';
 // Components
 import DeleteButton from './Input/DeleteButton';
 import CopyButton from './Input/CopyButton';
-import SourceDropdown from '../Form/Input/StyleDropdown';
+import StyleDropdown from '../Form/Input/StyleDropdown';
 import { Card, Popover } from '@nextui-org/react';
 import MLAStyle from './MLA/MLAStyle';
 
@@ -17,8 +17,9 @@ function CitationPage() {
         <div className='grid gap-2'>
           <div className='flex justify-between'>
             <div className='flex gap-2 pb-2'>
-              <CopyButton />
-              <SourceDropdown />
+              {/* TO DO: Buttons will be hidden until features are supported. */}
+              {/* <CopyButton /> */}
+              {/* <StyleDropdown /> */}
             </div>
             <DeleteButton />
           </div>
