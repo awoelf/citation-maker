@@ -22,6 +22,7 @@ function SourceDropdown() {
         variant='light'
         selectionMode='single'
         onSelectionChange={setSelectedValue}
+        disabledKeys={['book', 'journal', 'misc']}
       >
         <Dropdown.Item
           key='website'
