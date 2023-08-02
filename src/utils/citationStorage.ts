@@ -13,7 +13,7 @@ export function Citations() {
 
   const deleteCitationById = () => {};
 
-  const [citations, setCitations, { removeItem }] = useLocalStorageState<[form]>('citations');
+  const [citations, setCitations, { removeItem }] = useLocalStorageState<Array<form>>('citations');
   return { citations, setCitations, removeItem };
 }
 

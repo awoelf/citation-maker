@@ -4,7 +4,6 @@ export type formChange = (e: ChangeEvent<FormElement>) => void;
 import { FormElement } from '@nextui-org/react';
 
 // Interface for other contributors
-// The role will not be implemented until later
 export interface contributor {
   id: string;
   role: string;
@@ -53,10 +52,10 @@ export interface form {
   doi?: string;
   datePublished?: string;
   dateAccessed?: string;
+  citationSource?: string;
 }
 
 // Interface for passing form data to citation style handler
 export interface citationProps {
-  form: form;
-  key: string | undefined;
+  data: form;
 }

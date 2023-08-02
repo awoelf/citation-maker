@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export const capitalize = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
@@ -12,5 +14,9 @@ export const filterList = (list: [string], str: string) => {
 
 // May be removed
 export const validateInput = (value: string) => {
-  return value.match(/^[a-zA-Z0-9_\-()\/ .,:']*$/i);
+  return value.match(/^[a-zA-Z0-9_\-()\/ .,:'’]*$/i);
 }
+
+export const formatDate = (date?: string): string => {
+  return date ? dayjs(date).format('D MMM. YYYY') : '';
+};

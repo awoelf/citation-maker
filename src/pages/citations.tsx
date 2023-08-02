@@ -3,10 +3,10 @@ import type { NextPageWithLayout } from './_app';
 
 // Components
 import Layout from '../components/Shared/Layout';
-import CitationList from '@/components/Citations/CitationList';
+import CitationPage from '@/components/Citations/CitationPage';
 
 const Citations: NextPageWithLayout = () => {
-  return <CitationList />;
+  return <CitationPage />;
 };
  
 Citations.getLayout = function getLayout(citations: ReactElement) {

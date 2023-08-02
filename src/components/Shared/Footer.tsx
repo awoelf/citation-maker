@@ -32,6 +32,14 @@ function Footer() {
         >
           Purdue Online Writing Lab
         </Link>
+        <Dot className='h-6 w-auto' />
+        <Link
+          href={'https://ko-fi.com/awoelf'}
+          target='_blank'
+          className='text-inherit'
+        >
+          Support me on Ko-fi
+        </Link>
       </div>
     </div>
   );
