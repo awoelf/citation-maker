@@ -22,6 +22,9 @@ function SourceDropdown() {
         variant='light'
         selectionMode='single'
         onSelectionChange={setSelectedValue}
+        // TO DO: Delete once other sources are available
+        defaultValue={'website'}
+        disabledKeys={['book', 'journal', 'misc']}
       >
         <Dropdown.Item
           key='website'

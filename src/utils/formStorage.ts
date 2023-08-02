@@ -2,6 +2,7 @@ import useLocalStorageState from 'use-local-storage-state';
 import { form, formEvent } from '@/@types/form';
 import { nanoid } from 'nanoid';
 
+// TO DO: Change citationSource to '' once other sources are supported.
 export default function FormStorage() {
   const [form, setForm, { removeItem }] = useLocalStorageState<form>('form', {
     defaultValue: {
@@ -23,7 +24,7 @@ export default function FormStorage() {
       pageEnd: '',
       doi: '',
       dateAccessed: '',
-      citationSource: '',
+      citationSource: 'website',
     },
   });
 
