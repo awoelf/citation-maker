@@ -62,7 +62,6 @@ function CitationForm() {
       </div>
       <Grid.Container gap={2}>
         <SourceSwitcher />
-        {/* Submission button */}
         <Grid xs={12} className='place-content-center'>
           <Tooltip
             color='invert'

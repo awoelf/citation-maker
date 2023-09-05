@@ -40,7 +40,6 @@ const TextInput: React.FC<formProps> = (props) => {
         name={props.inputName}
         value={props.formValue}
         onChange={updateForm}
-        fullWidth={props.fullWidth || true}
         type={props.type || 'text'}
         bordered
         status={helper.color as SimpleColors}
