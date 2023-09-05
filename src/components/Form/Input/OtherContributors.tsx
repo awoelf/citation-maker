@@ -58,61 +58,56 @@ const OtherContributors: React.FC<formProps> = (props) => {
   };
 
   return (
-    <Collapse.Group bordered borderWeight={'normal'} className='m-2'>
-      <Collapse
-        title={
-          <Text size='$sm' className='pl-1'>
-            Other Contributors
-          </Text>
-        }
-      >
-        <Grid xs={props.cols || 12} direction='column' aria-labelledby={props.inputName}>
-          <div className='flex items-center'>
+    <div className='min-w-full'>
+      <Collapse.Group bordered borderWeight={'normal'} className='m-2'>
+        <Collapse title={<Text size='$sm'>Other Contributors</Text>}>
+          <div aria-labelledby={props.inputName} className='grid grid-cols-2 sm:flex items-center'>
             <TextInput
               formValue={contributor.firstName}
               inputName={'firstName'}
-              label={'Author First Name'}
+              label={'First Name'}
               updateForm={updateContributor}
               cols={4}
-              mobileCols={6}
+              mobileCols={12}
             />
             <TextInput
               formValue={contributor.middleInitial}
               inputName={'middleInitial'}
               updateForm={updateContributor}
-              cols={2}
-              mobileCols={6}
+              cols={3}
+              mobileCols={12}
             />
             <TextInput
               formValue={contributor.lastName}
               inputName={'lastName'}
               updateForm={updateContributor}
               cols={4}
-              mobileCols={6}
+              mobileCols={12}
             />
             <TextInput
               formValue={contributor.suffix}
               inputName={'suffix'}
               updateForm={updateContributor}
               cols={2}
-              mobileCols={6}
+              mobileCols={12}
             />
-            {/* Button can only be pressed if at least first or last name is added. */}
-            <Button
-              light
-              auto
-              onPress={addContributor}
-              className='mt-7'
-              disabled={!(contributor.firstName || contributor.lastName)}
-            >
-              <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100' />
-            </Button>
           </div>
-
+          <Button
+            auto
+            onPress={addContributor}
+            className='flex m-auto mt-2'
+            disabled={!(contributor.firstName || contributor.lastName)}
+          >
+            <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100 pr-2' />
+            Add Contributor
+          </Button>
           {otherContributors?.length ? (
             <div className='p-2'>
               {otherContributors.map((item) => (
-                <div className='border-b last:border-b-0 flex justify-between' key={nanoid()}>
+                <div
+                  className='border-b last:border-b-0 flex justify-between items-center'
+                  key={nanoid()}
+                >
                   <p className='pl-2'>
                     {item.firstName} {item.middleInitial ? `${item.middleInitial}.` : null}{' '}
                     {item.lastName} {item.suffix}
@@ -130,9 +125,9 @@ const OtherContributors: React.FC<formProps> = (props) => {
               ))}
             </div>
           ) : null}
-        </Grid>
-      </Collapse>
-    </Collapse.Group>
+        </Collapse>
+      </Collapse.Group>
+    </div>
   );
 };
 

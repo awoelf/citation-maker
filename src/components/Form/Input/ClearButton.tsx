@@ -15,7 +15,7 @@ function ClearButton() {
         citationStyle.removeItem();
       }}
     >
-      Clear Form
+    Clear Form
     </Button>
   );
 }
