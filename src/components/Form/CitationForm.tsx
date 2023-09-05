@@ -28,7 +28,7 @@ function CitationForm() {
     if (citationStyle) {
       try {
         // TO DO: add this to formStorage.ts
-        createId()
+        createId();
 
         // Add new citation to citation list
         // Push data only to existing array citation list might be undefined if cleared.
@@ -53,12 +53,14 @@ function CitationForm() {
 
   return mounted ? (
     <div className='grid'>
-      <div className='flex justify-between px-3'>
+      <div className='flex justify-between gap-2 px-3'>
         <div className='flex gap-2'>
           <StyleDropdown />
           <SourceDropdown />
         </div>
-        <ClearButton />
+        <div className='sm:align-self-end'>
+          <ClearButton />
+        </div>
       </div>
       <Grid.Container gap={2}>
         <SourceSwitcher />
