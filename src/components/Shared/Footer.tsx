@@ -4,7 +4,7 @@ import { Text } from '@nextui-org/react';
 
 function Footer() {
   return (
-    <div>
+    <div className='flex flex-col pt-3'>
       <div className='flex justify-center'>
         <Text>Created by</Text>
         <Link
@@ -20,7 +20,7 @@ function Footer() {
         <Link
           href={'https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_4OwTY3UxhL6Ti1U'}
           target='_blank'
-          className='text-inherit'
+          className='text-inherit text-center'
         >
           Submit Feedback
         </Link>
@@ -28,7 +28,7 @@ function Footer() {
         <Link
           href={'https://owl.purdue.edu/owl/index.html'}
           target='_blank'
-          className='text-inherit'
+          className='text-inherit text-center'
         >
           Purdue Online Writing Lab
         </Link>
@@ -36,7 +36,7 @@ function Footer() {
         <Link
           href={'https://ko-fi.com/awoelf'}
           target='_blank'
-          className='text-inherit'
+          className='text-inherit text-center'
         >
           Support me on Ko-fi
         </Link>

@@ -9,7 +9,7 @@ function Book() {
   return (
     <>
       {/* || Title */}
-      <TextInput formValue={form.title} inputName={'title'} label={'Title of Book or Chapter'} updateForm={updateForm} />
+      <TextInput formValue={form.title} inputName={'title'} label={'Title of Book'} updateForm={updateForm} />
       
       {/* || Source (Container) */}
       <TextInput
@@ -21,17 +21,17 @@ function Book() {
       />
 
       {/* || Version (Edition) */}
-      <TextInput
+      {/* <TextInput
         formValue={form.version}
         inputName={'version'}
         label={'Edition'}
         cols={6}
         fullWidth={false}
         updateForm={updateForm}
-      />
+      /> */}
 
       {/* || Number */}
-      <TextInput
+      {/* <TextInput
         formValue={form.number}
         inputName={'number'}
         cols={6}
@@ -40,7 +40,7 @@ function Book() {
         tooltipMessage={
           'Identifies which part in a numbered series the source belongs to (e.g. vol. 6, no. 2, season 2, episode 21).'
         }
-      />
+      /> */}
 
       {/* || Page start */}
       <TextInput
@@ -61,10 +61,10 @@ function Book() {
       />
 
       {/* || DOI */}
-      <TextInput formValue={form.doi} inputName={'doi'} label={'DOI'} updateForm={updateForm} />
+      {/* <TextInput formValue={form.doi} inputName={'doi'} label={'DOI'} updateForm={updateForm} /> */}
 
       {/* || URL */}
-      <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} />
+      {/* <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} /> */}
 
       {/* || Author first name, middle initial, last name, and suffix */}
       <TextInput

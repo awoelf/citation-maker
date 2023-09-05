@@ -34,12 +34,3 @@ export function CitationStyle() {
   );
   return { citationStyle, setCitationStyle, removeItem };
 }
-
-// User defined citation source (eg. Book, Website, Journal, Misc)
-export function CitationSource() {
-  const [citationSource, setCitationSource, { removeItem }] = useLocalStorageState<string>(
-    'citationSource',
-    { defaultValue: '' }
-  );
-  return { citationSource, setCitationSource, removeItem };
-}
