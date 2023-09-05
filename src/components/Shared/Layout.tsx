@@ -42,11 +42,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }}
     >
       <NextUIProvider>
-        <div className='container mx-auto h-screen flex flex-col'>
+        <div className='container mx-auto grid h-screen'>
           <link rel='icon' href='/favicon.ico' />
           <Header />
           {children}
-          <div className='mt-auto pb-4'>
+          <div className='mt-auto'>
             <Footer />
           </div>
         </div>

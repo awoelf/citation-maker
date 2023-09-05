@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import FormStorage from '../../utils/formStorage';
-import { Citations, CitationStyle, CitationSource } from '../../utils/citationStorage';
+import { Citations, CitationStyle } from '../../utils/citationStorage';
 import { form } from '@/@types/form';
 import { nanoid } from 'nanoid';
 

@@ -20,3 +20,7 @@ export const validateInput = (value: string) => {
 export const formatDate = (date?: string): string => {
   return date ? dayjs(date).format('D MMM. YYYY') : '';
 };
+
+export const formatYear = (date?: string): string => {
+  return date ? dayjs(date).format('YYYY') : '';
+};
