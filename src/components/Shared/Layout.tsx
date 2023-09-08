@@ -33,8 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider
       storageKey='theme'
-      enableSystem={true}
-      defaultTheme='system'
+      defaultTheme='light'
       attribute='class'
       value={{
         light: lightTheme.className,
