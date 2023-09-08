@@ -51,6 +51,7 @@ Alexis Woelffer
 <a href='https://github.com/awoelf'>
 <img src='./images/github.svg' width='30'/>
 </a>
+<a href='https://ko-fi.com/P5P5MUGSA' target='_blank'><img height='36' style='border:0px;height:30px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

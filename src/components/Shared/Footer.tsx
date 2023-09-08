@@ -18,19 +18,11 @@ function Footer() {
       </div>
       <div className='flex justify-center align-center'>
         <Link
-          href={'https://qfreeaccountssjc1.az1.qualtrics.com/jfe/form/SV_4OwTY3UxhL6Ti1U'}
+          href={'https://github.com/awoelf/citation-maker/issues'}
           target='_blank'
           className='text-inherit text-center'
         >
-          Submit Feedback
-        </Link>
-        <Dot className='h-6 w-auto' />
-        <Link
-          href={'https://owl.purdue.edu/owl/index.html'}
-          target='_blank'
-          className='text-inherit text-center'
-        >
-          Purdue Online Writing Lab
+          Submit an issue
         </Link>
         <Dot className='h-6 w-auto' />
         <Link
