@@ -37,7 +37,7 @@ Citation Maker is a website that will generate MLA citations for websites, books
 - APA style
 
 ## Contribute
-Feel free to submit a GitHub issue for any bugs found in Citation Maker; suggestions for new features are also welcome.
+Feel free to submit a GitHub issue for any bugs found in Citation Maker; suggestions for new features are also welcome. Use the issue template pinned in the Issues tab to make documenting bugs easier!
 
 ## Contact
 Alexis Woelffer
