@@ -24,6 +24,7 @@ export interface formProps {
   cols?: number;
   mobileCols?: number;
   label?: string;
+  placeholder?: string;
 }
 
 export interface otherContributors {

@@ -3,6 +3,7 @@ import FormStorage from '@/utils/formStorage';
 // Components
 import TextInput from '../Input/TextInput';
 import OtherContributors from '../Input/OtherContributors';
+import { Text, Collapse, Grid } from '@nextui-org/react';
 
 function Website() {
   const { form, updateForm } = FormStorage();
@@ -44,7 +45,7 @@ function Website() {
         cols={2}
         mobileCols={6}
       />
-       <TextInput
+      <TextInput
         formValue={form.lastName}
         inputName={'lastName'}
         updateForm={updateForm}
@@ -68,22 +69,61 @@ function Website() {
 
       {/* || Date published */}
       <TextInput
-        formValue={form.datePublished}
-        inputName={'datePublished'}
-        cols={6}
-        fullWidth={false}
-        type='date'
+        formValue={form.dayPublished}
+        inputName={'dayPublished'}
+        label='Date Published'
+        placeholder='Day'
         updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.monthPublushed}
+        inputName={'monthPublished'}
+        label='&nbsp;'
+        placeholder='Month'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.yearPublished}
+        inputName={'yearPublished'}
+        label='&nbsp;'
+        placeholder='Year'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
       />
 
       {/* || Date accessed */}
+
       <TextInput
-        formValue={form.dateAccessed}
-        inputName={'dateAccessed'}
-        cols={6}
-        fullWidth={false}
-        type='date'
+        formValue={form.dayAccessed}
+        inputName={'dayAccessed'}
+        label='Date Accessed'
+        placeholder='Day'
         updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.monthAccessed}
+        inputName={'monthAccessed'}
+        label='&nbsp;'
+        placeholder='Month'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.yearAccessed}
+        inputName={'yearAccessed'}
+        label='&nbsp;'
+        placeholder='Year'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
       />
     </>
   );
