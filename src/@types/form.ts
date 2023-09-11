@@ -51,11 +51,9 @@ export interface form {
   pageStart?: string;
   pageEnd?: string;
   doi?: string;
-  datePublished?: string;
   dayPublished?: string;
-  monthPublushed?: string;
+  monthPublished?: string;
   yearPublished?: string;
-  dateAccessed?: string;
   dayAccessed?: string;
   monthAccessed?: string;
   yearAccessed?: string;

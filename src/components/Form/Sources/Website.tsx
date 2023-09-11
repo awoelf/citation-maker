@@ -73,15 +73,17 @@ function Website() {
         inputName={'dayPublished'}
         label='Date Published'
         placeholder='Day'
+        type='number'
         updateForm={updateForm}
         cols={4}
         mobileCols={12}
       />
       <TextInput
-        formValue={form.monthPublushed}
+        formValue={form.monthPublished}
         inputName={'monthPublished'}
         label='&nbsp;'
         placeholder='Month'
+        type='number'
         updateForm={updateForm}
         cols={4}
         mobileCols={12}
@@ -91,18 +93,19 @@ function Website() {
         inputName={'yearPublished'}
         label='&nbsp;'
         placeholder='Year'
+        type='number'
         updateForm={updateForm}
         cols={4}
         mobileCols={12}
       />
 
       {/* || Date accessed */}
-
       <TextInput
         formValue={form.dayAccessed}
         inputName={'dayAccessed'}
         label='Date Accessed'
         placeholder='Day'
+        type='number'
         updateForm={updateForm}
         cols={4}
         mobileCols={12}
@@ -112,6 +115,7 @@ function Website() {
         inputName={'monthAccessed'}
         label='&nbsp;'
         placeholder='Month'
+        type='number'
         updateForm={updateForm}
         cols={4}
         mobileCols={12}
@@ -121,6 +125,7 @@ function Website() {
         inputName={'yearAccessed'}
         label='&nbsp;'
         placeholder='Year'
+        type='number'
         updateForm={updateForm}
         cols={4}
         mobileCols={12}

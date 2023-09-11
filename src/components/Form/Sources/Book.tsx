@@ -117,10 +117,34 @@ function Book() {
 
       {/* || Date published */}
       <TextInput
-        formValue={form.datePublished}
-        inputName={'datePublished'}
-        type='date'
+        formValue={form.dayPublished}
+        inputName={'dayPublished'}
+        label='Date Published'
+        placeholder='Day'
+        type='number'
         updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.monthPublished}
+        inputName={'monthPublished'}
+        label='&nbsp;'
+        placeholder='Month'
+        type='number'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.yearPublished}
+        inputName={'yearPublished'}
+        label='&nbsp;'
+        placeholder='Year'
+        type='number'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
       />
     </>
   );
