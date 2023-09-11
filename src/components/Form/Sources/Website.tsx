@@ -3,10 +3,20 @@ import FormStorage from '@/utils/formStorage';
 // Components
 import TextInput from '../Input/TextInput';
 import OtherContributors from '../Input/OtherContributors';
-import { Text, Collapse, Grid } from '@nextui-org/react';
 
 function Website() {
   const { form, updateForm } = FormStorage();
+  // const [datePublished, setDatePublished] = useState<date>({
+  //   day: '',
+  //   month: '',
+  //   year: '',
+  // });
+  // const [dateAccessed, setDateAccessed] = useState<date>({
+  //   day: '',
+  //   month: '',
+  //   year: '',
+  // });
+
   return (
     <>
       {/* || Title */}
@@ -76,7 +86,6 @@ function Website() {
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
         formValue={form.monthPublished}
@@ -86,7 +95,6 @@ function Website() {
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
         formValue={form.yearPublished}
@@ -96,7 +104,6 @@ function Website() {
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
 
       {/* || Date accessed */}
@@ -108,7 +115,6 @@ function Website() {
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
         formValue={form.monthAccessed}
@@ -118,7 +124,6 @@ function Website() {
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
         formValue={form.yearAccessed}
@@ -128,7 +133,6 @@ function Website() {
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
     </>
   );

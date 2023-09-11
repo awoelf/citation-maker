@@ -12,15 +12,18 @@ export const filterList = (list: [string], str: string) => {
   return list.filter((item) => item !== str) as [string];
 };
 
-// May be removed
+// TO DO: remove/change
 export const validateInput = (value: string) => {
   return value.match(/^[a-zA-Z0-9_\-()\/ .,:'’]*$/i);
 }
 
+// TO DO: Remove period when May is present
 export const formatDate = (date?: string): string => {
   return date ? dayjs(date).format('D MMM. YYYY') : '';
 };
 
-export const formatYear = (date?: string): string => {
-  return date ? dayjs(date).format('YYYY') : '';
+export const formatYear = (year?: string): string => {
+  return year ? dayjs(year).format('YYYY') : '';
 };
+
+
