@@ -6,8 +6,9 @@ import { ThreeDots } from 'react-bootstrap-icons';
 import DeleteButton from './Input/DeleteButton';
 import CopyButton from './Input/CopyButton';
 import StyleDropdown from '../Form/Input/StyleDropdown';
-import { Card, Popover } from '@nextui-org/react';
+import { Card, Grid, Tooltip, Button } from '@nextui-org/react';
 import MLAStyle from './MLA/MLAStyle';
+import { Trash, Clipboard, Pencil } from 'react-bootstrap-icons';
 
 function CitationPage() {
   const { citations } = Citations();
@@ -24,7 +25,37 @@ function CitationPage() {
           </div>
           {citations.map((item: form) => (
             <Card variant='flat' className='flex' key={item.id}>
-              <MLAStyle data={item} />
+              <Grid.Container justify='space-between' alignItems='center'>
+                <Grid xs={8} sm={10}>
+                  <MLAStyle data={item} />
+                </Grid>
+                <Grid xs={4} sm={2} justify='center' className='gap-2'>
+                  <Tooltip content={'Copy citation'} color='invert' trigger='hover'>
+                    <Button
+                      icon={<Clipboard />}
+                      auto
+                      light
+                      className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+                    />
+                  </Tooltip>
+                  <Tooltip content={'Edit citation'} color='invert' trigger='hover'>
+                    <Button
+                      icon={<Pencil />}
+                      auto
+                      light
+                      className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+                    />
+                  </Tooltip>
+                  <Tooltip content={'Delete citation'} color='invert' trigger='hover'>
+                    <Button
+                      icon={<Trash />}
+                      auto
+                      light
+                      className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+                    />
+                  </Tooltip>
+                </Grid>
+              </Grid.Container>
             </Card>
           ))}
         </div>
