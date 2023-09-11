@@ -1,12 +1,24 @@
+import { useState } from 'react';
 import FormStorage from '@/utils/formStorage';
+import { date } from '@/@types/form';
 
 // Components
 import TextInput from '../Input/TextInput';
 import OtherContributors from '../Input/OtherContributors';
-import { Text, Collapse, Grid } from '@nextui-org/react';
 
 function Website() {
   const { form, updateForm } = FormStorage();
+  const [datePublished, setDatePublished] = useState<date>({
+    day: '',
+    month: '',
+    year: '',
+  });
+  const [dateAccessed, setDateAccessed] = useState<date>({
+    day: '',
+    month: '',
+    year: '',
+  });
+
   return (
     <>
       {/* || Title */}
@@ -68,41 +80,42 @@ function Website() {
       <TextInput formValue={form.publisher} inputName={'publisher'} updateForm={updateForm} />
 
       {/* || Date published */}
+
       <TextInput
-        formValue={form.dayPublished}
-        inputName={'dayPublished'}
+        formValue={datePublished.day}
+        inputName={'day'}
         label='Date Published'
         placeholder='Day'
         type='number'
-        updateForm={updateForm}
+        updateForm={setDatePublished}
         cols={4}
         mobileCols={12}
       />
       <TextInput
-        formValue={form.monthPublished}
-        inputName={'monthPublished'}
+        formValue={datePublished.month}
+        inputName={'month'}
         label='&nbsp;'
         placeholder='Month'
         type='number'
-        updateForm={updateForm}
+        updateForm={setDatePublished}
         cols={4}
         mobileCols={12}
       />
       <TextInput
-        formValue={form.yearPublished}
-        inputName={'yearPublished'}
+        formValue={datePublished.year}
+        inputName={'year'}
         label='&nbsp;'
         placeholder='Year'
         type='number'
-        updateForm={updateForm}
+        updateForm={setDatePublished}
         cols={4}
         mobileCols={12}
       />
 
       {/* || Date accessed */}
-      <TextInput
-        formValue={form.dayAccessed}
-        inputName={'dayAccessed'}
+      {/* <TextInput
+        formValue={form.dateAccessed?.day}
+        inputName={'dateAccessed.day'}
         label='Date Accessed'
         placeholder='Day'
         type='number'
@@ -111,8 +124,8 @@ function Website() {
         mobileCols={12}
       />
       <TextInput
-        formValue={form.monthAccessed}
-        inputName={'monthAccessed'}
+        formValue={form.dateAccessed?.month}
+        inputName={'dateAccessed.month'}
         label='&nbsp;'
         placeholder='Month'
         type='number'
@@ -121,15 +134,15 @@ function Website() {
         mobileCols={12}
       />
       <TextInput
-        formValue={form.yearAccessed}
-        inputName={'yearAccessed'}
+        formValue={form.dateAccessed?.year}
+        inputName={'dateAccessed.year'}
         label='&nbsp;'
         placeholder='Year'
         type='number'
         updateForm={updateForm}
         cols={4}
         mobileCols={12}
-      />
+      /> */}
     </>
   );
 }

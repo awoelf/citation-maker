@@ -19,13 +19,11 @@ function CitationPage() {
             <div className='flex gap-2 pb-2'>
               {/* TO DO: Buttons will be hidden until features are supported. */}
               {/* <CopyButton /> */}
-              {/* <StyleDropdown /> */}
             </div>
             <DeleteButton />
           </div>
           {citations.map((item: form) => (
             <Card variant='flat' className='flex' key={item.id}>
-
               <MLAStyle data={item} />
             </Card>
           ))}
