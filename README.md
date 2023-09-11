@@ -56,4 +56,5 @@ Alexis Woelffer
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Images -->
-[citation-maker-img]: ./images/citation-maker.PNG
+[citation-maker-img]: ./images/citation-maker.png
+
