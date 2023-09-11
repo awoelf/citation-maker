@@ -16,7 +16,7 @@ export interface contributor {
 // Interface that is used for passing props to the TextInput component
 export interface formProps {
   formValue?: string | [string];
-  updateForm?: formChange | dateChange;
+  updateForm?: formChange;
   inputName: string;
   tooltipMessage?: string;
   fullWidth?: boolean;
@@ -31,14 +31,6 @@ export interface otherContributors {
   key: string;
   value: contributor;
 }
-
-export interface date {
-  day: string;
-  month: string;
-  year: string;
-}
-
-export type dateChange = Dispatch<SetStateAction<date>>;
 
 // Interface for form input
 export interface form {
@@ -61,7 +53,12 @@ export interface form {
   doi?: string;
   datePublished?: string;
   dayPublished?: string;
+  monthPublished?: string;
+  yearPublished?: string;
   dateAccessed?: string;
+  dayAccessed?: string;
+  monthAccessed?: string;
+  yearAccessed?: string;
   citationSource?: string;
 }
 

@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import FormStorage from '@/utils/formStorage';
-import { date } from '@/@types/form';
 
 // Components
 import TextInput from '../Input/TextInput';
@@ -8,16 +6,16 @@ import OtherContributors from '../Input/OtherContributors';
 
 function Website() {
   const { form, updateForm } = FormStorage();
-  const [datePublished, setDatePublished] = useState<date>({
-    day: '',
-    month: '',
-    year: '',
-  });
-  const [dateAccessed, setDateAccessed] = useState<date>({
-    day: '',
-    month: '',
-    year: '',
-  });
+  // const [datePublished, setDatePublished] = useState<date>({
+  //   day: '',
+  //   month: '',
+  //   year: '',
+  // });
+  // const [dateAccessed, setDateAccessed] = useState<date>({
+  //   day: '',
+  //   month: '',
+  //   year: '',
+  // });
 
   return (
     <>
@@ -80,69 +78,62 @@ function Website() {
       <TextInput formValue={form.publisher} inputName={'publisher'} updateForm={updateForm} />
 
       {/* || Date published */}
-
       <TextInput
-        formValue={datePublished.day}
-        inputName={'day'}
+        formValue={form.dayPublished}
+        inputName={'dayPublished'}
         label='Date Published'
         placeholder='Day'
         type='number'
-        updateForm={setDatePublished}
+        updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
-        formValue={datePublished.month}
-        inputName={'month'}
+        formValue={form.monthPublished}
+        inputName={'monthPublished'}
         label='&nbsp;'
         placeholder='Month'
         type='number'
-        updateForm={setDatePublished}
+        updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
-        formValue={datePublished.year}
-        inputName={'year'}
+        formValue={form.yearPublished}
+        inputName={'yearPublished'}
         label='&nbsp;'
         placeholder='Year'
         type='number'
-        updateForm={setDatePublished}
+        updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
 
       {/* || Date accessed */}
-      {/* <TextInput
-        formValue={form.dateAccessed?.day}
-        inputName={'dateAccessed.day'}
+      <TextInput
+        formValue={form.dayAccessed}
+        inputName={'dayAccessed'}
         label='Date Accessed'
         placeholder='Day'
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
-        formValue={form.dateAccessed?.month}
-        inputName={'dateAccessed.month'}
+        formValue={form.monthAccessed}
+        inputName={'monthAccessed'}
         label='&nbsp;'
         placeholder='Month'
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
-        formValue={form.dateAccessed?.year}
-        inputName={'dateAccessed.year'}
+        formValue={form.yearAccessed}
+        inputName={'yearAccessed'}
         label='&nbsp;'
         placeholder='Year'
         type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
-      /> */}
+      />
     </>
   );
 }
