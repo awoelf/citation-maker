@@ -47,6 +47,7 @@ const TextInput: React.FC<formProps> = (props) => {
         helperColor={helper.color as SimpleColors}
         helperText={helper.text}
         contentLeftStyling={false}
+        placeholder={props.placeholder}
         contentLeft={
           props.tooltipMessage ? (
             <Tooltip

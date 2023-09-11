@@ -92,22 +92,66 @@ function Misc() {
 
       {/* || Date published */}
       <TextInput
-        formValue={form.datePublished}
-        inputName={'datePublished'}
-        cols={6}
-        fullWidth={false}
-        type='date'
+        formValue={form.dayPublished}
+        inputName={'dayPublished'}
+        label='Date Published'
+        placeholder='Day'
+        type='number'
         updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.monthPublished}
+        inputName={'monthPublished'}
+        label='&nbsp;'
+        placeholder='Month'
+        type='number'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.yearPublished}
+        inputName={'yearPublished'}
+        label='&nbsp;'
+        placeholder='Year'
+        type='number'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
       />
 
       {/* || Date accessed */}
       <TextInput
-        formValue={form.dateAccessed}
-        inputName={'dateAccessed'}
-        cols={6}
-        fullWidth={false}
-        type='date'
+        formValue={form.dayAccessed}
+        inputName={'dayAccessed'}
+        label='Date Accessed'
+        placeholder='Day'
+        type='number'
         updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.monthAccessed}
+        inputName={'monthAccessed'}
+        label='&nbsp;'
+        placeholder='Month'
+        type='number'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
+      />
+      <TextInput
+        formValue={form.yearAccessed}
+        inputName={'yearAccessed'}
+        label='&nbsp;'
+        placeholder='Year'
+        type='number'
+        updateForm={updateForm}
+        cols={4}
+        mobileCols={12}
       />
     </>
   );
