@@ -99,7 +99,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
     case 'website':
       return (
         <Card.Body>
-          <Text>
+          <Text className='citation-style'>
             <Authors />
             <Title />
             <Source />

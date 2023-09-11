@@ -17,3 +17,15 @@ body {
 .header {
   font-family: var(--font-crete-round);
 }
+
+/* || Citation style */
+.citation-style {
+  margin-left: 1cm;
+  text-indent: -0.5cm;
+  padding: 0px 5px;
+  display: inline-block;
+  width: calc(100% - 40px);
+  word-break: break-word;
+  line-height: 200%;
+  user-select: none;
+}
