@@ -1,6 +1,5 @@
 import useLocalStorageState from 'use-local-storage-state';
 import { form, formEvent } from '@/@types/form';
-import { nanoid } from 'nanoid';
 
 // TO DO: Change citationSource to '' once other sources are supported.
 export default function FormStorage() {
@@ -43,9 +42,5 @@ export default function FormStorage() {
     setForm({ ...form, citationSource: citationSource });
   }
 
-  function createId() {
-    setForm({ ...form, id: nanoid() });
-  }
-
-  return { form, setForm, removeItem, updateForm, updateCitationSource, createId };
+  return { form, setForm, removeItem, updateForm, updateCitationSource };
 }

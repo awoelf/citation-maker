@@ -4,6 +4,8 @@ import { formatDate, formatYear } from '@/utils/helpers';
 // Components
 import { Card, Text } from '@nextui-org/react';
 
+
+// TO DO: Clean this code up
 const MLAStyle: React.FC<citationProps> = (props) => {
   const data = props.data;
 
@@ -101,7 +103,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
     case 'website':
       return (
         <Card.Body>
-          <Text className='citation-style'>
+          <Text className='citation-style' id={data.id}>
             <Authors />
             <Title />
             <Source />
@@ -117,7 +119,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
     case 'book':
       return (
         <Card.Body>
-          <Text>
+          <Text className='citation-style' id={data.id}>
             <Authors />
             {data.source ? (
               <>
@@ -135,7 +137,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
     case 'journal':
       return (
         <Card.Body>
-          <Text>
+          <Text className='citation-style' id={data.id}>
             <Authors />
             <Title />
             <Source />
@@ -150,7 +152,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
     default:
       return (
         <Card.Body>
-          <Text>
+          <Text className='citation-style' id={data.id}>
             <Authors />
             <Title />
             <Source />

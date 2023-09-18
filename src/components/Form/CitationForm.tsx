@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import FormStorage from '../../utils/formStorage';
 import { Citations, CitationStyle } from '../../utils/citationStorage';
 import { form } from '@/@types/form';
-import { nanoid } from 'nanoid';
 
 // Components
 import { Grid, Button, Loading, Tooltip } from '@nextui-org/react';
@@ -11,10 +10,11 @@ import StyleDropdown from '../Form/Input/StyleDropdown';
 import SourceDropdown from './Input/SourceDropdown';
 import ClearButton from './Input/ClearButton';
 import SourceSwitcher from './Sources/SourceSwitcher';
+import { generateUid } from '@/utils/helpers';
 
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
-  const { form, removeItem, createId } = FormStorage();
+  const { form, setForm, removeItem } = FormStorage();
   const { citationStyle } = CitationStyle();
   const { citations, setCitations } = Citations();
   const router = useRouter();
@@ -24,30 +24,22 @@ function CitationForm() {
     setMounted(true);
   }, []);
 
-  function handleSubmit() {
-    if (citationStyle) {
-      try {
-        // TO DO: add this to formStorage.ts
-        createId();
+  async function handleSubmit() {
+    try {
+      if (form.id === '') form.id = generateUid();
+      const citationsList: Array<form> = [];
+      if (citations) citationsList.push(...citations);
+      citationsList.push(form);
+      setCitations(citationsList);
+      
+      // Clear form contents
+      removeItem();
 
-        // Add new citation to citation list
-        // Push data only to existing array citation list might be undefined if cleared.
-        const citationsList: Array<form> = [];
-        if (citations) citationsList.push(...citations);
-        citationsList.push(form);
-        setCitations(citationsList);
-
-        // Clear form contents
-        removeItem();
-
-        // Route to citation dashboard
-        setMounted(false);
-        router.push('/citations');
-      } catch (error) {
-        console.error('Error: ', error);
-      }
-    } else {
-      // TO DO: Put something here
+      // Route to citation dashboard
+      setMounted(false);
+      router.push('/citations');
+    } catch (error) {
+      console.error('Error: ', error);
     }
   }
 
@@ -71,7 +63,7 @@ function CitationForm() {
             isDisabled={!!citationStyle}
           >
             <Button onPress={handleSubmit} disabled={!citationStyle}>
-              Create Citation
+              {form.id ? 'Edit Citation' : 'Create Citation'}
             </Button>
           </Tooltip>
         </Grid>

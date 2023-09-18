@@ -1,11 +1,11 @@
 import { useState, ChangeEvent } from 'react';
 import { formProps, contributor } from '@/@types/form';
 import { PlusSquare, Trash } from 'react-bootstrap-icons';
-import { nanoid } from 'nanoid';
 import FormStorage from '../../../utils/formStorage';
+import { generateUid } from '@/utils/helpers';
 
 // Components
-import { Grid, Button, PressEvent, FormElement, Text, Collapse } from '@nextui-org/react';
+import { Button, PressEvent, FormElement, Text, Collapse } from '@nextui-org/react';
 import TextInput from './TextInput';
 
 const OtherContributors: React.FC<formProps> = (props) => {
@@ -33,7 +33,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
     // TO DO: Rewrite for simplicity.
     // Only push current form data if otherContributors contains valid data
     if (form.otherContributors) contributorsList.push(...form.otherContributors);
-    contributor.id = nanoid();
+    contributor.id = generateUid();
     contributorsList.push(contributor);
     setForm({ ...form, otherContributors: contributorsList as Array<contributor> });
 
@@ -51,9 +51,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
   const removeContributor = (e: PressEvent) => {
     const { id } = e.target;
     // const filteredContributors = filterList(otherContributors, id);
-    const filteredContributors = otherContributors?.filter((item) => {
-      return item.id != id;
-    });
+    const filteredContributors = otherContributors?.filter((item) => item.id != id);
     setForm({ ...form, otherContributors: filteredContributors });
   };
 
@@ -106,7 +104,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
               {otherContributors.map((item) => (
                 <div
                   className='border-b last:border-b-0 flex justify-between items-center'
-                  key={nanoid()}
+                  key={item.id}
                 >
                   <p className='pl-2'>
                     {item.firstName} {item.middleInitial ? `${item.middleInitial}.` : null}{' '}
