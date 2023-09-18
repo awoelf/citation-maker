@@ -12,17 +12,6 @@ function Misc() {
       {/* || Title */}
       <TextInput formValue={form.title} inputName={'title'} updateForm={updateForm} />
 
-      {/* || Source (Container) */}
-      <TextInput
-        formValue={form.source}
-        inputName={'source'}
-        label={'Container'}
-        updateForm={updateForm}
-        tooltipMessage={
-          'The larger whole in which the source is located, such as a collection, database, or book title if citing a chapter.'
-        }
-      />
-
       {/* || URL */}
       <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} />
 

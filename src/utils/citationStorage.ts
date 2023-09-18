@@ -1,30 +1,28 @@
 import { form } from '@/@types/form';
 import useLocalStorageState from 'use-local-storage-state';
-import { nanoid } from 'nanoid';
+import FormStorage from './formStorage';
+import { useRouter } from 'next/router';
 
 // Local storage object for storing form data of multiple citations
 export function Citations() {
-  const addNewCitation = (formData: form) => {
-    formData.id = nanoid();
-    
+  const updateCitationById = (id: string) => {
+    // const { setForm } = FormStorage();
+    // const router = useRouter();
+
+    // const formData = citations?.find((item) => item.id == id);
+
+    // if (formData) setForm(formData);
+    // router.push('/')
   };
 
-  const updateCitationById = () => {};
-
-  const deleteCitationById = () => {};
+  const deleteCitationById = (id: string) => {
+    const filteredCitations = citations?.filter((item) => item.id != id);
+    filteredCitations?.length === 0 ? setCitations(undefined) : setCitations(filteredCitations);
+  };
 
   const [citations, setCitations, { removeItem }] = useLocalStorageState<Array<form>>('citations');
-  return { citations, setCitations, removeItem };
+  return { citations, setCitations, deleteCitationById, updateCitationById, removeItem };
 }
-
-// Might be unused
-// export function CitationFormatted() {
-//   const [citationFormatted, setCitationFormatted, { removeItem }] = useLocalStorageState<string>(
-//     'citationFormatted',
-//     { defaultValue: '' }
-//   );
-//   return { citationFormatted, setCitationFormatted, removeItem };
-// }
 
 // User defined citation style (eg. MLA, APA, Chicago)
 export function CitationStyle() {

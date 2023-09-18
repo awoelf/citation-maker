@@ -34,7 +34,7 @@ export interface otherContributors {
 
 // Interface for form input
 export interface form {
-  id?: string;
+  id: string;
   firstName?: string;
   middleInitial?: string;
   lastName?: string;

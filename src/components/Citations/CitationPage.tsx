@@ -1,26 +1,23 @@
 import { Citations } from '../../utils/citationStorage';
 import { form } from '@/@types/form';
-import { ThreeDots } from 'react-bootstrap-icons';
+import { copyCitation } from '@/utils/helpers';
 
 // Components
 import DeleteButton from './Input/DeleteButton';
 import CopyButton from './Input/CopyButton';
-import StyleDropdown from '../Form/Input/StyleDropdown';
 import { Card, Grid, Tooltip, Button } from '@nextui-org/react';
 import MLAStyle from './MLA/MLAStyle';
 import { Trash, Clipboard, Pencil } from 'react-bootstrap-icons';
 
 function CitationPage() {
-  const { citations } = Citations();
+  const { citations, deleteCitationById, updateCitationById } = Citations();
+  
   return (
     <div>
       {citations ? (
         <div className='grid gap-2'>
           <div className='flex justify-between'>
-            <div className='flex gap-2 pb-2'>
-              {/* TO DO: Buttons will be hidden until features are supported. */}
-              {/* <CopyButton /> */}
-            </div>
+            <div className='flex gap-2 pb-2'>{/* <CopyButton /> */}</div>
             <DeleteButton />
           </div>
           {citations.map((item: form) => (
@@ -36,6 +33,7 @@ function CitationPage() {
                       auto
                       light
                       className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+                      onPress={() => copyCitation(item.id)}
                     />
                   </Tooltip>
                   <Tooltip content={'Edit citation'} color='invert' trigger='hover'>
@@ -44,6 +42,7 @@ function CitationPage() {
                       auto
                       light
                       className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+                      onPress={() => updateCitationById(item.id)}
                     />
                   </Tooltip>
                   <Tooltip content={'Delete citation'} color='invert' trigger='hover'>
@@ -52,6 +51,7 @@ function CitationPage() {
                       auto
                       light
                       className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+                      onPress={() => deleteCitationById(item.id)}
                     />
                   </Tooltip>
                 </Grid>
