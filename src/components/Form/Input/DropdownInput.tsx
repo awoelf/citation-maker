@@ -1,4 +1,4 @@
-import { Key, useState } from 'react';
+import { Key } from 'react';
 import { formProps, formChangeDropdown } from '@/@types/form';
 import { QuestionSquare } from 'react-bootstrap-icons';
 import { capitalize, addSpace } from '../../../utils/helpers';
@@ -33,9 +33,9 @@ const DropdownInput: React.FC<formProps> = (props) => {
             label={props.label || capitalize(addSpace(props.inputName))}
             name={props.inputName}
             value={props.formValue}
-            type={props.type || 'text'}
             bordered
             readOnly
+            type='text'
             contentLeftStyling={false}
             placeholder={props.placeholder}
             contentLeft={

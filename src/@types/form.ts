@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import { ChangeEvent, ReactNode } from 'react';
 export type formEvent = ChangeEvent<FormElement>;
 export type formChange = (e: ChangeEvent<FormElement>) => void;
 export type formChangeDropdown = (inputName: string, inputValue: string) => void;
@@ -20,12 +20,17 @@ export interface formProps {
   updateForm?: formChange | formChangeDropdown;
   inputName: string;
   tooltipMessage?: string;
+  contentLeft?: ReactNode;
   fullWidth?: boolean;
   type?: string;
   cols?: number;
   mobileCols?: number;
   label?: string;
   placeholder?: string;
+}
+
+export interface tooltipProps {
+  tooltipMessage: string;
 }
 
 export interface otherContributors {

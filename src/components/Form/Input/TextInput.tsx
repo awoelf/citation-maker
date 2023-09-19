@@ -48,19 +48,7 @@ const TextInput: React.FC<formProps> = (props) => {
         helperText={helper.text}
         contentLeftStyling={false}
         placeholder={props.placeholder}
-        contentLeft={
-          props.tooltipMessage ? (
-            <Tooltip
-              color='invert'
-              className='pl-4'
-              trigger='hover'
-              placement='right'
-              content={props.tooltipMessage}
-            >
-              <QuestionSquare className='opacity-50' />
-            </Tooltip>
-          ) : null
-        }
+        contentLeft={props.contentLeft}
       />
     </Grid>
   );

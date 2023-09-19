@@ -4,10 +4,12 @@ import FormStorage from '@/utils/formStorage';
 import TextInput from '../Input/TextInput';
 import OtherContributors from '../Input/OtherContributors';
 import DropdownInput from '../Input/DropdownInput';
+import UseTodayDate from '../Input/UseTodayDate';
+import TooltipInput from '../Input/TooltipInput';
 
 // Generic form for any source that isn't a book, website, or journal.
 function Misc() {
-  const { form, updateForm, updateFormDropdown } = FormStorage();
+  const { form, updateForm, updateFormDate } = FormStorage();
   return (
     <>
       {/* || Title */}
@@ -32,7 +34,7 @@ function Misc() {
         cols={2}
         mobileCols={6}
       />
-       <TextInput
+      <TextInput
         formValue={form.lastName}
         inputName={'lastName'}
         updateForm={updateForm}
@@ -45,7 +47,9 @@ function Misc() {
         updateForm={updateForm}
         cols={2}
         mobileCols={6}
-        tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."'
+        contentLeft={
+          <TooltipInput tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."' />
+        }
       />
 
       {/* || Source */}
@@ -97,7 +101,7 @@ function Misc() {
         label='&nbsp;'
         placeholder='Month'
         type='number'
-        updateForm={updateFormDropdown}
+        updateForm={updateFormDate}
         cols={4}
         mobileCols={12}
       />
@@ -122,14 +126,17 @@ function Misc() {
         updateForm={updateForm}
         cols={4}
         mobileCols={12}
+        contentLeft={
+          <UseTodayDate />
+        }
       />
-      <TextInput
+      <DropdownInput
         formValue={form.monthAccessed}
         inputName={'monthAccessed'}
         label='&nbsp;'
         placeholder='Month'
         type='number'
-        updateForm={updateForm}
+        updateForm={updateFormDate}
         cols={4}
         mobileCols={12}
       />
