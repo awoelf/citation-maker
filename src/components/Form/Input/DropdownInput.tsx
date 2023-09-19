@@ -56,7 +56,6 @@ const DropdownInput: React.FC<formProps> = (props) => {
         <Dropdown.Menu
           aria-label='month dropdown'
           onSelectionChange={setSelectedValue}
-          disallowEmptySelection
           selectionMode='single'
         >
           <Dropdown.Item key='01'>01 - January</Dropdown.Item>
