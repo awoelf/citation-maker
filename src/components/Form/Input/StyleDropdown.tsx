@@ -9,7 +9,6 @@ function StyleDropdown() {
   const { citationStyle, setCitationStyle } = CitationStyle();
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
-    // Not sure if this is the best way to get string value from set, but it works.
     setCitationStyle(Array.from(keys)[0] as string);
   };
 

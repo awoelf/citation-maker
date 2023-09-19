@@ -3,10 +3,11 @@ import FormStorage from '@/utils/formStorage';
 //Components
 import TextInput from '../Input/TextInput';
 import OtherContributors from '../Input/OtherContributors';
+import DropdownInput from '../Input/DropdownInput';
 
 // Generic form for any source that isn't a book, website, or journal.
 function Misc() {
-  const { form, updateForm } = FormStorage();
+  const { form, updateForm, updateFormDropdown } = FormStorage();
   return (
     <>
       {/* || Title */}
@@ -90,13 +91,13 @@ function Misc() {
         cols={4}
         mobileCols={12}
       />
-      <TextInput
+      <DropdownInput
         formValue={form.monthPublished}
         inputName={'monthPublished'}
         label='&nbsp;'
         placeholder='Month'
         type='number'
-        updateForm={updateForm}
+        updateForm={updateFormDropdown}
         cols={4}
         mobileCols={12}
       />

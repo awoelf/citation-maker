@@ -38,9 +38,13 @@ export default function FormStorage() {
     setForm({ ...form, [name]: value });
   }
 
+  function updateFormDropdown(inputName: string, inputValue: string) {
+    setForm({ ...form, [inputName]: inputValue });
+  }
+
   function updateCitationSource(citationSource: string) {
     setForm({ ...form, citationSource: citationSource });
   }
 
-  return { form, setForm, removeItem, updateForm, updateCitationSource };
+  return { form, setForm, removeItem, updateForm, updateFormDropdown, updateCitationSource };
 }

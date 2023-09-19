@@ -1,6 +1,7 @@
 import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 export type formEvent = ChangeEvent<FormElement>;
 export type formChange = (e: ChangeEvent<FormElement>) => void;
+export type formChangeDropdown = (inputName: string, inputValue: string) => void;
 import { FormElement } from '@nextui-org/react';
 
 // Interface for other contributors
@@ -16,7 +17,7 @@ export interface contributor {
 // Interface that is used for passing props to the TextInput component
 export interface formProps {
   formValue?: string | [string];
-  updateForm?: formChange;
+  updateForm?: formChange | formChangeDropdown;
   inputName: string;
   tooltipMessage?: string;
   fullWidth?: boolean;
