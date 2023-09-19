@@ -9,7 +9,7 @@ const UseTodayDate: React.FC = () => {
 
   return (
     <Grid xs={1}>
-      <Tooltip content={"Use today's date"} color='invert' trigger='hover'>
+      <Tooltip content={"Use today's date"} color='invert' trigger='hover' placement='right'>
         <Button
           auto
           light
