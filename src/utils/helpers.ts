@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import ShortUniqueId from 'short-unique-id';
 
 export const capitalize = (str: string) => {
@@ -13,9 +14,10 @@ export const filterList = (list: [string], str: string) => {
 };
 
 // TO DO: remove/change
-export const validateInput = (value: string) => {
-  return value.match(/^[a-zA-Z0-9_\-()\/ .,:'’]*$/i);
+export const validateInput = (value: string | number) => {
+  return true;
 };
+
 
 export const copyCitation = (elementId: string) => {
   const copyText = document.getElementById(elementId);
