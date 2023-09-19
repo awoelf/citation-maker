@@ -16,7 +16,7 @@ function CitationForm() {
   const [mounted, setMounted] = useState(false);
   const { form, setForm, removeItem } = FormStorage();
   const { citationStyle } = CitationStyle();
-  const { citations, setCitations } = Citations();
+  const { updateCitation, addCitation } = Citations();
   const router = useRouter();
 
   // Prevent hydration errors
@@ -26,12 +26,15 @@ function CitationForm() {
 
   async function handleSubmit() {
     try {
-      if (form.id === '') form.id = generateUid();
-      const citationsList: Array<form> = [];
-      if (citations) citationsList.push(...citations);
-      citationsList.push(form);
-      setCitations(citationsList);
-      
+      if (form.id === '') {
+        // If this is a new citation, generate id and add to citations
+        form.id = generateUid();
+        addCitation(form);
+      } else {
+        // If editing this citation, use update function
+        updateCitation(form);
+      }
+
       // Clear form contents
       removeItem();
 
