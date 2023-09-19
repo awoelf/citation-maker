@@ -1,6 +1,8 @@
 import { Citations } from '../../utils/citationStorage';
 import { form } from '@/@types/form';
 import { copyCitation } from '@/utils/helpers';
+import FormStorage from '@/utils/formStorage';
+import { useRouter } from 'next/router';
 
 // Components
 import DeleteButton from './Input/DeleteButton';
@@ -10,8 +12,10 @@ import MLAStyle from './MLA/MLAStyle';
 import { Trash, Clipboard, Pencil } from 'react-bootstrap-icons';
 
 function CitationPage() {
-  const { citations, deleteCitationById, updateCitationById } = Citations();
-  
+  const { citations, deleteCitationById } = Citations();
+  const { setForm } = FormStorage();
+  const router = useRouter();
+
   return (
     <div>
       {citations ? (
@@ -42,7 +46,10 @@ function CitationPage() {
                       auto
                       light
                       className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
-                      onPress={() => updateCitationById(item.id)}
+                      onPress={() => {
+                        setForm(item);
+                        router.push('/')
+                      }}
                     />
                   </Tooltip>
                   <Tooltip content={'Delete citation'} color='invert' trigger='hover'>
