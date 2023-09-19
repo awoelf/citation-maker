@@ -1,5 +1,6 @@
 import useLocalStorageState from 'use-local-storage-state';
-import { form, formEvent } from '@/@types/form';
+import { form, formEvent, formChangeDropdown } from '@/@types/form';
+import dayjs from 'dayjs';
 
 // TO DO: Change citationSource to '' once other sources are supported.
 export default function FormStorage() {
@@ -17,19 +18,19 @@ export default function FormStorage() {
       number: '',
       publisher: '',
       datePublished: '',
-      dayPublished: '',
-      monthPublished: '',
-      yearPublished: '',
+      dayPublished: undefined,
+      monthPublished: undefined,
+      yearPublished: undefined,
       location: '',
       url: '',
       pageStart: '',
       pageEnd: '',
       doi: '',
       dateAccessed: '',
-      dayAccessed: '',
-      monthAccessed: '',
-      yearAccessed: '',
-      citationSource: '',
+      dayAccessed: undefined,
+      monthAccessed: undefined,
+      yearAccessed: undefined,
+      citationSource: 'website',
     },
   });
 
@@ -38,9 +39,22 @@ export default function FormStorage() {
     setForm({ ...form, [name]: value });
   }
 
+  function updateFormDate(inputName: string, inputValue: number)  {
+    setForm({ ...form, [inputName]: inputValue });
+  }
+
+  function updateTodayDate() {
+    setForm({
+      ...form,
+      dayAccessed: dayjs().date(),
+      monthAccessed: dayjs().month(),
+      yearAccessed: dayjs().year(),
+    });
+  }
+
   function updateCitationSource(citationSource: string) {
     setForm({ ...form, citationSource: citationSource });
   }
 
-  return { form, setForm, removeItem, updateForm, updateCitationSource };
+  return { form, setForm, removeItem, updateForm, updateFormDate, updateTodayDate, updateCitationSource };
 }

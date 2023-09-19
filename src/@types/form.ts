@@ -1,6 +1,7 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import { ChangeEvent, ReactNode } from 'react';
 export type formEvent = ChangeEvent<FormElement>;
 export type formChange = (e: ChangeEvent<FormElement>) => void;
+export type formChangeDropdown = (inputName: string, inputValue: number) => void;
 import { FormElement } from '@nextui-org/react';
 
 // Interface for other contributors
@@ -15,16 +16,21 @@ export interface contributor {
 
 // Interface that is used for passing props to the TextInput component
 export interface formProps {
-  formValue?: string | [string];
-  updateForm?: formChange;
+  formValue?: number | string | [string];
+  updateForm?: formChange | formChangeDropdown;
   inputName: string;
   tooltipMessage?: string;
+  contentLeft?: ReactNode;
   fullWidth?: boolean;
   type?: string;
   cols?: number;
   mobileCols?: number;
   label?: string;
   placeholder?: string;
+}
+
+export interface tooltipProps {
+  tooltipMessage: string;
 }
 
 export interface otherContributors {
@@ -52,13 +58,13 @@ export interface form {
   pageEnd?: string;
   doi?: string;
   datePublished?: string;
-  dayPublished?: string;
-  monthPublished?: string;
-  yearPublished?: string;
+  dayPublished?: number;
+  monthPublished?: number;
+  yearPublished?: number;
   dateAccessed?: string;
-  dayAccessed?: string;
-  monthAccessed?: string;
-  yearAccessed?: string;
+  dayAccessed?: number;
+  monthAccessed?: number;
+  yearAccessed?: number;
   citationSource?: string;
 }
 

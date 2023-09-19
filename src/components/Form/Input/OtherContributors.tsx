@@ -57,7 +57,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
 
   return (
     <div className='min-w-full'>
-      <Collapse.Group bordered borderWeight={'normal'} className='m-2'>
+      <Collapse.Group bordered borderWeight={'normal'} className='m-2 mt-4'>
         <Collapse title={<Text size='$sm'>Other Contributors</Text>}>
           <div aria-labelledby={props.inputName} className='grid grid-cols-2 sm:flex items-center'>
             <TextInput

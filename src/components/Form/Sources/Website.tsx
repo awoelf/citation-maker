@@ -3,9 +3,11 @@ import FormStorage from '@/utils/formStorage';
 // Components
 import TextInput from '../Input/TextInput';
 import OtherContributors from '../Input/OtherContributors';
+import DropdownInput from '../Input/DropdownInput';
+import UseTodayDate from '../Input/UseTodayDate';
 
 function Website() {
-  const { form, updateForm } = FormStorage();
+  const { form, updateForm, updateFormDate } = FormStorage();
   // const [datePublished, setDatePublished] = useState<date>({
   //   day: '',
   //   month: '',
@@ -83,17 +85,15 @@ function Website() {
         inputName={'dayPublished'}
         label='Date Published'
         placeholder='Day'
-        type='number'
         updateForm={updateForm}
         cols={4}
       />
-      <TextInput
+      <DropdownInput
         formValue={form.monthPublished}
         inputName={'monthPublished'}
         label='&nbsp;'
         placeholder='Month'
-        type='number'
-        updateForm={updateForm}
+        updateForm={updateFormDate}
         cols={4}
       />
       <TextInput
@@ -101,7 +101,6 @@ function Website() {
         inputName={'yearPublished'}
         label='&nbsp;'
         placeholder='Year'
-        type='number'
         updateForm={updateForm}
         cols={4}
       />
@@ -112,17 +111,18 @@ function Website() {
         inputName={'dayAccessed'}
         label='Date Accessed'
         placeholder='Day'
-        type='number'
         updateForm={updateForm}
         cols={4}
+        contentLeft={
+          <UseTodayDate />
+        }
       />
-      <TextInput
+      <DropdownInput
         formValue={form.monthAccessed}
         inputName={'monthAccessed'}
         label='&nbsp;'
         placeholder='Month'
-        type='number'
-        updateForm={updateForm}
+        updateForm={updateFormDate}
         cols={4}
       />
       <TextInput
@@ -130,7 +130,6 @@ function Website() {
         inputName={'yearAccessed'}
         label='&nbsp;'
         placeholder='Year'
-        type='number'
         updateForm={updateForm}
         cols={4}
       />

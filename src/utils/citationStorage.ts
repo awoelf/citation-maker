@@ -29,7 +29,7 @@ export function Citations() {
 export function CitationStyle() {
   const [citationStyle, setCitationStyle, { removeItem }] = useLocalStorageState<string>(
     'citationStyle',
-    { defaultValue: '' }
+    { defaultValue: 'mla' }
   );
   return { citationStyle, setCitationStyle, removeItem };
 }
