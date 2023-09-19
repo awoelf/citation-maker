@@ -1,11 +1,10 @@
 import { citationProps } from '@/@types/form';
-import { formatDate, formatYear } from '@/utils/helpers';
+import dayjs from 'dayjs';
 
 // Components
 import { Card, Text } from '@nextui-org/react';
 
-
-// TO DO: Clean this code up
+// TO DO: Clean this code up because it's a damn mess
 const MLAStyle: React.FC<citationProps> = (props) => {
   const data = props.data;
 
@@ -63,11 +62,11 @@ const MLAStyle: React.FC<citationProps> = (props) => {
   const Publisher = ({ year }: { year?: boolean }) => {
     return (
       <>
-        {data.publisher ? data.publisher : null}
+        {data.publisher ? data.publisher + ' ': null}
         {data.publisher && data.datePublished ? ', ' : null}
-        {year && data?.datePublished
-          ? formatYear(data.datePublished)
-          : formatDate(data?.datePublished)}
+        {year && (data.dayPublished || data.monthPublished || data.yearPublished)
+          ? data.yearPublished
+          : DatePublished()}
         {data.datePublished && (data.doi || data.url || data.pageStart || data.pageEnd)
           ? ', '
           : '. '}
@@ -75,18 +74,61 @@ const MLAStyle: React.FC<citationProps> = (props) => {
     );
   };
 
-  // const Location = () => {
-  //   return (
-  //     <>
-  //       {data.doi ? data.doi : data.url ? data.url : null}
-  //       {data.publisher || data.datePublished || data.doi || data.url ? '. ' : null}
-  //     </>
-  //   );
-  // };
+  const DateAccessed = () => {
+    const day = data.dayAccessed;
+    const month = data.monthAccessed;
+    const year = data.yearAccessed;
 
-  // const DateAccessed = () => {
-  //   return <>{data.dateAccessed ? 'Accessed ' + formatDate(data.dateAccessed) + '.' : null}</>;
-  // };
+    return (
+      <>
+        {day || month || year ? 'Accessed' : null} {day ? day + ' ' : null}
+        {/* If month is May, do not add '.' to abbreveate.*/}
+        {month === 5
+          ? dayjs()
+              .month(month - 1)
+              .format('MMM') + ' '
+          : month
+          ? dayjs()
+              .month(month - 1)
+              .format('MMM') + '. '
+          : null}
+        {year ? year : null}
+        {day || month === 5 || year ? '. ' : null}
+      </>
+    );
+  };
+
+  const DatePublished = () => {
+    const day = data.dayPublished;
+    const month = data.monthPublished;
+    const year = data.yearPublished;
+
+    return (
+      <>
+        {day ? day + ' ' : null}
+        {/* If month is May, do not add '.' to abbreveate.*/}
+        {month === 5
+          ? dayjs()
+              .month(month - 1)
+              .format('MMM') + ' '
+          : month
+          ? dayjs()
+              .month(month - 1)
+              .format('MMM') + '. '
+          : null}
+        {year ? year : null}
+      </>
+    );
+  };
+
+  const Location = () => {
+    return (
+      <>
+        {data.doi ? data.doi : data.url ? data.url : null}
+        {data.publisher || data.datePublished || data.doi || data.url ? '. ' : null}
+      </>
+    );
+  };
 
   const PageLocation = () => {
     return (
@@ -110,9 +152,8 @@ const MLAStyle: React.FC<citationProps> = (props) => {
             <Version />
             <Number />
             <Publisher />
-            {/* 
-            <Location /> */}
-            {/* <DateAccessed /> */}
+            <Location />
+            <DateAccessed />
           </Text>
         </Card.Body>
       );
@@ -129,8 +170,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
             ) : (
               <Title italic={true} />
             )}
-
-            {/* <Publisher year={true}/> */}
+            <Publisher year={true} />
           </Text>
         </Card.Body>
       );
@@ -141,11 +181,11 @@ const MLAStyle: React.FC<citationProps> = (props) => {
             <Authors />
             <Title />
             <Source />
-            {/* <Publisher /> */}
+            <Publisher />
             <Version />
             <Number />
             <PageLocation />
-            {/* <Location /> */}
+            <Location />
           </Text>
         </Card.Body>
       );
@@ -158,9 +198,9 @@ const MLAStyle: React.FC<citationProps> = (props) => {
             <Source />
             <Version />
             <Number />
-            {/* <Publisher />
-            <Location /> */}
-            {/* <DateAccessed /> */}
+            <Publisher />
+            <Location />
+            <DateAccessed />
           </Text>
         </Card.Body>
       );

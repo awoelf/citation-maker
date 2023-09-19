@@ -90,30 +90,24 @@ function Misc() {
         inputName={'dayPublished'}
         label='Date Published'
         placeholder='Day'
-        type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
       <DropdownInput
         formValue={form.monthPublished}
         inputName={'monthPublished'}
         label='&nbsp;'
         placeholder='Month'
-        type='number'
         updateForm={updateFormDate}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
         formValue={form.yearPublished}
         inputName={'yearPublished'}
         label='&nbsp;'
         placeholder='Year'
-        type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
 
       {/* || Date accessed */}
@@ -122,10 +116,8 @@ function Misc() {
         inputName={'dayAccessed'}
         label='Date Accessed'
         placeholder='Day'
-        type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
         contentLeft={
           <UseTodayDate />
         }
@@ -135,20 +127,16 @@ function Misc() {
         inputName={'monthAccessed'}
         label='&nbsp;'
         placeholder='Month'
-        type='number'
         updateForm={updateFormDate}
         cols={4}
-        mobileCols={12}
       />
       <TextInput
         formValue={form.yearAccessed}
         inputName={'yearAccessed'}
         label='&nbsp;'
         placeholder='Year'
-        type='number'
         updateForm={updateForm}
         cols={4}
-        mobileCols={12}
       />
     </>
   );

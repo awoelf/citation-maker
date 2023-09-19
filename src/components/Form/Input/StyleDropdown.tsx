@@ -27,6 +27,7 @@ function StyleDropdown() {
         selectionMode='single'
         onSelectionChange={setSelectedValue}
         disabledKeys={['apa']}
+        defaultValue={['mla']}
       >
         <Dropdown.Item key='mla'>MLA</Dropdown.Item>
         <Dropdown.Item key='apa'>APA</Dropdown.Item>

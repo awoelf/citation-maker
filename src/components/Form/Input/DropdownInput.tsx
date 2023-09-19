@@ -15,7 +15,7 @@ const DropdownInput: React.FC<formProps> = (props) => {
   const updateForm = props.updateForm as formChangeDropdown;
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
-    updateForm(props.inputName, Array.from(keys)[0] as string);
+    updateForm(props.inputName, Array.from(keys)[0] as number);
   };
 
   return (
@@ -32,7 +32,7 @@ const DropdownInput: React.FC<formProps> = (props) => {
             className='text-clip'
             label={props.label || capitalize(addSpace(props.inputName))}
             name={props.inputName}
-            value={props.formValue}
+            value={props.formValue as string}
             bordered
             readOnly
             type='text'

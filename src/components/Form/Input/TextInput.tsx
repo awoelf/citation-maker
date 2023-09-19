@@ -33,6 +33,7 @@ const TextInput: React.FC<formProps> = (props) => {
       sm={props.cols || 12}
       direction='column'
       aria-labelledby={props.inputName}
+      className='place-content-end'
     >
       <Input
         className='text-clip'
