@@ -35,7 +35,7 @@ const TextInput: React.FC<formProps> = (props) => {
         className='text-clip'
         label={props.label || capitalize(addSpace(props.inputName))}
         name={props.inputName}
-        value={props.formValue}
+        value={props.formValue as string}
         onChange={updateForm}
         type={props.type || 'text'}
         bordered
