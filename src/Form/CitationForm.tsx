@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import FormStorage from '../../utils/formStorage';
-import { Citations, CitationStyle } from '../../utils/citationStorage';
-import { form } from '@/@types/form';
-
-// Components
+import FormStorage from '../storage/formStorage';
+import { Citations, CitationStyle } from '../storage/citationStorage';
 import { Grid, Button, Loading, Tooltip } from '@nextui-org/react';
-import StyleDropdown from '../Form/Input/StyleDropdown';
-import SourceDropdown from './Input/SourceDropdown';
-import ClearButton from './Input/ClearButton';
-import SourceSwitcher from './Sources/SourceSwitcher';
+import StyleDropdown from './components/StyleDropdown';
+import SourceDropdown from './components/SourceDropdown';
+import ClearButton from './components/ClearButton';
+import SourceSwitcher from './lib/SourceSwitcher';
 import { generateUid } from '@/utils/helpers';
 
 function CitationForm() {
@@ -59,7 +56,7 @@ function CitationForm() {
       </div>
       <Grid.Container gap={2}>
         <SourceSwitcher />
-        <Grid xs={12} className='place-content-center'>
+        <Grid xs={12} className='justify-center'>
           <Tooltip
             color='invert'
             content={'Citation style is required to create a citation.'}

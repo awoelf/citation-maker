@@ -1,10 +1,8 @@
 import { useState, ChangeEvent } from 'react';
 import { formProps, contributor } from '@/@types/form';
 import { PlusSquare, Trash } from 'react-bootstrap-icons';
-import FormStorage from '../../../utils/formStorage';
+import FormStorage from '../../storage/formStorage';
 import { generateUid } from '@/utils/helpers';
-
-// Components
 import { Button, PressEvent, FormElement, Text, Collapse } from '@nextui-org/react';
 import TextInput from './TextInput';
 

@@ -1,7 +1,7 @@
 import React, { Key } from 'react';
 import { Dropdown } from '@nextui-org/react';
 import { LayoutTextWindow, Book, Journal, Files } from 'react-bootstrap-icons';
-import FormStorage from '@/utils/formStorage';
+import FormStorage from '../../storage/formStorage';
 
 // Dropdown selector for the source of the citation (eg. website, book, journal, or misc)
 function SourceDropdown() {

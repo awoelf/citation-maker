@@ -1,7 +1,5 @@
 import { tooltipProps } from '@/@types/form';
 import { QuestionSquare } from 'react-bootstrap-icons';
-
-// Components
 import { Tooltip } from '@nextui-org/react';
 
 const TooltipInput: React.FC<tooltipProps> = (props) => {

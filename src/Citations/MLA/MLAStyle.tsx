@@ -1,7 +1,5 @@
 import { citationProps } from '@/@types/form';
 import dayjs from 'dayjs';
-
-// Components
 import { Card, Text } from '@nextui-org/react';
 
 // TO DO: Clean this code up because it's a damn mess

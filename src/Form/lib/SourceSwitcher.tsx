@@ -1,6 +1,4 @@
-import FormStorage from '@/utils/formStorage';
-
-// Components
+import FormStorage from '../../storage/formStorage';
 import Website from './Website';
 import Book from './Book';
 import Journal from './Journal';

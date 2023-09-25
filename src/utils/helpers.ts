@@ -13,12 +13,6 @@ export const filterList = (list: [string], str: string) => {
   return list.filter((item) => item !== str) as [string];
 };
 
-// TO DO: remove/change
-export const validateInput = (value: string | number) => {
-  return true;
-};
-
-
 export const copyCitation = (elementId: string) => {
   const copyText = document.getElementById(elementId);
   navigator.clipboard.writeText(copyText?.innerText || '');
@@ -28,3 +22,8 @@ export const generateUid = () => {
   const uid = new ShortUniqueId({ length: 10 });
   return uid.rnd();
 }
+
+// TO DO: remove/change
+export const validateInput = (value: string | number) => {
+  return true;
+};
