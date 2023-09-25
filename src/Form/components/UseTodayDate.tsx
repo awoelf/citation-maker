@@ -1,25 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FormStorage from '../../storage/formStorage';
 import { CalendarEvent } from 'react-bootstrap-icons';
 import { Button, Tooltip, Grid } from '@nextui-org/react';
 
 const UseTodayDate: React.FC = () => {
-  const { updateTodayDate } = FormStorage();
+  const { updateTodayDate, form } = FormStorage();
+  const [dateExists, setDateExists] = useState(false);
 
-  
+  useEffect(() => {
+    form.dayAccessed || form.monthAccessed || form.yearAccessed
+      ? setDateExists(true)
+      : setDateExists(false);
+  }, [form]);
 
   return (
-    <Grid xs={1}>
-      <Tooltip content={"Use today's date"} color='invert' trigger='hover' placement='right'>
-        <Button
-          auto
-          light
-          className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
-          icon={<CalendarEvent />}
-          onPress={() => updateTodayDate()}
-        />
-      </Tooltip>
-    </Grid>
+    <>
+      {dateExists ? null : (
+        <Grid xs={1}>
+          <Tooltip content={"Use today's date"} color='invert' trigger='hover' placement='right'>
+            <Button
+              auto
+              light
+              className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+              icon={<CalendarEvent />}
+              onPress={() => updateTodayDate()}
+            />
+          </Tooltip>
+        </Grid>
+      )}
+    </>
   );
 };
 

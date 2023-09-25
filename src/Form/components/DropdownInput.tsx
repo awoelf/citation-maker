@@ -52,6 +52,7 @@ const DropdownInput: React.FC<formProps> = (props) => {
           onSelectionChange={setSelectedValue}
           selectionMode='single'
         >
+          <Dropdown.Item key=''>None</Dropdown.Item>
           <Dropdown.Item key='1'>1 - January</Dropdown.Item>
           <Dropdown.Item key='2'>2 - February</Dropdown.Item>
           <Dropdown.Item key='3'>3 - March</Dropdown.Item>
