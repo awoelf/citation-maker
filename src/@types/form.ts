@@ -62,7 +62,7 @@ export interface form {
   dayAccessed?: number;
   monthAccessed?: number;
   yearAccessed?: number;
-  citationSource?: string;
+  citationSource: string;
 }
 
 // Interface for passing form data to citation style handler

@@ -6,12 +6,12 @@ import { Grid, Button, Loading, Tooltip } from '@nextui-org/react';
 import StyleDropdown from './components/StyleDropdown';
 import SourceDropdown from './components/SourceDropdown';
 import ClearButton from './components/ClearButton';
-import SourceSwitcher from './lib/SourceSwitcher';
 import { generateUid } from '@/utils/helpers';
+import SourceHandler from './components/SourceHandler';
 
 function CitationForm() {
   const [mounted, setMounted] = useState(false);
-  const { form, setForm, removeItem } = FormStorage();
+  const { form, removeItem } = FormStorage();
   const { citationStyle } = CitationStyle();
   const { updateCitation, addCitation } = Citations();
   const router = useRouter();
@@ -55,7 +55,7 @@ function CitationForm() {
         </div>
       </div>
       <Grid.Container gap={2}>
-        <SourceSwitcher />
+        <SourceHandler />
         <Grid xs={12} className='justify-center'>
           <Tooltip
             color='invert'
