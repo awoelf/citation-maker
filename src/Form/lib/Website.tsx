@@ -73,7 +73,7 @@ function Website() {
 
       {/* || Other contributors */}
       <OtherContributors inputName='otherContributors' />
-
+      
       {/* || Publisher */}
       <TextInput formValue={form.publisher} inputName={'publisher'} updateForm={updateForm} />
 

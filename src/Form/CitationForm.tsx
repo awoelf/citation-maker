@@ -56,7 +56,7 @@ function CitationForm() {
       </div>
       <Grid.Container gap={2}>
         <SourceSwitcher />
-        <Grid xs={12} className='place-content-center'>
+        <Grid xs={12} className='justify-center'>
           <Tooltip
             color='invert'
             content={'Citation style is required to create a citation.'}
