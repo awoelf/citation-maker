@@ -1,41 +1,64 @@
 import FormStorage from '@/utils/formStorage';
 
 // Components
-import TextInput from '../Input/TextInput';
-import OtherContributors from '../Input/OtherContributors';
-import DropdownInput from '../Input/DropdownInput';
-import UseTodayDate from '../Input/UseTodayDate';
+import TextInput from '../components/TextInput';
+import OtherContributors from '../components/OtherContributors';
 
-function Website() {
-  const { form, updateForm, updateFormDate } = FormStorage();
-  // const [datePublished, setDatePublished] = useState<date>({
-  //   day: '',
-  //   month: '',
-  //   year: '',
-  // });
-  // const [dateAccessed, setDateAccessed] = useState<date>({
-  //   day: '',
-  //   month: '',
-  //   year: '',
-  // });
-
+function Journal() {
+  const { form, updateForm } = FormStorage();
   return (
     <>
       {/* || Title */}
-      <TextInput
-        formValue={form.title}
-        inputName={'title'}
-        label={'Article Name'}
-        updateForm={updateForm}
-      />
-      {/* || Source */}
+      <TextInput formValue={form.title} inputName={'title'} label={'Title of Journal Article'} updateForm={updateForm} />
+      
+      {/* || Source (Container) */}
       <TextInput
         formValue={form.source}
         inputName={'source'}
-        label={'Website Name'}
+        label={'Database'}
         updateForm={updateForm}
-        tooltipMessage={'This can also be the name of the database.'}
+        tooltipMessage={'The larger whole in which the source is located, such as a collection, database, or book title if citing a chapter.'}
       />
+
+      {/* || Number (Volume) */}
+      <TextInput
+        formValue={form.number}
+        inputName={'number'}
+        label={'Volume'}
+        cols={6}
+        fullWidth={false}
+        updateForm={updateForm}
+      />
+
+      {/* || Issue */}
+      <TextInput
+        formValue={form.issue}
+        inputName={'issue'}
+        cols={6}
+        fullWidth={false}
+        updateForm={updateForm}
+      />
+
+      {/* || Page start */}
+      <TextInput
+        formValue={form.pageStart}
+        inputName={'pageStart'}
+        cols={6}
+        fullWidth={false}
+        updateForm={updateForm}
+      />
+
+      {/* || Page end */}
+      <TextInput
+        formValue={form.pageEnd}
+        inputName={'pageEnd'}
+        cols={6}
+        fullWidth={false}
+        updateForm={updateForm}
+      />
+
+      {/* || DOI */}
+      <TextInput formValue={form.doi} inputName={'doi'} label={'DOI'} updateForm={updateForm} />
 
       {/* || URL */}
       <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} />
@@ -48,7 +71,6 @@ function Website() {
         updateForm={updateForm}
         cols={4}
         mobileCols={6}
-        tooltipMessage={'Include a compiler name if no single author is available.'}
       />
       <TextInput
         formValue={form.middleInitial}
@@ -57,7 +79,7 @@ function Website() {
         cols={2}
         mobileCols={6}
       />
-      <TextInput
+       <TextInput
         formValue={form.lastName}
         inputName={'lastName'}
         updateForm={updateForm}
@@ -79,30 +101,44 @@ function Website() {
       {/* || Publisher */}
       <TextInput formValue={form.publisher} inputName={'publisher'} updateForm={updateForm} />
 
+      {/* || Location */}
+      <TextInput
+        formValue={form.location}
+        inputName={'location'}
+        label={'Location of Publication'}
+        updateForm={updateForm}
+      />
+
       {/* || Date published */}
       <TextInput
         formValue={form.dayPublished}
         inputName={'dayPublished'}
         label='Date Published'
         placeholder='Day'
+        type='number'
         updateForm={updateForm}
         cols={4}
+        mobileCols={12}
       />
-      <DropdownInput
+      <TextInput
         formValue={form.monthPublished}
         inputName={'monthPublished'}
         label='&nbsp;'
         placeholder='Month'
-        updateForm={updateFormDate}
+        type='number'
+        updateForm={updateForm}
         cols={4}
+        mobileCols={12}
       />
       <TextInput
         formValue={form.yearPublished}
         inputName={'yearPublished'}
         label='&nbsp;'
         placeholder='Year'
+        type='number'
         updateForm={updateForm}
         cols={4}
+        mobileCols={12}
       />
 
       {/* || Date accessed */}
@@ -111,30 +147,33 @@ function Website() {
         inputName={'dayAccessed'}
         label='Date Accessed'
         placeholder='Day'
+        type='number'
         updateForm={updateForm}
         cols={4}
-        contentLeft={
-          <UseTodayDate />
-        }
+        mobileCols={12}
       />
-      <DropdownInput
+      <TextInput
         formValue={form.monthAccessed}
         inputName={'monthAccessed'}
         label='&nbsp;'
         placeholder='Month'
-        updateForm={updateFormDate}
+        type='number'
+        updateForm={updateForm}
         cols={4}
+        mobileCols={12}
       />
       <TextInput
         formValue={form.yearAccessed}
         inputName={'yearAccessed'}
         label='&nbsp;'
         placeholder='Year'
+        type='number'
         updateForm={updateForm}
         cols={4}
+        mobileCols={12}
       />
     </>
   );
 }
 
-export default Website;
+export default Journal;

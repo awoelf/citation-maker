@@ -1,11 +1,11 @@
 import FormStorage from '@/utils/formStorage';
 
 //Components
-import TextInput from '../Input/TextInput';
-import OtherContributors from '../Input/OtherContributors';
-import DropdownInput from '../Input/DropdownInput';
-import UseTodayDate from '../Input/UseTodayDate';
-import TooltipInput from '../Input/TooltipInput';
+import TextInput from '../components/TextInput';
+import OtherContributors from '../components/OtherContributors';
+import DropdownInput from '../components/DropdownInput';
+import UseTodayDate from '../components/UseTodayDate';
+import TooltipInput from '../components/TooltipInput';
 
 // Generic form for any source that isn't a book, website, or journal.
 function Misc() {

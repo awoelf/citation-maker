@@ -1,43 +1,46 @@
 import FormStorage from '@/utils/formStorage';
 
 // Components
-import TextInput from '../Input/TextInput';
-import OtherContributors from '../Input/OtherContributors';
+import TextInput from '../components/TextInput';
+import OtherContributors from '../components/OtherContributors';
 
-function Journal() {
+function Book() {
   const { form, updateForm } = FormStorage();
   return (
     <>
       {/* || Title */}
-      <TextInput formValue={form.title} inputName={'title'} label={'Title of Journal Article'} updateForm={updateForm} />
+      <TextInput formValue={form.title} inputName={'title'} label={'Title of Book'} updateForm={updateForm} />
       
       {/* || Source (Container) */}
       <TextInput
         formValue={form.source}
         inputName={'source'}
-        label={'Database'}
+        label={'Container'}
         updateForm={updateForm}
         tooltipMessage={'The larger whole in which the source is located, such as a collection, database, or book title if citing a chapter.'}
       />
 
-      {/* || Number (Volume) */}
-      <TextInput
+      {/* || Version (Edition) */}
+      {/* <TextInput
+        formValue={form.version}
+        inputName={'version'}
+        label={'Edition'}
+        cols={6}
+        fullWidth={false}
+        updateForm={updateForm}
+      /> */}
+
+      {/* || Number */}
+      {/* <TextInput
         formValue={form.number}
         inputName={'number'}
-        label={'Volume'}
         cols={6}
         fullWidth={false}
         updateForm={updateForm}
-      />
-
-      {/* || Issue */}
-      <TextInput
-        formValue={form.issue}
-        inputName={'issue'}
-        cols={6}
-        fullWidth={false}
-        updateForm={updateForm}
-      />
+        tooltipMessage={
+          'Identifies which part in a numbered series the source belongs to (e.g. vol. 6, no. 2, season 2, episode 21).'
+        }
+      /> */}
 
       {/* || Page start */}
       <TextInput
@@ -58,12 +61,12 @@ function Journal() {
       />
 
       {/* || DOI */}
-      <TextInput formValue={form.doi} inputName={'doi'} label={'DOI'} updateForm={updateForm} />
+      {/* <TextInput formValue={form.doi} inputName={'doi'} label={'DOI'} updateForm={updateForm} /> */}
 
       {/* || URL */}
-      <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} />
+      {/* <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} /> */}
 
-      {/* || Author first name, last name, middle initial, and suffix */}
+      {/* || Author first name, middle initial, last name, and suffix */}
       <TextInput
         formValue={form.firstName}
         inputName={'firstName'}
@@ -107,6 +110,9 @@ function Journal() {
         inputName={'location'}
         label={'Location of Publication'}
         updateForm={updateForm}
+        tooltipMessage={
+          'The location of publication should only be used if the book was published before 1900.'
+        }
       />
 
       {/* || Date published */}
@@ -140,40 +146,8 @@ function Journal() {
         cols={4}
         mobileCols={12}
       />
-
-      {/* || Date accessed */}
-      <TextInput
-        formValue={form.dayAccessed}
-        inputName={'dayAccessed'}
-        label='Date Accessed'
-        placeholder='Day'
-        type='number'
-        updateForm={updateForm}
-        cols={4}
-        mobileCols={12}
-      />
-      <TextInput
-        formValue={form.monthAccessed}
-        inputName={'monthAccessed'}
-        label='&nbsp;'
-        placeholder='Month'
-        type='number'
-        updateForm={updateForm}
-        cols={4}
-        mobileCols={12}
-      />
-      <TextInput
-        formValue={form.yearAccessed}
-        inputName={'yearAccessed'}
-        label='&nbsp;'
-        placeholder='Year'
-        type='number'
-        updateForm={updateForm}
-        cols={4}
-        mobileCols={12}
-      />
     </>
   );
 }
 
-export default Journal;
+export default Book;

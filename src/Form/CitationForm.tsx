@@ -6,10 +6,10 @@ import { form } from '@/@types/form';
 
 // Components
 import { Grid, Button, Loading, Tooltip } from '@nextui-org/react';
-import StyleDropdown from '../Form/Input/StyleDropdown';
-import SourceDropdown from './Input/SourceDropdown';
-import ClearButton from './Input/ClearButton';
-import SourceSwitcher from './Sources/SourceSwitcher';
+import StyleDropdown from './components/StyleDropdown';
+import SourceDropdown from './components/SourceDropdown';
+import ClearButton from './components/ClearButton';
+import SourceSwitcher from './lib/SourceSwitcher';
 import { generateUid } from '@/utils/helpers';
 
 function CitationForm() {

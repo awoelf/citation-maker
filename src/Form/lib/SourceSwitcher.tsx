@@ -1,4 +1,4 @@
-import FormStorage from '@/utils/formStorage';
+import FormStorage from '../../storage/formStorage';
 
 // Components
 import Website from './Website';

@@ -1,5 +1,5 @@
 import React, { Key } from 'react';
-import { CitationStyle } from '../../../utils/citationStorage';
+import { CitationStyle } from '../../storage/citationStorage';
 
 // Components
 import { Dropdown } from '@nextui-org/react';

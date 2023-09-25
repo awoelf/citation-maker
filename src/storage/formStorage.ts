@@ -1,5 +1,5 @@
 import useLocalStorageState from 'use-local-storage-state';
-import { form, formEvent, formChangeDropdown } from '@/@types/form';
+import { form, formEvent } from '@/@types/form';
 import dayjs from 'dayjs';
 
 // TO DO: Change citationSource to '' once other sources are supported.
