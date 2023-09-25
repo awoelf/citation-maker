@@ -55,13 +55,13 @@ export interface form {
   pageEnd?: string;
   doi?: string;
   datePublished?: string;
-  dayPublished?: number;
-  monthPublished?: number;
-  yearPublished?: number;
+  dayPublished?: number | string;
+  monthPublished?: number | string;
+  yearPublished?: number | string;
   dateAccessed?: string;
-  dayAccessed?: number;
-  monthAccessed?: number;
-  yearAccessed?: number;
+  dayAccessed?: number | string;
+  monthAccessed?: number | string;
+  yearAccessed?: number | string;
   citationSource: string;
 }
 
