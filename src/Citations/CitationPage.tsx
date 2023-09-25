@@ -1,10 +1,8 @@
-import { Citations } from '../../utils/citationStorage';
+import { Citations } from '../storage/citationStorage';
+import FormStorage from '../storage/formStorage';
 import { form } from '@/@types/form';
 import { copyCitation } from '@/utils/helpers';
-import FormStorage from '@/utils/formStorage';
 import { useRouter } from 'next/router';
-
-// Components
 import DeleteButton from './components/DeleteButton';
 import CopyButton from './components/CopyButton';
 import { Card, Grid, Tooltip, Button } from '@nextui-org/react';

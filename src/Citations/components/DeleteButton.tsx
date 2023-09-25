@@ -1,6 +1,4 @@
 import { Button, Tooltip } from '@nextui-org/react';
-
-// Components
 import ConfirmDelete from './ConfirmDelete';
 
 function DeleteButton() {

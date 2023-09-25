@@ -1,7 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Citations } from '../../../utils/citationStorage';
-
-// Components
+import { Citations } from '../../storage/citationStorage';
 import { Text, Button, Grid } from '@nextui-org/react';
 
 function ConfirmDelete(): ReactNode {
