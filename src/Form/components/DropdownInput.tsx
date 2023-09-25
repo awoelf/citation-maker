@@ -56,15 +56,15 @@ const DropdownInput: React.FC<formProps> = (props) => {
           onSelectionChange={setSelectedValue}
           selectionMode='single'
         >
-          <Dropdown.Item key='01'>01 - January</Dropdown.Item>
-          <Dropdown.Item key='02'>02 - February</Dropdown.Item>
-          <Dropdown.Item key='03'>03 - March</Dropdown.Item>
-          <Dropdown.Item key='04'>04 - April</Dropdown.Item>
-          <Dropdown.Item key='05'>05 - May</Dropdown.Item>
-          <Dropdown.Item key='06'>06 - June</Dropdown.Item>
-          <Dropdown.Item key='07'>07 - July</Dropdown.Item>
-          <Dropdown.Item key='08'>08 - August</Dropdown.Item>
-          <Dropdown.Item key='09'>09 - September</Dropdown.Item>
+          <Dropdown.Item key='1'>1 - January</Dropdown.Item>
+          <Dropdown.Item key='2'>2 - February</Dropdown.Item>
+          <Dropdown.Item key='3'>3 - March</Dropdown.Item>
+          <Dropdown.Item key='4'>4 - April</Dropdown.Item>
+          <Dropdown.Item key='5'>5 - May</Dropdown.Item>
+          <Dropdown.Item key='6'>6 - June</Dropdown.Item>
+          <Dropdown.Item key='7'>7 - July</Dropdown.Item>
+          <Dropdown.Item key='8'>8 - August</Dropdown.Item>
+          <Dropdown.Item key='9'>9 - September</Dropdown.Item>
           <Dropdown.Item key='10'>10 - October</Dropdown.Item>
           <Dropdown.Item key='11'>11 - November</Dropdown.Item>
           <Dropdown.Item key='12'>12 - December</Dropdown.Item>

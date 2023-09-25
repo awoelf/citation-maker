@@ -30,7 +30,7 @@ export default function FormStorage() {
       dayAccessed: undefined,
       monthAccessed: undefined,
       yearAccessed: undefined,
-      citationSource: 'website',
+      citationSource: 'misc',
     },
   });
 
@@ -47,7 +47,7 @@ export default function FormStorage() {
     setForm({
       ...form,
       dayAccessed: dayjs().date(),
-      monthAccessed: dayjs().month(),
+      monthAccessed: dayjs().month() + 1,
       yearAccessed: dayjs().year(),
     });
   }
