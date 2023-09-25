@@ -1,9 +1,7 @@
 import type { ReactElement } from 'react';
 import type { NextPageWithLayout } from './_app';
-
-// Components
-import Layout from '../components/Shared/Layout';
-import CitationForm from '@/components/Form/CitationForm';
+import Layout from '../components/Layout';
+import CitationForm from '../Form/CitationForm';
 
 const Home: NextPageWithLayout = () => {
   return <CitationForm />;

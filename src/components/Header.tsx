@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MoonStars, Sun, BlockquoteRight, House } from 'react-bootstrap-icons';
-import { Citations } from '../../utils/citationStorage';
+import { Citations } from '../storage/citationStorage';
 import { useTheme } from 'next-themes';
-
-// Components
 import { Button, Badge } from '@nextui-org/react';
 
 function Header() {
