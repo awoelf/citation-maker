@@ -2,12 +2,7 @@ import { Key } from 'react';
 import { formProps, formChangeDropdown } from '@/@types/form';
 import { QuestionSquare } from 'react-bootstrap-icons';
 import { capitalize, addSpace } from '../../utils/helpers';
-import {
-  Grid,
-  Input,
-  Tooltip,
-  Dropdown,
-} from '@nextui-org/react';
+import { Grid, Input, Tooltip, Dropdown } from '@nextui-org/react';
 
 const DropdownInput: React.FC<formProps> = (props) => {
   const updateForm = props.updateForm as formChangeDropdown;
@@ -36,6 +31,7 @@ const DropdownInput: React.FC<formProps> = (props) => {
             type='text'
             contentLeftStyling={false}
             placeholder={props.placeholder}
+            onChange={() => {}}
             contentLeft={
               props.tooltipMessage ? (
                 <Tooltip

@@ -57,6 +57,10 @@ const MLAStyle: React.FC<citationProps> = (props) => {
     return <>{data.number ? data.number + '. ' : null}</>;
   };
 
+  const Issue = () => {
+
+  };
+
   const Publisher = ({ year }: { year?: boolean }) => {
     return (
       <>
