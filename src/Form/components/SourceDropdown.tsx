@@ -23,7 +23,7 @@ function SourceDropdown() {
         selectionMode='single'
         onSelectionChange={setSelectedValue}
         // TO DO: Delete once other sources are available
-        defaultValue={'website'}
+        defaultValue={'misc'}
       >
         <Dropdown.Item
           key='website'
