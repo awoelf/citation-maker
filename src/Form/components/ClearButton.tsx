@@ -1,7 +1,5 @@
-import FormStorage from '../../../utils/formStorage';
-import { CitationStyle } from '../../../utils/citationStorage';
-
-// Components
+import FormStorage from '../../storage/formStorage';
+import { CitationStyle } from '../../storage/citationStorage';
 import { Button } from '@nextui-org/react';
 
 function ClearButton() {

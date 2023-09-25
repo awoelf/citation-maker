@@ -1,6 +1,4 @@
-import FormStorage from '@/utils/formStorage';
-
-//Components
+import FormStorage from '../../storage/formStorage';
 import TextInput from '../components/TextInput';
 import OtherContributors from '../components/OtherContributors';
 import DropdownInput from '../components/DropdownInput';

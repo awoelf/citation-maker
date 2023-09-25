@@ -1,7 +1,5 @@
 import React, { Key } from 'react';
 import { CitationStyle } from '../../storage/citationStorage';
-
-// Components
 import { Dropdown } from '@nextui-org/react';
 
 // Dropdown selector for citation styles like MLA and APA. More styles will be added upon user request.

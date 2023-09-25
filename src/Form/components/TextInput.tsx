@@ -1,11 +1,7 @@
 import { useMemo } from 'react';
 import { formProps, formChange } from '@/@types/form';
-import { QuestionSquare } from 'react-bootstrap-icons';
-import { capitalize, addSpace } from '../../../utils/helpers';
-import { validateInput } from '../../../utils/helpers';
-
-// Components
-import { Grid, Input, Tooltip, SimpleColors } from '@nextui-org/react';
+import { capitalize, addSpace, validateInput } from '../../utils/helpers';
+import { Grid, Input, SimpleColors } from '@nextui-org/react';
 
 const TextInput: React.FC<formProps> = (props) => {
   const updateForm = props.updateForm as formChange;

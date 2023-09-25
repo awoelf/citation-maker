@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import FormStorage from '../../utils/formStorage';
-import { Citations, CitationStyle } from '../../utils/citationStorage';
-import { form } from '@/@types/form';
-
-// Components
+import FormStorage from '../storage/formStorage';
+import { Citations, CitationStyle } from '../storage/citationStorage';
 import { Grid, Button, Loading, Tooltip } from '@nextui-org/react';
 import StyleDropdown from './components/StyleDropdown';
 import SourceDropdown from './components/SourceDropdown';

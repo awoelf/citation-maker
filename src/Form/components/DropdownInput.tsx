@@ -1,9 +1,7 @@
 import { Key } from 'react';
 import { formProps, formChangeDropdown } from '@/@types/form';
 import { QuestionSquare } from 'react-bootstrap-icons';
-import { capitalize, addSpace } from '../../../utils/helpers';
-
-// Components
+import { capitalize, addSpace } from '../../utils/helpers';
 import {
   Grid,
   Input,
