@@ -54,17 +54,19 @@ const MLAStyle: React.FC<citationProps> = (props) => {
   };
 
   const Number = () => {
-    return <>{data.number ? data.number + '. ' : null}</>;
-  };
-
-  const Issue = () => {
-
+    return (
+      <>
+        {data.number ? data.number : null}
+        {data.number && data.issue ? ', ' : '. '}
+        {data.issue ? data.issue + '. ' : null}
+      </>
+    );
   };
 
   const Publisher = ({ year }: { year?: boolean }) => {
     return (
       <>
-        {data.publisher ? data.publisher + ' ': null}
+        {data.publisher ? data.publisher + ' ' : null}
         {data.publisher && data.datePublished ? ', ' : null}
         {year && (data.dayPublished || data.monthPublished || data.yearPublished)
           ? data.yearPublished
@@ -78,7 +80,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
 
   const DateAccessed = () => {
     const day = data.dayAccessed;
-    const month = data.monthAccessed;
+    const month = data.monthAccessed as number;
     const year = data.yearAccessed;
 
     return (
@@ -102,7 +104,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
 
   const DatePublished = () => {
     const day = data.dayPublished;
-    const month = data.monthPublished;
+    const month = data.monthPublished as number;
     const year = data.yearPublished;
 
     return (
@@ -184,7 +186,6 @@ const MLAStyle: React.FC<citationProps> = (props) => {
             <Title />
             <Source />
             <Publisher />
-            <Version />
             <Number />
             <PageLocation />
             <Location />

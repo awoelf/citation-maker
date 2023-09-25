@@ -18,6 +18,7 @@ function SourceHandler() {
       locationTooltipMessage: '',
       number: '',
       version: '',
+      versionTooltipMessage: '',
     },
     journal: {
       title: 'Journal Article Title',
@@ -27,6 +28,7 @@ function SourceHandler() {
       locationTooltipMessage: '',
       number: 'Volume',
       version: '',
+      versionTooltipMessage: '',
     },
     book: {
       title: 'Book Title',
@@ -37,6 +39,7 @@ function SourceHandler() {
         'The location of publication should only be used if the book was published before 1900.',
       number: 'Number',
       version: 'Edition',
+      versionTooltipMessage: 'If you are citing an e-book, enter "E-book" as the edition.',
     },
     misc: {
       title: 'Title',
@@ -47,6 +50,7 @@ function SourceHandler() {
       locationTooltipMessage: '',
       number: 'Number',
       version: 'Version',
+      versionTooltipMessage: '',
     },
   };
 
@@ -149,8 +153,12 @@ function SourceHandler() {
           inputName={sourceLabels[citationSource].version}
           cols={6}
           fullWidth={false}
-          type='number'
           updateForm={updateForm}
+          contentLeft={
+            sourceLabels[citationSource].versionTooltipMessage ? (
+              <TooltipInput tooltipMessage={sourceLabels[citationSource].versionTooltipMessage} />
+            ) : null
+          }
         />
       ) : null}
 
@@ -161,7 +169,6 @@ function SourceHandler() {
           inputName={sourceLabels[citationSource].number}
           cols={6}
           fullWidth={false}
-          type='number'
           updateForm={updateForm}
         />
       )}
@@ -173,7 +180,6 @@ function SourceHandler() {
           inputName={'issue'}
           cols={6}
           fullWidth={false}
-          type='number'
           updateForm={updateForm}
         />
       ) : null}
