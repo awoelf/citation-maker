@@ -24,6 +24,7 @@ export interface formProps {
   mobileCols?: number;
   label?: string;
   placeholder?: string;
+  validateInt?: boolean;
 }
 
 export interface tooltipProps {
@@ -74,3 +75,4 @@ export type formEvent = ChangeEvent<FormElement>;
 export type formChange = (e: ChangeEvent<FormElement>) => void;
 export type formChangeDropdown = (inputName: string, inputValue: number) => void;
 export type formValueType = string | [string] | contributor | contributor[] | number;
+export type validatorType = (str: string) => boolean;

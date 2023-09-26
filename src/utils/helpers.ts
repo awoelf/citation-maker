@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import ShortUniqueId from 'short-unique-id';
 
 export const capitalize = (str: string) => {
@@ -22,8 +21,3 @@ export const generateUid = () => {
   const uid = new ShortUniqueId({ length: 10 });
   return uid.rnd();
 }
-
-// TO DO: remove/change
-export const validateInput = (value: string | number) => {
-  return true;
-};

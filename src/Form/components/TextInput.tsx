@@ -1,14 +1,13 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { formProps, formChange } from '@/@types/form';
-import { capitalize, addSpace, validateInput } from '../../utils/helpers';
+import { capitalize, addSpace } from '../../utils/helpers';
 import { Grid, Input, SimpleColors } from '@nextui-org/react';
+import validator from 'validator';
 
 const TextInput: React.FC<formProps> = (props) => {
   const updateForm = props.updateForm as formChange;
-
-  const validate = (value: string) => {
-    return validateInput(value);
-  };
+  const [isValid, setIsValid] = useState(true);
+  const [msg, setMsg] = useState('');
 
   const helper = useMemo(() => {
     if (!props.formValue)
@@ -16,10 +15,17 @@ const TextInput: React.FC<formProps> = (props) => {
         text: '',
         color: '',
       };
-    const isValid = validate(props.formValue as string);
+    if (props.validateInt) {
+      setIsValid(validator.isNumeric(props.formValue as string));
+      setMsg('Input must be numeric.');
+    } else {
+      setIsValid(validator.isAscii(props.formValue as string));
+      setMsg('Input must be alphanumeric or punctuation.');
+    }
+
     return {
-      text: isValid ? '' : 'Please use only alphanumeric or punctuation characters.',
-      color: isValid ? 'default' : 'warning',
+      text: isValid ? '' : msg,
+      color: isValid ? 'default' : 'error',
     };
   }, [props.formValue]);
 
@@ -35,7 +41,7 @@ const TextInput: React.FC<formProps> = (props) => {
         className='text-clip'
         label={props.label || capitalize(addSpace(props.inputName))}
         name={props.inputName}
-        value={props.formValue as string}
+        value={validator.rtrim(props.formValue as string)}
         onChange={updateForm}
         type={props.type || 'text'}
         bordered
