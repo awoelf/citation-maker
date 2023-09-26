@@ -1,14 +1,12 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { formProps, formChange } from '@/@types/form';
-import { capitalize, addSpace, validateInput } from '../../utils/helpers';
+import { capitalize, addSpace } from '../../utils/helpers';
 import { Grid, Input, SimpleColors } from '@nextui-org/react';
+import validator from 'validator';
 
 const TextInput: React.FC<formProps> = (props) => {
   const updateForm = props.updateForm as formChange;
-
-  const validate = (value: string) => {
-    return validateInput(value);
-  };
+  const [isValid, setIsValid] = useState(true);
 
   const helper = useMemo(() => {
     if (!props.formValue)
@@ -16,10 +14,11 @@ const TextInput: React.FC<formProps> = (props) => {
         text: '',
         color: '',
       };
-    const isValid = validate(props.formValue as string);
+      
+    setIsValid(validator.isAscii(props.formValue + ''));
     return {
-      text: isValid ? '' : 'Please use only alphanumeric or punctuation characters.',
-      color: isValid ? 'default' : 'warning',
+      text: isValid ? '' : 'Input must be alphanumeric or punctuation.',
+      color: isValid ? 'default' : 'error',
     };
   }, [props.formValue]);
 
