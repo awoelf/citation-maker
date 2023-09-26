@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }}
     >
       <NextUIProvider>
-        <div className='sm:container mx-auto flex flex-col h-screen'>
+        <div className='sm:container mx-auto flex flex-col h-screen layout'>
           <link rel='icon' href='/favicon.ico' />
           <Header />
           {children}
