@@ -208,7 +208,6 @@ function SourceHandler() {
         label='Date Published'
         placeholder='Day'
         updateForm={updateForm}
-        validateInt={true}
         cols={4}
       />
       <DropdownInput
@@ -217,7 +216,6 @@ function SourceHandler() {
         label='&nbsp;'
         placeholder='Month'
         updateForm={updateFormDate}
-        validateInt={true}
         cols={4}
       />
       <TextInput
@@ -226,7 +224,6 @@ function SourceHandler() {
         label='&nbsp;'
         placeholder='Year'
         updateForm={updateForm}
-        validateInt={true}
         cols={4}
       />
 
@@ -239,7 +236,6 @@ function SourceHandler() {
             label='Date Accessed'
             placeholder='Day'
             updateForm={updateForm}
-            validateInt={true}
             cols={4}
             contentLeft={<UseTodayDate />}
           />
@@ -249,7 +245,6 @@ function SourceHandler() {
             label='&nbsp;'
             placeholder='Month'
             updateForm={updateFormDate}
-            validateInt={true}
             cols={4}
           />
           <TextInput
@@ -258,7 +253,6 @@ function SourceHandler() {
             label='&nbsp;'
             placeholder='Year'
             updateForm={updateForm}
-            validateInt={true}
             cols={4}
           />
         </>

@@ -24,7 +24,6 @@ export interface formProps {
   mobileCols?: number;
   label?: string;
   placeholder?: string;
-  validateInt?: boolean;
 }
 
 export interface tooltipProps {

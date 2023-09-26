@@ -59,7 +59,7 @@ function CitationForm() {
         <Grid xs={12} className='justify-center'>
           <Tooltip
             color='invert'
-            content={'Citation style is required to create a citation.'}
+            content={ 'Citation style is required to create a citation.'}
             isDisabled={!!citationStyle}
           >
             <Button onPress={handleSubmit} disabled={!citationStyle}>

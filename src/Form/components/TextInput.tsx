@@ -7,7 +7,6 @@ import validator from 'validator';
 const TextInput: React.FC<formProps> = (props) => {
   const updateForm = props.updateForm as formChange;
   const [isValid, setIsValid] = useState(true);
-  const [msg, setMsg] = useState('');
 
   const helper = useMemo(() => {
     if (!props.formValue)
@@ -15,16 +14,10 @@ const TextInput: React.FC<formProps> = (props) => {
         text: '',
         color: '',
       };
-    if (props.validateInt) {
-      setIsValid(validator.isNumeric(props.formValue as string));
-      setMsg('Input must be numeric.');
-    } else {
-      setIsValid(validator.isAscii(props.formValue as string));
-      setMsg('Input must be alphanumeric or punctuation.');
-    }
-
+      
+    setIsValid(validator.isAscii(props.formValue + ''));
     return {
-      text: isValid ? '' : msg,
+      text: isValid ? '' : 'Input must be alphanumeric or punctuation.',
       color: isValid ? 'default' : 'error',
     };
   }, [props.formValue]);
@@ -41,7 +34,7 @@ const TextInput: React.FC<formProps> = (props) => {
         className='text-clip'
         label={props.label || capitalize(addSpace(props.inputName))}
         name={props.inputName}
-        value={validator.rtrim(props.formValue as string)}
+        value={props.formValue as string}
         onChange={updateForm}
         type={props.type || 'text'}
         bordered
