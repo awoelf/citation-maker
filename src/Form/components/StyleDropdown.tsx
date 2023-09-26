@@ -13,7 +13,7 @@ function StyleDropdown() {
   return (
     <Dropdown>
       {citationStyle !== '' ? (
-        <Dropdown.Button css={{ tt: 'uppercase' }}>{citationStyle}</Dropdown.Button>
+        <Dropdown.Button css={{ tt: 'uppercase' }} id='citationStyleButton'>{citationStyle}</Dropdown.Button>
       ) : (
         <Dropdown.Button>Style</Dropdown.Button>
       )}
