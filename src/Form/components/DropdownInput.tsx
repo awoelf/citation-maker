@@ -4,7 +4,7 @@ import { QuestionSquare } from 'react-bootstrap-icons';
 import { capitalize, addSpace } from '../../utils/helpers';
 import { Grid, Input, Tooltip, Dropdown } from '@nextui-org/react';
 
-const DropdownInput: React.FC<formProps> = (props) => {
+function DropdownInput(props: formProps) {
   const updateForm = props.updateForm as formChangeDropdown;
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
@@ -69,6 +69,6 @@ const DropdownInput: React.FC<formProps> = (props) => {
       </Dropdown>
     </Grid>
   );
-};
+}
 
 export default DropdownInput;

@@ -2,7 +2,7 @@ import { tooltipProps } from '@/@types/form';
 import { QuestionSquare } from 'react-bootstrap-icons';
 import { Tooltip } from '@nextui-org/react';
 
-const TooltipInput: React.FC<tooltipProps> = (props) => {
+function TooltipInput(props: tooltipProps) {
   return (
     <Tooltip
       color='invert'

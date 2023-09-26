@@ -3,9 +3,9 @@ import type { NextPageWithLayout } from './_app';
 import Layout from '../components/Layout';
 import CitationForm from '../Form/CitationForm';
 
-const Home: NextPageWithLayout = () => {
+function Home<NextPageWithLayout>() {
   return <CitationForm />;
-};
+}
 
 Home.getLayout = function getLayout(home: ReactElement) {
   return <Layout>{home}</Layout>;

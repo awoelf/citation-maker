@@ -6,7 +6,7 @@ import { generateUid } from '@/utils/helpers';
 import { Button, PressEvent, FormElement, Text, Collapse } from '@nextui-org/react';
 import TextInput from './TextInput';
 
-const OtherContributors: React.FC<formProps> = (props) => {
+function OtherContributors(props: formProps) {
   // State for storing single contributor before adding to form data.
   const [contributor, setContributor] = useState<contributor>({
     id: '',
