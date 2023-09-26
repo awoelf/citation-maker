@@ -18,7 +18,7 @@ function Header() {
   }, []);
 
   return mounted ? (
-    <div className='justify-between py-3 flex sm:grid sm:grid-cols-6 sm:justify-normal'>
+    <div className='justify-between py-3 flex sm:grid sm:grid-cols-6 sm:justify-normal' id='header'>
       <div className='col-span-1 hidden sm:grid' />
       <Link href={'/'} className='text-3xl pl-2 sm:pl-1 sm:text-4xl header text-inherit sm:text-center sm:col-span-4'>
         Citation Maker

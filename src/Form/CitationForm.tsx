@@ -44,7 +44,7 @@ function CitationForm() {
   }
 
   return mounted ? (
-    <div className='grid'>
+    <div className='grid' id='form'>
       <div className='flex justify-between gap-2 px-3'>
         <div className='flex gap-2'>
           <StyleDropdown />
