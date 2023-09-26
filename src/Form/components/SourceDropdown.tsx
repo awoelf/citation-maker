@@ -14,7 +14,7 @@ function SourceDropdown() {
 
   return (
     <Dropdown>
-      <Dropdown.Button css={{ tt: 'capitalize' }}>
+      <Dropdown.Button css={{ tt: 'capitalize' }} id='citationSourceButton'>
         {form.citationSource ? form.citationSource : 'Source'}
       </Dropdown.Button>
       <Dropdown.Menu

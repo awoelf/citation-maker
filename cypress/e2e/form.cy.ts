@@ -8,4 +8,8 @@ describe('citation maker form', () => {
   it('displays the header, form contents, and footer', () => {
     cy.get('.layout').should('have.length', 3);
   });
+
+  it('selects MLA for citation style and Misc for citation source as the default', () => {
+    cy.get
+  })
 });
