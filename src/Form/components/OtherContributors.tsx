@@ -46,7 +46,6 @@ function OtherContributors(props: formProps) {
 
   function removeContributor(e: PressEvent) {
     const { id } = e.target;
-    // const filteredContributors = filterList(otherContributors, id);
     const filteredContributors = otherContributors?.filter((item) => item.id != id);
     setForm({ ...form, otherContributors: filteredContributors });
   }

@@ -2,7 +2,9 @@ import useLocalStorageState from 'use-local-storage-state';
 import { form, formEvent } from '@/@types/form';
 import dayjs from 'dayjs';
 
+// Stores user input data for citation form
 export default function FormStorage() {
+  // Create a form object in local storage called 'form'
   const [form, setForm, { removeItem }] = useLocalStorageState<form>('form', {
     defaultValue: {
       id: '',
