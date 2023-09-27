@@ -31,19 +31,20 @@ Citation Maker is a website that will generate MLA citations for websites, books
 4. Select the type of source you are citing. If your source is neither a website, book, nor journal, use miscellaneous.
 5. Input all available information from your source into the text input fields.
 6. Click the `Create Citation` button and you will be redirected to the citation page.
+7. On the citation page, you will be able to copy, edit, or delete entries using the buttons on the right side of the citation card.
 
 ## Features
 
 - Light and dark themes
 - Create MLA citations for websites, books, and journals
 - Local storage for citations and theme preferences
+- Edit and delete citations
 
 ### Planned Features
 
-- Edit and delete citations
 - Copy all citations
 - Other contributor roles
-- APA style
+- APA style (Ko-fi goal)
 
 ## Contribute
 
