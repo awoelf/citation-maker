@@ -21,7 +21,7 @@ function UseTodayDate() {
             <Button
               auto
               light
-              className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
+              className='transition ease-in-out hover:-translate-y-1 hover:scale-110 use-today-date-button'
               icon={<CalendarEvent />}
               onPress={() => updateTodayDate()}
             />

@@ -13,7 +13,7 @@ function StyleDropdown() {
   return (
     <Dropdown>
       {citationStyle !== '' ? (
-        <Dropdown.Button css={{ tt: 'uppercase' }} id='citationStyleButton'>{citationStyle}</Dropdown.Button>
+        <Dropdown.Button css={{ tt: 'uppercase' }} className='citation-style-button'>{citationStyle}</Dropdown.Button>
       ) : (
         <Dropdown.Button>Style</Dropdown.Button>
       )}
@@ -25,6 +25,7 @@ function StyleDropdown() {
         onSelectionChange={setSelectedValue}
         disabledKeys={['apa']}
         defaultValue={['mla']}
+        className='citation-style-dropdown'
       >
         <Dropdown.Item key='mla'>MLA</Dropdown.Item>
         <Dropdown.Item key='apa'>APA</Dropdown.Item>

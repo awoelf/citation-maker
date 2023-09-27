@@ -47,6 +47,7 @@ function CitationForm() {
     <div className='grid' id='form'>
       <div className='flex justify-between gap-2 px-3'>
         <div className='flex gap-2'>
+          {/* Dropdowns for style (MLA) and source (website, journal, etc.) */}
           <StyleDropdown />
           <SourceDropdown />
         </div>
@@ -55,8 +56,10 @@ function CitationForm() {
         </div>
       </div>
       <Grid.Container gap={2}>
+        {/* Based on source (website, journal, etc.) the source handler will display the appropriate input fields */}
         <SourceHandler />
         <Grid xs={12} className='justify-center'>
+          {/* Only allowed to press submission button if a style is selected */}
           <Tooltip
             color='invert'
             content={ 'Citation style is required to create a citation.'}

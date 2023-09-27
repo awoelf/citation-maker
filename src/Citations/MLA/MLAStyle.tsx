@@ -65,7 +65,7 @@ function MLAStyle(props: citationProps) {
 
   return (
     <Card.Body>
-      <Text className='citation-style' id={data.id}>
+      <Text className='citation-text' id={data.id}>
         <SourceSwitcher />
       </Text>
     </Card.Body>

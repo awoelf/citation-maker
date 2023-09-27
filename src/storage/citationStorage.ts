@@ -1,35 +1,39 @@
 import { form } from '@/@types/form';
 import useLocalStorageState from 'use-local-storage-state';
 
-// Local storage object for storing form data of multiple citations
+// Stores user-created citations
 export function Citations() {
-    const deleteCitationById = (id: string) => {
+  // Create an array of type form in local storage named 'citations'
+  const [citations, setCitations, { removeItem }] = useLocalStorageState<Array<form>>('citations');
+
+  function deleteCitationById(id: string) {
     const filteredCitations = citations?.filter((item) => item.id != id);
     filteredCitations?.length === 0 ? setCitations(undefined) : setCitations(filteredCitations);
-  };
+  }
 
-  const addCitation = (formData: form) => {
+  function addCitation(formData: form) {
     const citationsList: Array<form> = [];
     if (citations) citationsList.push(...citations);
     citationsList.push(formData);
     setCitations(citationsList);
   }
 
-  const updateCitation = (formData: form) => {
+  function updateCitation(formData: form) {
     const filteredCitations = citations?.filter((item) => item.id != formData.id);
     filteredCitations?.push(formData);
     setCitations(filteredCitations);
-  };
+  }
 
-  const [citations, setCitations, { removeItem }] = useLocalStorageState<Array<form>>('citations');
   return { citations, setCitations, deleteCitationById, removeItem, addCitation, updateCitation };
 }
 
-// User defined citation style (eg. MLA, APA, Chicago)
+// Stores user-selected citation style (only MLA is available right now)
 export function CitationStyle() {
+  // Create a field that stored a string in local storage called 'citationStyle'
   const [citationStyle, setCitationStyle, { removeItem }] = useLocalStorageState<string>(
     'citationStyle',
     { defaultValue: 'mla' }
   );
+
   return { citationStyle, setCitationStyle, removeItem };
 }

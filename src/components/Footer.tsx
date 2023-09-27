@@ -4,7 +4,7 @@ import { Text } from '@nextui-org/react';
 
 function Footer() {
   return (
-    <div className='flex flex-col pt-3' id='footer'>
+    <div className='flex flex-col pt-3 footer'>
       <div className='flex justify-center'>
         <Text>Created by</Text>
         <Link

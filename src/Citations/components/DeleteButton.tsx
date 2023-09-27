@@ -3,7 +3,7 @@ import ConfirmDelete from './ConfirmDelete';
 
 function DeleteButton() {
   return (
-    <Tooltip trigger='click' placement='bottom' content={ConfirmDelete()}>
+    <Tooltip trigger='click' placement='bottom' className='delete-all-button' content={ConfirmDelete()}>
       <Button auto>Delete All</Button>
     </Tooltip>
   );
