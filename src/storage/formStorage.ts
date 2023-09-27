@@ -2,7 +2,6 @@ import useLocalStorageState from 'use-local-storage-state';
 import { form, formEvent } from '@/@types/form';
 import dayjs from 'dayjs';
 
-// TO DO: Change citationSource to '' once other sources are supported.
 export default function FormStorage() {
   const [form, setForm, { removeItem }] = useLocalStorageState<form>('form', {
     defaultValue: {

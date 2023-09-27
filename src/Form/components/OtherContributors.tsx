@@ -6,7 +6,7 @@ import { generateUid } from '@/utils/helpers';
 import { Button, PressEvent, FormElement, Text, Collapse } from '@nextui-org/react';
 import TextInput from './TextInput';
 
-const OtherContributors: React.FC<formProps> = (props) => {
+function OtherContributors(props: formProps) {
   // State for storing single contributor before adding to form data.
   const [contributor, setContributor] = useState<contributor>({
     id: '',
@@ -20,16 +20,14 @@ const OtherContributors: React.FC<formProps> = (props) => {
   const otherContributors = form.otherContributors;
 
   // Updates contributor state when user types in text input
-  const updateContributor = (e: ChangeEvent<FormElement>) => {
+  function updateContributor(e: ChangeEvent<FormElement>) {
     const { value, name } = e.target;
     setContributor({ ...contributor, [name]: value });
   };
 
   // Adds contributor to form storage
-  const addContributor = (e: PressEvent) => {
+  function addContributor() {
     const contributorsList = [];
-    // TO DO: Rewrite for simplicity.
-    // Only push current form data if otherContributors contains valid data
     if (form.otherContributors) contributorsList.push(...form.otherContributors);
     contributor.id = generateUid();
     contributorsList.push(contributor);
@@ -46,7 +44,7 @@ const OtherContributors: React.FC<formProps> = (props) => {
     });
   };
 
-  const removeContributor = (e: PressEvent) => {
+  function removeContributor(e: PressEvent) {
     const { id } = e.target;
     // const filteredContributors = filterList(otherContributors, id);
     const filteredContributors = otherContributors?.filter((item) => item.id != id);

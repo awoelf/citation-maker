@@ -4,7 +4,7 @@ import { capitalize, addSpace } from '../../utils/helpers';
 import { Grid, Input, SimpleColors } from '@nextui-org/react';
 import validator from 'validator';
 
-const TextInput: React.FC<formProps> = (props) => {
+function TextInput(props: formProps) {
   const updateForm = props.updateForm as formChange;
   const [isValid, setIsValid] = useState(true);
 
@@ -14,13 +14,13 @@ const TextInput: React.FC<formProps> = (props) => {
         text: '',
         color: '',
       };
-      
+
     setIsValid(validator.isAscii(props.formValue + ''));
     return {
       text: isValid ? '' : 'Input must be alphanumeric or punctuation.',
       color: isValid ? 'default' : 'error',
     };
-  }, [props.formValue]);
+  }, [props.formValue, isValid]);
 
   return (
     <Grid
@@ -48,6 +48,6 @@ const TextInput: React.FC<formProps> = (props) => {
       />
     </Grid>
   );
-};
+}
 
 export default TextInput;

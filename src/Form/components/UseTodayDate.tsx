@@ -3,7 +3,7 @@ import FormStorage from '../../storage/formStorage';
 import { CalendarEvent } from 'react-bootstrap-icons';
 import { Button, Tooltip, Grid } from '@nextui-org/react';
 
-const UseTodayDate: React.FC = () => {
+function UseTodayDate() {
   const { updateTodayDate, form } = FormStorage();
   const [dateExists, setDateExists] = useState(false);
 

@@ -7,7 +7,7 @@ function ClearButton() {
   return (
     <Button
       auto
-      onPress={() => removeItem()}
+      onPress={removeItem}
     >
     Clear Form
     </Button>

@@ -17,7 +17,6 @@ function StyleDropdown() {
       ) : (
         <Dropdown.Button>Style</Dropdown.Button>
       )}
-      {/* TO DO: Add more styles later */}
       <Dropdown.Menu
         aria-label='Styles'
         variant='light'

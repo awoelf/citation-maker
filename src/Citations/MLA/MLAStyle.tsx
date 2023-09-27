@@ -1,12 +1,77 @@
 import { citationProps } from '@/@types/form';
-import dayjs from 'dayjs';
 import { Card, Text } from '@nextui-org/react';
+import dayjs from 'dayjs';
 
-// TO DO: Clean this code up because it's a damn mess
-const MLAStyle: React.FC<citationProps> = (props) => {
+function MLAStyle(props: citationProps) {
   const data = props.data;
 
-  const Authors = () => {
+  const SourceSwitcher = () => {
+    switch (data.citationSource) {
+      case 'website':
+        return (
+          <>
+            <Authors />
+            <Title />
+            <Source />
+            <Version />
+            <Number />
+            <Publisher />
+            <Location />
+            <DateAccessed />
+          </>
+        );
+      case 'journal':
+        return (
+          <>
+            <Authors />
+            <Title />
+            <Source />
+            <Publisher />
+            <Number />
+            <PageLocation />
+            <Location />
+          </>
+        );
+      case 'book':
+        return (
+          <>
+            <Authors />
+            {data.source ? (
+              <>
+                <Title />
+                <Source />
+              </>
+            ) : (
+              <Title italic={true} />
+            )}
+            <Publisher year={true} />
+          </>
+        );
+      default:
+        return (
+          <>
+            <Authors />
+            <Title />
+            <Source />
+            <Version />
+            <Number />
+            <Publisher />
+            <Location />
+            <DateAccessed />
+          </>
+        );
+    }
+  };
+
+  return (
+    <Card.Body>
+      <Text className='citation-style' id={data.id}>
+        <SourceSwitcher />
+      </Text>
+    </Card.Body>
+  );
+
+  function Authors() {
     return (
       <>
         {data?.lastName}
@@ -16,10 +81,6 @@ const MLAStyle: React.FC<citationProps> = (props) => {
         {data.middleInitial ? data.middleInitial[0] : null}
         {data.middleInitial && data.otherContributors?.length === 1 ? '.' : null}
         {data?.suffix}
-        {/* Other contributors */}
-        {/* When there is 2 or more authors, et al. is used. */}
-        {/* When there is 1 other contributor, put and between main author and other. */}
-        {/* Should only be used to multiple authors, not for editors, but I will have to implement later. */}
         {(data.lastName || data.firstName || data.middleInitial || data.suffix) &&
         data.otherContributors?.length
           ? data.otherContributors?.length > 1
@@ -35,25 +96,25 @@ const MLAStyle: React.FC<citationProps> = (props) => {
         {data.lastName || data.firstName || data.middleInitial || data.suffix ? '. ' : null}
       </>
     );
-  };
+  }
 
-  const Title = ({ italic }: { italic?: boolean }) => {
+  function Title({ italic }: { italic?: boolean }) {
     return (
       <span className={italic ? 'italic' : 'not-italic'}>
         {data.title ? '"' + data.title + '." ' : null}
       </span>
     );
-  };
+  }
 
-  const Source = () => {
+  function Source() {
     return <>{data.source ? <span className='italic'>{data.source}. </span> : null}</>;
-  };
+  }
 
-  const Version = () => {
+  function Version() {
     return <>{data.version ? data.version + '. ' : null}</>;
-  };
+  }
 
-  const Number = () => {
+  function Number() {
     return (
       <>
         {data.number ? data.number : null}
@@ -61,9 +122,9 @@ const MLAStyle: React.FC<citationProps> = (props) => {
         {data.issue ? data.issue + '. ' : null}
       </>
     );
-  };
+  }
 
-  const Publisher = ({ year }: { year?: boolean }) => {
+  function Publisher({ year }: { year?: boolean }) {
     return (
       <>
         {data.publisher ? data.publisher + ' ' : null}
@@ -76,9 +137,9 @@ const MLAStyle: React.FC<citationProps> = (props) => {
           : '. '}
       </>
     );
-  };
+  }
 
-  const DateAccessed = () => {
+  function DateAccessed() {
     const day = data.dayAccessed;
     const month = data.monthAccessed as number;
     const year = data.yearAccessed;
@@ -100,9 +161,9 @@ const MLAStyle: React.FC<citationProps> = (props) => {
         {day || month === 5 || year ? '. ' : null}
       </>
     );
-  };
+  }
 
-  const DatePublished = () => {
+  function DatePublished() {
     const day = data.dayPublished;
     const month = data.monthPublished as number;
     const year = data.yearPublished;
@@ -123,18 +184,18 @@ const MLAStyle: React.FC<citationProps> = (props) => {
         {year ? year : null}
       </>
     );
-  };
+  }
 
-  const Location = () => {
+  function Location() {
     return (
       <>
         {data.doi ? data.doi : data.url ? data.url : null}
         {data.publisher || data.datePublished || data.doi || data.url ? '. ' : null}
       </>
     );
-  };
+  }
 
-  const PageLocation = () => {
+  function PageLocation() {
     return (
       <>
         {data.pageStart && data.pageEnd ? 'pp. ' : 'p. '}
@@ -143,71 +204,7 @@ const MLAStyle: React.FC<citationProps> = (props) => {
         {data.pageStart || data.pageEnd ? '. ' : null}
       </>
     );
-  };
-
-  switch (data.citationSource) {
-    case 'website':
-      return (
-        <Card.Body>
-          <Text className='citation-style' id={data.id}>
-            <Authors />
-            <Title />
-            <Source />
-            <Version />
-            <Number />
-            <Publisher />
-            <Location />
-            <DateAccessed />
-          </Text>
-        </Card.Body>
-      );
-    case 'book':
-      return (
-        <Card.Body>
-          <Text className='citation-style' id={data.id}>
-            <Authors />
-            {data.source ? (
-              <>
-                <Title />
-                <Source />
-              </>
-            ) : (
-              <Title italic={true} />
-            )}
-            <Publisher year={true} />
-          </Text>
-        </Card.Body>
-      );
-    case 'journal':
-      return (
-        <Card.Body>
-          <Text className='citation-style' id={data.id}>
-            <Authors />
-            <Title />
-            <Source />
-            <Publisher />
-            <Number />
-            <PageLocation />
-            <Location />
-          </Text>
-        </Card.Body>
-      );
-    default:
-      return (
-        <Card.Body>
-          <Text className='citation-style' id={data.id}>
-            <Authors />
-            <Title />
-            <Source />
-            <Version />
-            <Number />
-            <Publisher />
-            <Location />
-            <DateAccessed />
-          </Text>
-        </Card.Body>
-      );
   }
-};
+}
 
 export default MLAStyle;

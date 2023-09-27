@@ -8,7 +8,6 @@ function SourceDropdown() {
   const { form, updateCitationSource } = FormStorage();
 
   const setSelectedValue = (keys: 'all' | Set<Key>): any => {
-    // Not sure if this is the best way to get string value from set, but it works
     updateCitationSource(Array.from(keys)[0] as string);
   };
 
@@ -22,7 +21,6 @@ function SourceDropdown() {
         variant='light'
         selectionMode='single'
         onSelectionChange={setSelectedValue}
-        // TO DO: Delete once other sources are available
         defaultValue={'misc'}
       >
         <Dropdown.Item

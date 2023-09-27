@@ -46,7 +46,7 @@ function CitationPage() {
                       className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
                       onPress={() => {
                         setForm(item);
-                        router.push('/')
+                        router.push('/');
                       }}
                     />
                   </Tooltip>
