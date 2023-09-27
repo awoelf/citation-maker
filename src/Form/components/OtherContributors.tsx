@@ -23,7 +23,7 @@ function OtherContributors(props: formProps) {
   function updateContributor(e: ChangeEvent<FormElement>) {
     const { value, name } = e.target;
     setContributor({ ...contributor, [name]: value });
-  };
+  }
 
   // Adds contributor to form storage
   function addContributor() {
@@ -42,19 +42,22 @@ function OtherContributors(props: formProps) {
       lastName: '',
       suffix: '',
     });
-  };
+  }
 
   function removeContributor(e: PressEvent) {
     const { id } = e.target;
     // const filteredContributors = filterList(otherContributors, id);
     const filteredContributors = otherContributors?.filter((item) => item.id != id);
     setForm({ ...form, otherContributors: filteredContributors });
-  };
+  }
 
   return (
     <div className='min-w-full'>
       <Collapse.Group bordered borderWeight={'normal'} className='m-2 mt-4'>
-        <Collapse title={<Text size='$sm'>Other Contributors</Text>}>
+        <Collapse
+          title={<Text size='$sm'>Other Contributors</Text>}
+          className='other-contributors-dropdown'
+        >
           <div aria-labelledby={props.inputName} className='grid grid-cols-2 sm:flex items-center'>
             <TextInput
               formValue={contributor.firstName}
@@ -63,6 +66,7 @@ function OtherContributors(props: formProps) {
               updateForm={updateContributor}
               cols={4}
               mobileCols={12}
+              id={'other-contributors-first'}
             />
             <TextInput
               formValue={contributor.middleInitial}
@@ -70,6 +74,7 @@ function OtherContributors(props: formProps) {
               updateForm={updateContributor}
               cols={3}
               mobileCols={12}
+              id={'other-contributors-middle'}
             />
             <TextInput
               formValue={contributor.lastName}
@@ -77,6 +82,7 @@ function OtherContributors(props: formProps) {
               updateForm={updateContributor}
               cols={4}
               mobileCols={12}
+              id={'other-contributors-last'}
             />
             <TextInput
               formValue={contributor.suffix}
@@ -84,6 +90,7 @@ function OtherContributors(props: formProps) {
               updateForm={updateContributor}
               cols={2}
               mobileCols={12}
+              id={'other-contributors-suffix'}
             />
           </div>
           <Button
@@ -92,7 +99,7 @@ function OtherContributors(props: formProps) {
             className='flex m-auto mt-2'
             disabled={!(contributor.firstName || contributor.lastName)}
           >
-            <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100 pr-2' />
+            <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100 pr-2 add-contributor-button' />
             Add Contributor
           </Button>
           {otherContributors?.length ? (
@@ -107,6 +114,7 @@ function OtherContributors(props: formProps) {
                     {item.lastName} {item.suffix}
                   </p>
                   <Button
+                    className='remove-contributor-button'
                     id={item.id}
                     onPress={removeContributor}
                     icon={
@@ -123,6 +131,6 @@ function OtherContributors(props: formProps) {
       </Collapse.Group>
     </div>
   );
-};
+}
 
 export default OtherContributors;

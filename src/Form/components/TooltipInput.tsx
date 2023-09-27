@@ -6,7 +6,7 @@ function TooltipInput(props: tooltipProps) {
   return (
     <Tooltip
       color='invert'
-      className='pl-4'
+      className='pl-4 tooltip-component'
       trigger='hover'
       placement='right'
       content={props.tooltipMessage}

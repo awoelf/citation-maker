@@ -22,7 +22,7 @@ function DropdownInput(props: formProps) {
       <Dropdown>
         <Dropdown.Trigger>
           <Input
-            className='text-clip'
+            className='text-clip month-dropdown-input'
             label={props.label || capitalize(addSpace(props.inputName))}
             name={props.inputName}
             value={props.formValue as string}

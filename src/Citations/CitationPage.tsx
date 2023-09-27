@@ -15,7 +15,7 @@ function CitationPage() {
   const router = useRouter();
 
   return (
-    <div>
+    <div className='citation-page'>
       {citations ? (
         <div className='grid gap-2'>
           <div className='flex justify-between'>
@@ -23,13 +23,13 @@ function CitationPage() {
             <DeleteButton />
           </div>
           {citations.map((item: form) => (
-            <Card variant='flat' className='flex' key={item.id}>
+            <Card variant='flat' className='flex citation-card' key={item.id}>
               <Grid.Container justify='space-between' alignItems='center'>
                 <Grid xs={8} sm={10}>
                   <MLAStyle data={item} />
                 </Grid>
                 <Grid xs={4} sm={2} justify='center' className='gap-2'>
-                  <Tooltip content={'Copy citation'} color='invert' trigger='hover'>
+                  <Tooltip content={'Copy citation'} color='invert' trigger='hover' className='citation-copy-button'>
                     <Button
                       icon={<Clipboard />}
                       auto
@@ -38,7 +38,7 @@ function CitationPage() {
                       onPress={() => copyCitation(item.id)}
                     />
                   </Tooltip>
-                  <Tooltip content={'Edit citation'} color='invert' trigger='hover'>
+                  <Tooltip content={'Edit citation'} color='invert' trigger='hover' className='citation-edit-button'>
                     <Button
                       icon={<Pencil />}
                       auto
@@ -50,7 +50,7 @@ function CitationPage() {
                       }}
                     />
                   </Tooltip>
-                  <Tooltip content={'Delete citation'} color='invert' trigger='hover'>
+                  <Tooltip content={'Delete citation'} color='invert' trigger='hover' className='citation-delete-button'>
                     <Button
                       icon={<Trash />}
                       auto

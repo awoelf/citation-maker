@@ -62,16 +62,29 @@ function SourceHandler() {
         inputName={'title'}
         label={sourceLabels[citationSource].title}
         updateForm={updateForm}
+        id={'input-title'}
       />
 
       {/* || URL */}
       {citationSource === 'book' ? null : (
-        <TextInput formValue={form.url} inputName={'url'} label={'URL'} updateForm={updateForm} />
+        <TextInput
+          formValue={form.url}
+          inputName={'url'}
+          label={'URL'}
+          updateForm={updateForm}
+          id={'input-url'}
+        />
       )}
 
       {/* || DOI */}
       {citationSource === 'journal' ? (
-        <TextInput formValue={form.doi} inputName={'doi'} label={'DOI'} updateForm={updateForm} />
+        <TextInput
+          formValue={form.doi}
+          inputName={'doi'}
+          label={'DOI'}
+          updateForm={updateForm}
+          id={'input-doi'}
+        />
       ) : null}
 
       {/* || Source */}
@@ -85,6 +98,7 @@ function SourceHandler() {
             <TooltipInput tooltipMessage={sourceLabels[citationSource].sourceTooltipMessage} />
           ) : null
         }
+        id={'input-source'}
       />
 
       {/* || Author first name, last name, middle initial, and suffix */}
@@ -95,6 +109,7 @@ function SourceHandler() {
         updateForm={updateForm}
         cols={4}
         mobileCols={6}
+        id={'input-first'}
       />
       <TextInput
         formValue={form.middleInitial}
@@ -102,6 +117,7 @@ function SourceHandler() {
         updateForm={updateForm}
         cols={2}
         mobileCols={6}
+        id={'input-middle'}
       />
       <TextInput
         formValue={form.lastName}
@@ -109,6 +125,7 @@ function SourceHandler() {
         updateForm={updateForm}
         cols={4}
         mobileCols={6}
+        id={'input-last'}
       />
       <TextInput
         formValue={form.suffix}
@@ -119,6 +136,7 @@ function SourceHandler() {
         contentLeft={
           <TooltipInput tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."' />
         }
+        id={'input-suffix'}
       />
 
       {/* || Other contributors */}
@@ -133,6 +151,7 @@ function SourceHandler() {
             cols={6}
             fullWidth={false}
             updateForm={updateForm}
+            id={'input-page-start'}
           />
 
           {/* || Page end */}
@@ -142,6 +161,7 @@ function SourceHandler() {
             cols={6}
             fullWidth={false}
             updateForm={updateForm}
+            id={'input-page-end'}
           />
         </>
       ) : null}
@@ -159,6 +179,7 @@ function SourceHandler() {
               <TooltipInput tooltipMessage={sourceLabels[citationSource].versionTooltipMessage} />
             ) : null
           }
+          id={'input-version'}
         />
       ) : null}
 
@@ -170,6 +191,7 @@ function SourceHandler() {
           cols={6}
           fullWidth={false}
           updateForm={updateForm}
+          id={'input-version'}
         />
       )}
 
@@ -181,11 +203,17 @@ function SourceHandler() {
           cols={6}
           fullWidth={false}
           updateForm={updateForm}
+          id={'input-issue'}
         />
       ) : null}
 
       {/* || Publisher */}
-      <TextInput formValue={form.publisher} inputName={'publisher'} updateForm={updateForm} />
+      <TextInput
+        formValue={form.publisher}
+        inputName={'publisher'}
+        updateForm={updateForm}
+        id={'input-publisher'}
+      />
 
       {/* || Location */}
       {citationSource === 'website' ? null : (
@@ -198,6 +226,7 @@ function SourceHandler() {
               <TooltipInput tooltipMessage={sourceLabels[citationSource].locationTooltipMessage} />
             ) : null
           }
+          id={'input-location'}
         />
       )}
 
@@ -209,6 +238,7 @@ function SourceHandler() {
         placeholder='Day'
         updateForm={updateForm}
         cols={4}
+        id={'input-day-published'}
       />
       <DropdownInput
         formValue={form.monthPublished}
@@ -217,6 +247,7 @@ function SourceHandler() {
         placeholder='Month'
         updateForm={updateFormDate}
         cols={4}
+        id={'input-month-published'}
       />
       <TextInput
         formValue={form.yearPublished}
@@ -225,6 +256,7 @@ function SourceHandler() {
         placeholder='Year'
         updateForm={updateForm}
         cols={4}
+        id={'input-year-published'}
       />
 
       {/* || Date accessed */}
@@ -238,6 +270,7 @@ function SourceHandler() {
             updateForm={updateForm}
             cols={4}
             contentLeft={<UseTodayDate />}
+            id={'input-day-accessed'}
           />
           <DropdownInput
             formValue={form.monthAccessed}
@@ -246,6 +279,7 @@ function SourceHandler() {
             placeholder='Month'
             updateForm={updateFormDate}
             cols={4}
+            id={'input-month-accessed'}
           />
           <TextInput
             formValue={form.yearAccessed}
@@ -254,6 +288,7 @@ function SourceHandler() {
             placeholder='Year'
             updateForm={updateForm}
             cols={4}
+            id={'input-year-accessed'}
           />
         </>
       )}

@@ -12,6 +12,7 @@ function ConfirmDelete(): ReactNode {
         padding: '0.75rem',
         maxWidth: '330px',
       }}
+      className='confirm-delete-button'
     >
       <Text>Are you sure you want to delete all of your citations? This cannot be undone.</Text>
       <Grid.Container justify='space-between' alignContent='center'>

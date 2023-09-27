@@ -13,7 +13,7 @@ function SourceDropdown() {
 
   return (
     <Dropdown>
-      <Dropdown.Button css={{ tt: 'capitalize' }} id='citationSourceButton'>
+      <Dropdown.Button css={{ tt: 'capitalize' }} className='citation-source-button'>
         {form.citationSource ? form.citationSource : 'Source'}
       </Dropdown.Button>
       <Dropdown.Menu
@@ -22,6 +22,7 @@ function SourceDropdown() {
         selectionMode='single'
         onSelectionChange={setSelectedValue}
         defaultValue={'misc'}
+        className='citation-source-dropdown'
       >
         <Dropdown.Item
           key='website'
