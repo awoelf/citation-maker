@@ -13,9 +13,7 @@ function ConfirmDelete(): ReactNode {
         maxWidth: '330px',
       }}
     >
-      <Text>
-        Are you sure you want to delete all of your citations? This cannot be undone.
-      </Text>
+      <Text>Are you sure you want to delete all of your citations? This cannot be undone.</Text>
       <Grid.Container justify='space-between' alignContent='center'>
         <Grid>
           <Button size='sm' light>
@@ -30,6 +28,6 @@ function ConfirmDelete(): ReactNode {
       </Grid.Container>
     </Grid.Container>
   );
-};
+}
 
 export default ConfirmDelete;

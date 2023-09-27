@@ -20,7 +20,7 @@ function TextInput(props: formProps) {
       text: isValid ? '' : 'Input must be alphanumeric or punctuation.',
       color: isValid ? 'default' : 'error',
     };
-  }, [props.formValue]);
+  }, [props.formValue, isValid]);
 
   return (
     <Grid
