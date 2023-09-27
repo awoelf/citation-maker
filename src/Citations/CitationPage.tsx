@@ -4,10 +4,10 @@ import { form } from '@/@types/form';
 import { copyCitation } from '@/utils/helpers';
 import { useRouter } from 'next/router';
 import DeleteButton from './components/DeleteButton';
-import CopyButton from './components/CopyButton';
 import { Card, Grid, Tooltip, Button } from '@nextui-org/react';
 import MLAStyle from './MLA/MLAStyle';
 import { Trash, Clipboard, Pencil } from 'react-bootstrap-icons';
+// import CopyButton from './components/CopyButton';
 
 function CitationPage() {
   const { citations, deleteCitationById } = Citations();
@@ -19,15 +19,19 @@ function CitationPage() {
       {citations ? (
         <div className='grid gap-2'>
           <div className='flex justify-between'>
-            <div className='flex gap-2 pb-2'>{/* <CopyButton /> */}</div>
+            {/* Copy all button will be implemented after citations are able to be sorted alphabetically*/}
+            {/* <div className='flex gap-2 pb-2'><CopyButton /></div> */}
             <DeleteButton />
           </div>
           {citations.map((item: form) => (
+            // Each citation is displayed in a card
             <Card variant='flat' className='flex citation-card' key={item.id}>
               <Grid.Container justify='space-between' alignItems='center'>
                 <Grid xs={8} sm={10}>
+                  {/* All citations are run through the MLA style, which formats the data based on source */}
                   <MLAStyle data={item} />
                 </Grid>
+                {/* Buttons for copying, editing, or deleting a citation */}
                 <Grid xs={4} sm={2} justify='center' className='gap-2'>
                   <Tooltip content={'Copy citation'} color='invert' trigger='hover' className='citation-copy-button'>
                     <Button
@@ -65,7 +69,8 @@ function CitationPage() {
           ))}
         </div>
       ) : (
-        <p className='text-center'>Return to the home page to start creating citations!</p>
+        // If no citations, then this message appears
+        <p className='text-center px-4'>Return to the home page to start creating citations!</p>
       )}
     </div>
   );
