@@ -4,11 +4,11 @@ import Layout from '../components/Layout';
 import CitationForm from '../Form/CitationForm';
 
 function Home<NextPageWithLayout>() {
-  return <CitationForm />;
+    return <CitationForm />;
 }
 
 Home.getLayout = function getLayout(home: ReactElement) {
-  return <Layout>{home}</Layout>;
+    return <Layout>{home}</Layout>;
 };
 
 export default Home;

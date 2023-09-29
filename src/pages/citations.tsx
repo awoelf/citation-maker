@@ -4,11 +4,11 @@ import Layout from '../components/Layout';
 import CitationPage from '../Citations/CitationPage';
 
 function Citations<NextPageWithLayout>() {
-  return <CitationPage />;
+    return <CitationPage />;
 }
 
 Citations.getLayout = function getLayout(citations: ReactElement) {
-  return <Layout>{citations}</Layout>;
+    return <Layout>{citations}</Layout>;
 };
 
 export default Citations;
