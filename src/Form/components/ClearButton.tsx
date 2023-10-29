@@ -5,7 +5,7 @@ function ClearButton() {
     const { removeItem } = FormStorage();
 
     return (
-        <Button className='clear-form-button' auto onPress={removeItem}>
+        <Button data-test='clear-form-button' auto onPress={removeItem}>
             Clear Form
         </Button>
     );

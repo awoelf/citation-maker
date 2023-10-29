@@ -18,11 +18,12 @@ function DropdownInput(props: formProps) {
             direction='column'
             aria-labelledby={props.inputName}
             className='place-content-end'
+            data-test='month-dropdown-input'
         >
             <Dropdown>
                 <Dropdown.Trigger>
                     <Input
-                        className='text-clip month-dropdown-input'
+                        className='text-clip'
                         label={props.label || capitalize(addSpace(props.inputName))}
                         name={props.inputName}
                         value={props.formValue as string}

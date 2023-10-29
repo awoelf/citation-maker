@@ -18,6 +18,7 @@ function UseTodayDate() {
             {dateExists ? null : (
                 <Grid xs={1}>
                     <Tooltip
+                        data-test='today-date-button'
                         content={"Use today's date"}
                         color='invert'
                         trigger='hover'
@@ -26,7 +27,7 @@ function UseTodayDate() {
                         <Button
                             auto
                             light
-                            className='transition ease-in-out hover:-translate-y-1 hover:scale-110 use-today-date-button'
+                            className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
                             icon={<CalendarEvent />}
                             onPress={() => updateTodayDate()}
                         />

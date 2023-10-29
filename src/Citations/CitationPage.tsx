@@ -37,9 +37,9 @@ function CitationPage() {
                                         content={'Copy citation'}
                                         color='invert'
                                         trigger='hover'
-                                        className='citation-copy-button'
                                     >
                                         <Button
+                                            data-test='citation-copy-button'
                                             icon={<Clipboard />}
                                             auto
                                             light
@@ -51,9 +51,9 @@ function CitationPage() {
                                         content={'Edit citation'}
                                         color='invert'
                                         trigger='hover'
-                                        className='citation-edit-button'
                                     >
                                         <Button
+                                            data-test='citation-edit-button'
                                             icon={<Pencil />}
                                             auto
                                             light
@@ -68,9 +68,9 @@ function CitationPage() {
                                         content={'Delete citation'}
                                         color='invert'
                                         trigger='hover'
-                                        className='citation-delete-button'
                                     >
                                         <Button
+                                            data-test='citation-delete-button'
                                             icon={<Trash />}
                                             auto
                                             light

@@ -51,11 +51,10 @@ function OtherContributors(props: formProps) {
     }
 
     return (
-        <div className='min-w-full'>
+        <div data-test='other-contributors-dropdown' className='min-w-full'>
             <Collapse.Group bordered borderWeight={'normal'} className='m-2 mt-4'>
                 <Collapse
                     title={<Text size='$sm'>Other Contributors</Text>}
-                    className='other-contributors-dropdown'
                 >
                     <div
                         aria-labelledby={props.inputName}
@@ -100,8 +99,9 @@ function OtherContributors(props: formProps) {
                         onPress={addContributor}
                         className='flex m-auto mt-2'
                         disabled={!(contributor.firstName || contributor.lastName)}
+                        data-test='add-contributor-button'
                     >
-                        <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100 pr-2 add-contributor-button' />
+                        <PlusSquare className='h-4 w-auto opacity-50 transition ease-in-out hover:opacity-100 pr-2' />
                         Add Contributor
                     </Button>
                     {otherContributors?.length ? (
@@ -117,7 +117,7 @@ function OtherContributors(props: formProps) {
                                         {item.lastName} {item.suffix}
                                     </p>
                                     <Button
-                                        className='remove-contributor-button'
+                                        data-test='remove-contributor-button'
                                         id={item.id}
                                         onPress={removeContributor}
                                         icon={

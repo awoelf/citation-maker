@@ -18,7 +18,7 @@ function Header() {
     }, []);
 
     return mounted ? (
-        <div className='justify-between py-3 flex sm:grid sm:grid-cols-6 sm:justify-normal header'>
+        <div className='justify-between py-3 flex sm:grid sm:grid-cols-6 sm:justify-normal header' data-test='header'>
             <div className='col-span-1 hidden sm:grid' />
             <Link
                 href={'/'}
@@ -54,7 +54,7 @@ function Header() {
                 )}
                 {theme === 'dark' ? (
                     <Button
-                        className='theme-button-moon'
+                        data-test='theme-button-moon'
                         onPress={() => setTheme('light')}
                         icon={
                             <MoonStars className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />
@@ -64,7 +64,7 @@ function Header() {
                     />
                 ) : (
                     <Button
-                        className='theme-button-sun'
+                        data-test='theme-button-sun'
                         onPress={() => setTheme('dark')}
                         icon={
                             <Sun className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />

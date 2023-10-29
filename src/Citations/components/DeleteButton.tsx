@@ -6,7 +6,7 @@ function DeleteButton() {
         <Tooltip
             trigger='click'
             placement='bottom'
-            className='delete-all-button'
+            data-test='delete-all-button'
             content={ConfirmDelete()}
         >
             <Button auto>Delete All</Button>
