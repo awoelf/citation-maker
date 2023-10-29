@@ -12,11 +12,12 @@ function SourceDropdown() {
     };
 
     return (
-        <Dropdown data-test='citation-source-dropdown'>
-            <Dropdown.Button css={{ tt: 'capitalize' }} className='citation-source-button'>
+        <Dropdown>
+            <Dropdown.Button css={{ tt: 'capitalize' }} data-test='citation-source-dropdown'>
                 {form.citationSource ? form.citationSource : 'Source'}
             </Dropdown.Button>
             <Dropdown.Menu
+                data-test='citation-source-dropdown-menu'
                 aria-label='Sources'
                 variant='light'
                 selectionMode='single'

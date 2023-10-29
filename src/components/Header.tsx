@@ -32,7 +32,7 @@ function Header() {
                         <Button
                             className='home-button'
                             icon={
-                                <House className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />
+                                <House data-test='home-button' className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />
                             }
                             auto
                             light
@@ -48,7 +48,7 @@ function Header() {
                             size='md'
                             content={citations?.length ? citations?.length : <></>}
                         >
-                            <Button icon={<BlockquoteRight className='h-6 w-auto ' />} auto light />
+                            <Button data-test='citations-button' icon={<BlockquoteRight className='h-6 w-auto ' />} auto light />
                         </Badge>
                     </Link>
                 )}

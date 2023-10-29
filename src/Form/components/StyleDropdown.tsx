@@ -11,13 +11,13 @@ function StyleDropdown() {
     };
 
     return (
-        <Dropdown data-test='citation-style-dropdown'>
+        <Dropdown>
             {citationStyle !== '' ? (
-                <Dropdown.Button css={{ tt: 'uppercase' }} >
+                <Dropdown.Button css={{ tt: 'uppercase' }} data-test='citation-style-dropdown'>
                     {citationStyle}
                 </Dropdown.Button>
             ) : (
-                <Dropdown.Button>Style</Dropdown.Button>
+                <Dropdown.Button data-test='citation-style-dropdown'>Style</Dropdown.Button>
             )}
             <Dropdown.Menu
                 aria-label='Styles'

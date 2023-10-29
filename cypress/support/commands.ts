@@ -35,3 +35,24 @@
 //     }
 //   }
 // }
+export {};
+
+declare global {
+    namespace Cypress {
+        interface Chainable {
+            dataTest(dataTestSelector: string): Chainable<JQuery<HTMLElement>>;
+            selectSource(type: string): void;
+        }
+    }
+}
+
+Cypress.Commands.add('dataTest', (dataTestSelector) => {
+    return cy.get(`[data-test="${dataTestSelector}"]`);
+});
+
+Cypress.Commands.add('selectSource', (type) => {
+    cy.dataTest('citation-source-dropdown').click();
+    cy.dataTest('citation-source-dropdown-menu').within(() => {
+        cy.contains(`${type}`).click();
+    });
+});
