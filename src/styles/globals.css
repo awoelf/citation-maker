@@ -4,27 +4,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Inter&display=swap');
 
 :root {
-  --font-inter: 'Inter', sans-serif;
-  --font-crete-round: 'Crete Round', serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-crete-round: 'Crete Round', serif;
 }
 
 body {
-  font-family: var(--font-inter);
+    font-family: var(--font-inter);
 }
 
 /* || Header */
 .header {
-  font-family: var(--font-crete-round);
+    font-family: var(--font-crete-round);
 }
 
 /* || Citation text style */
 .citation-text {
-  margin-left: 1cm;
-  text-indent: -0.5cm;
-  padding: 0px 5px;
-  display: inline-block;
-  width: calc(100% - 40px);
-  word-break: break-word;
-  line-height: 200%;
-  user-select: none;
+    margin-left: 1cm;
+    text-indent: -0.5cm;
+    padding: 0px 5px;
+    display: inline-block;
+    width: calc(100% - 40px);
+    word-break: break-word;
+    line-height: 200%;
+    user-select: none;
 }
