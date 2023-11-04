@@ -55,6 +55,7 @@ export interface formProps {
 
 export interface tooltipProps {
     tooltipMessage: string;
+    dataTest?: string;
 }
 
 // Interface for other contributors

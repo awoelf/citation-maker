@@ -96,6 +96,7 @@ function SourceHandler() {
                     sourceLabels[citationSource].sourceTooltipMessage ? (
                         <TooltipInput
                             tooltipMessage={sourceLabels[citationSource].sourceTooltipMessage}
+                            dataTest='source'
                         />
                     ) : null
                 }
@@ -135,7 +136,7 @@ function SourceHandler() {
                 cols={2}
                 mobileCols={6}
                 contentLeft={
-                    <TooltipInput tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."' />
+                    <TooltipInput tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."' dataTest='suffix'/>
                 }
                 dataTest={'input-suffix'}
             />
@@ -179,6 +180,7 @@ function SourceHandler() {
                         sourceLabels[citationSource].versionTooltipMessage ? (
                             <TooltipInput
                                 tooltipMessage={sourceLabels[citationSource].versionTooltipMessage}
+                                dataTest='book'
                             />
                         ) : null
                     }
@@ -228,6 +230,7 @@ function SourceHandler() {
                         sourceLabels[citationSource].locationTooltipMessage ? (
                             <TooltipInput
                                 tooltipMessage={sourceLabels[citationSource].locationTooltipMessage}
+                                dataTest='location'
                             />
                         ) : null
                     }

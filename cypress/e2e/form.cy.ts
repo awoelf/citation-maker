@@ -54,7 +54,7 @@ describe('template spec', () => {
     });
     it('should create a citation when data is input into the form', () => {
         cy.selectSource('Website');
-        cy.fixture('form_website').then((form) => {
+        cy.fixture('form-website').then((form) => {
             cy.dataTest('input-title').type(form.articleTitle);
             cy.dataTest('input-url').type(form.url);
             cy.dataTest('input-source').type(form.websiteName);
@@ -106,14 +106,19 @@ describe('template spec', () => {
         cy.dataTest('input-month-accessed').should('have.value', '');
         cy.dataTest('input-year-accessed').should('have.value', '');
     });
-    it('should input today\'s date when the date button is clicked', () => {
+    it("should input today's date when the date button is clicked", () => {
         cy.dataTest('today-date-button').click();
         cy.dataTest('input-day-accessed').should('have.value', dayjs().date());
         cy.dataTest('input-month-accessed').should('have.value', dayjs().month() + 1);
         cy.dataTest('input-year-accessed').should('have.value', dayjs().year());
     });
-    it.only('should display tooltips when the ? icon is hovered', () => {
+    it('should display tooltips when the ? icon is hovered', () => {
         cy.selectSource('Miscellaneous');
-        cy.dataTest('')
+        cy.fixture('form-tooltips').then((tooltip) => {
+            cy.dataTest('source-tooltip').click();
+            cy.contains(tooltip.source).should('exist');
+            cy.dataTest('suffix-tooltip').click();
+            cy.contains(tooltip.suffix).should('exist');
+        });
     });
 });

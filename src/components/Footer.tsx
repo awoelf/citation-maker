@@ -11,6 +11,7 @@ function Footer() {
                     className='flex text-inherit gap-2'
                     href={'https://github.com/awoelf'}
                     target='_blank'
+                    data-test='footer-link-github'
                 >
                     <Text>&nbsp;awoelf</Text>
                     <Github className='h-6 w-auto' />
@@ -21,6 +22,7 @@ function Footer() {
                     href={'https://github.com/awoelf/citation-maker/issues'}
                     target='_blank'
                     className='text-inherit text-center'
+                    data-test='footer-link-issue'
                 >
                     Submit an issue
                 </Link>
@@ -29,6 +31,7 @@ function Footer() {
                     href={'https://ko-fi.com/awoelf'}
                     target='_blank'
                     className='text-inherit text-center'
+                    data-test='footer-link-kofi'
                 >
                     Support me on Ko-fi
                 </Link>

@@ -60,7 +60,7 @@ Cypress.Commands.add('selectSource', (type) => {
 
 Cypress.Commands.add('inputData', () => {
     cy.selectSource('Miscellaneous');
-        cy.fixture('form_misc').then((form) => {
+        cy.fixture('form-misc').then((form) => {
             cy.dataTest('input-title').type(form.articleTitle);
             cy.dataTest('input-url').type(form.url);
             cy.dataTest('input-source').type(form.websiteName);
