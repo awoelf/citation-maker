@@ -9,7 +9,6 @@ import TooltipInput from './TooltipInput';
 function SourceHandler() {
     const { form, updateForm, updateFormDate } = FormStorage();
     const citationSource = form.citationSource;
-
     const sourceLabels: { [key: string]: any } = {
         website: {
             title: 'Article Title',
@@ -195,7 +194,7 @@ function SourceHandler() {
                     cols={6}
                     fullWidth={false}
                     updateForm={updateForm}
-                    data-test={'input-version'}
+                    data-test={'input-number'}
                 />
             )}
 

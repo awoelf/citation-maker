@@ -55,9 +55,9 @@ function CitationForm() {
                     <ClearButton />
                 </div>
             </div>
-            <Grid.Container gap={2}>
+            <Grid.Container gap={2} data-test={`form-page-${form.citationSource}`}>
                 {/* Based on source (website, journal, etc.) the source handler will display the appropriate input fields */}
-                <SourceHandler />
+                <SourceHandler/>
                 <Grid xs={12} className='justify-center'>
                     {/* Only allowed to press submission button if a style is selected */}
                     <Tooltip

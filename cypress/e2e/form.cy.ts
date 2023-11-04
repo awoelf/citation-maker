@@ -30,10 +30,13 @@ describe('template spec', () => {
         cy.dataTest('citation-source-dropdown').should('have.attr', 'aria-expanded').should('equal', 'false');
     });
     it.only('should show different inputs when the source changes', () => {
-        // TO DO: add commands that check that the form content has changed.
         cy.selectSource('Website');
+        cy.dataTest('form-page-website').should('exist');
         cy.selectSource('Book');
+        cy.dataTest('form-page-book').should('exist');
         cy.selectSource('Journal');
+        cy.dataTest('form-page-journal').should('exist');
         cy.selectSource('Miscellaneous');
+        cy.dataTest('form-page-misc').should('exist');
     })
 });
