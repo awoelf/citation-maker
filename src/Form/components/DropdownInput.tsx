@@ -23,6 +23,7 @@ function DropdownInput(props: formProps) {
             <Dropdown>
                 <Dropdown.Trigger>
                     <Input
+                        data-test={props.dataTest}
                         className='text-clip'
                         label={props.label || capitalize(addSpace(props.inputName))}
                         name={props.inputName}
@@ -49,6 +50,7 @@ function DropdownInput(props: formProps) {
                     />
                 </Dropdown.Trigger>
                 <Dropdown.Menu
+                    data-test={`${props.dataTest}-menu`}
                     aria-label='month dropdown'
                     onSelectionChange={setSelectedValue}
                     selectionMode='single'

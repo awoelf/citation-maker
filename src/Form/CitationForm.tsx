@@ -65,7 +65,7 @@ function CitationForm() {
                         content={'Citation style is required to create a citation.'}
                         isDisabled={!!citationStyle}
                     >
-                        <Button onPress={handleSubmit} disabled={!citationStyle}>
+                        <Button onPress={handleSubmit} disabled={!citationStyle} data-test={'form-page-submit-button'}>
                             {form.id ? 'Edit Citation' : 'Create Citation'}
                         </Button>
                     </Tooltip>

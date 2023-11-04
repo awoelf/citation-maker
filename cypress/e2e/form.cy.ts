@@ -1,3 +1,4 @@
+import * as dayjs from 'dayjs';
 describe('template spec', () => {
     beforeEach(() => {
         cy.visit('/');
@@ -17,19 +18,31 @@ describe('template spec', () => {
         cy.location('pathname').should('equal', '/');
     });
     it('should have dropdowns that open and close when clicked', () => {
-        cy.dataTest('citation-style-dropdown').should('have.attr', 'aria-expanded').should('equal', 'false');
+        cy.dataTest('citation-style-dropdown')
+            .should('have.attr', 'aria-expanded')
+            .should('equal', 'false');
         cy.dataTest('citation-style-dropdown').click();
-        cy.dataTest('citation-style-dropdown').should('have.attr', 'aria-expanded').should('equal', 'true');
+        cy.dataTest('citation-style-dropdown')
+            .should('have.attr', 'aria-expanded')
+            .should('equal', 'true');
         cy.dataTest('citation-style-dropdown').click();
-        cy.dataTest('citation-style-dropdown').should('have.attr', 'aria-expanded').should('equal', 'false');
+        cy.dataTest('citation-style-dropdown')
+            .should('have.attr', 'aria-expanded')
+            .should('equal', 'false');
 
-        cy.dataTest('citation-source-dropdown').should('have.attr', 'aria-expanded').should('equal', 'false');
+        cy.dataTest('citation-source-dropdown')
+            .should('have.attr', 'aria-expanded')
+            .should('equal', 'false');
         cy.dataTest('citation-source-dropdown').click();
-        cy.dataTest('citation-source-dropdown').should('have.attr', 'aria-expanded').should('equal', 'true');
+        cy.dataTest('citation-source-dropdown')
+            .should('have.attr', 'aria-expanded')
+            .should('equal', 'true');
         cy.dataTest('citation-source-dropdown').click();
-        cy.dataTest('citation-source-dropdown').should('have.attr', 'aria-expanded').should('equal', 'false');
+        cy.dataTest('citation-source-dropdown')
+            .should('have.attr', 'aria-expanded')
+            .should('equal', 'false');
     });
-    it.only('should show different inputs when the source changes', () => {
+    it('should show different inputs when the source changes', () => {
         cy.selectSource('Website');
         cy.dataTest('form-page-website').should('exist');
         cy.selectSource('Book');
@@ -38,5 +51,69 @@ describe('template spec', () => {
         cy.dataTest('form-page-journal').should('exist');
         cy.selectSource('Miscellaneous');
         cy.dataTest('form-page-misc').should('exist');
-    })
+    });
+    it('should create a citation when data is input into the form', () => {
+        cy.selectSource('Website');
+        cy.fixture('form_website').then((form) => {
+            cy.dataTest('input-title').type(form.articleTitle);
+            cy.dataTest('input-url').type(form.url);
+            cy.dataTest('input-source').type(form.websiteName);
+            cy.dataTest('input-first').type(form.authorFirst);
+            cy.dataTest('input-last').type(form.authorLast);
+            cy.dataTest('input-publisher').type(form.publisher);
+            cy.dataTest('input-day-published').type(form.dayPublished);
+            cy.dataTest('input-month-published').click();
+            cy.dataTest('input-month-published-menu').within(() => {
+                cy.contains(`${form.monthPublished} - `).click();
+            });
+            cy.dataTest('input-year-published').type(form.yearPublished);
+            cy.dataTest('input-day-accessed').type(form.dayAccessed);
+            cy.dataTest('input-month-accessed').click();
+            cy.dataTest('input-month-accessed-menu').within(() => {
+                cy.contains(`${form.monthAccessed} - `).click();
+            });
+            cy.dataTest('input-year-accessed').type(form.yearAccessed);
+            cy.dataTest('form-page-submit-button').click();
+            cy.contains(form.citation);
+        });
+    });
+    it('should clear form contents when the clear form button is clicked', () => {
+        cy.inputData();
+        cy.dataTest('input-title').should('not.have.value', '');
+        cy.dataTest('input-url').should('not.have.value', '');
+        cy.dataTest('input-source').should('not.have.value', '');
+        cy.dataTest('input-first').should('not.have.value', '');
+        cy.dataTest('input-last').should('not.have.value', '');
+        cy.dataTest('input-publisher').should('not.have.value', '');
+        cy.dataTest('input-day-published').should('not.have.value', '');
+        cy.dataTest('input-month-published').should('not.have.value', '');
+        cy.dataTest('input-year-published').should('not.have.value', '');
+        cy.dataTest('input-day-accessed').should('not.have.value', '');
+        cy.dataTest('input-month-accessed').should('not.have.value', '');
+        cy.dataTest('input-year-accessed').should('not.have.value', '');
+
+        cy.dataTest('clear-form-button').click();
+        cy.dataTest('input-title').should('have.value', '');
+        cy.dataTest('input-url').should('have.value', '');
+        cy.dataTest('input-source').should('have.value', '');
+        cy.dataTest('input-first').should('have.value', '');
+        cy.dataTest('input-last').should('have.value', '');
+        cy.dataTest('input-publisher').should('have.value', '');
+        cy.dataTest('input-day-published').should('have.value', '');
+        cy.dataTest('input-month-published').should('have.value', '');
+        cy.dataTest('input-year-published').should('have.value', '');
+        cy.dataTest('input-day-accessed').should('have.value', '');
+        cy.dataTest('input-month-accessed').should('have.value', '');
+        cy.dataTest('input-year-accessed').should('have.value', '');
+    });
+    it('should input today\'s date when the date button is clicked', () => {
+        cy.dataTest('today-date-button').click();
+        cy.dataTest('input-day-accessed').should('have.value', dayjs().date());
+        cy.dataTest('input-month-accessed').should('have.value', dayjs().month() + 1);
+        cy.dataTest('input-year-accessed').should('have.value', dayjs().year());
+    });
+    it.only('should display tooltips when the ? icon is hovered', () => {
+        cy.selectSource('Miscellaneous');
+        cy.dataTest('')
+    });
 });

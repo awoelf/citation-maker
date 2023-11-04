@@ -50,6 +50,7 @@ export interface formProps {
     label?: string;
     placeholder?: string;
     id?: string;
+    dataTest?: string;
 }
 
 export interface tooltipProps {

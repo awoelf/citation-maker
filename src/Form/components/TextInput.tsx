@@ -46,6 +46,7 @@ function TextInput(props: formProps) {
                 placeholder={props.placeholder}
                 contentLeft={props.contentLeft}
                 id={props.id}
+                data-test={props.dataTest}
             />
         </Grid>
     );
