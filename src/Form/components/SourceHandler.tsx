@@ -9,7 +9,6 @@ import TooltipInput from './TooltipInput';
 function SourceHandler() {
     const { form, updateForm, updateFormDate } = FormStorage();
     const citationSource = form.citationSource;
-
     const sourceLabels: { [key: string]: any } = {
         website: {
             title: 'Article Title',
@@ -62,7 +61,7 @@ function SourceHandler() {
                 inputName={'title'}
                 label={sourceLabels[citationSource].title}
                 updateForm={updateForm}
-                data-test={'input-title'}
+                dataTest={'input-title'}
             />
 
             {/* || URL */}
@@ -72,7 +71,7 @@ function SourceHandler() {
                     inputName={'url'}
                     label={'URL'}
                     updateForm={updateForm}
-                    data-test={'input-url'}
+                    dataTest={'input-url'}
                 />
             )}
 
@@ -83,7 +82,7 @@ function SourceHandler() {
                     inputName={'doi'}
                     label={'DOI'}
                     updateForm={updateForm}
-                    data-test={'input-doi'}
+                    dataTest={'input-doi'}
                 />
             ) : null}
 
@@ -97,10 +96,11 @@ function SourceHandler() {
                     sourceLabels[citationSource].sourceTooltipMessage ? (
                         <TooltipInput
                             tooltipMessage={sourceLabels[citationSource].sourceTooltipMessage}
+                            dataTest='source'
                         />
                     ) : null
                 }
-                data-test={'input-source'}
+                dataTest={'input-source'}
             />
 
             {/* || Author first name, last name, middle initial, and suffix */}
@@ -111,7 +111,7 @@ function SourceHandler() {
                 updateForm={updateForm}
                 cols={4}
                 mobileCols={6}
-                data-test={'input-first'}
+                dataTest={'input-first'}
             />
             <TextInput
                 formValue={form.middleInitial}
@@ -119,7 +119,7 @@ function SourceHandler() {
                 updateForm={updateForm}
                 cols={2}
                 mobileCols={6}
-                data-test={'input-middle'}
+                dataTest={'input-middle'}
             />
             <TextInput
                 formValue={form.lastName}
@@ -127,7 +127,7 @@ function SourceHandler() {
                 updateForm={updateForm}
                 cols={4}
                 mobileCols={6}
-                data-test={'input-last'}
+                dataTest={'input-last'}
             />
             <TextInput
                 formValue={form.suffix}
@@ -136,9 +136,9 @@ function SourceHandler() {
                 cols={2}
                 mobileCols={6}
                 contentLeft={
-                    <TooltipInput tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."' />
+                    <TooltipInput tooltipMessage='Do not list titles (Dr., Sir, Saint, etc.) or degrees (PhD, MA, DDS, etc.) with names. Do include suffixes like "Jr." or "II."' dataTest='suffix'/>
                 }
-                data-test={'input-suffix'}
+                dataTest={'input-suffix'}
             />
 
             {/* || Other contributors */}
@@ -153,7 +153,7 @@ function SourceHandler() {
                         cols={6}
                         fullWidth={false}
                         updateForm={updateForm}
-                        data-test={'input-page-start'}
+                        dataTest={'input-page-start'}
                     />
 
                     {/* || Page end */}
@@ -163,7 +163,7 @@ function SourceHandler() {
                         cols={6}
                         fullWidth={false}
                         updateForm={updateForm}
-                        data-test={'input-page-end'}
+                        dataTest={'input-page-end'}
                     />
                 </>
             ) : null}
@@ -180,10 +180,11 @@ function SourceHandler() {
                         sourceLabels[citationSource].versionTooltipMessage ? (
                             <TooltipInput
                                 tooltipMessage={sourceLabels[citationSource].versionTooltipMessage}
+                                dataTest='book'
                             />
                         ) : null
                     }
-                    data-test={'input-version'}
+                    dataTest={'input-version'}
                 />
             ) : null}
 
@@ -195,7 +196,7 @@ function SourceHandler() {
                     cols={6}
                     fullWidth={false}
                     updateForm={updateForm}
-                    data-test={'input-version'}
+                    dataTest={'input-number'}
                 />
             )}
 
@@ -207,7 +208,7 @@ function SourceHandler() {
                     cols={6}
                     fullWidth={false}
                     updateForm={updateForm}
-                    data-test={'input-issue'}
+                    dataTest={'input-issue'}
                 />
             ) : null}
 
@@ -216,7 +217,7 @@ function SourceHandler() {
                 formValue={form.publisher}
                 inputName={'publisher'}
                 updateForm={updateForm}
-                data-test={'input-publisher'}
+                dataTest={'input-publisher'}
             />
 
             {/* || Location */}
@@ -229,10 +230,11 @@ function SourceHandler() {
                         sourceLabels[citationSource].locationTooltipMessage ? (
                             <TooltipInput
                                 tooltipMessage={sourceLabels[citationSource].locationTooltipMessage}
+                                dataTest='location'
                             />
                         ) : null
                     }
-                    data-test={'input-location'}
+                    dataTest={'input-location'}
                 />
             )}
 
@@ -244,7 +246,7 @@ function SourceHandler() {
                 placeholder='Day'
                 updateForm={updateForm}
                 cols={4}
-                data-test={'input-day-published'}
+                dataTest={'input-day-published'}
             />
             <DropdownInput
                 formValue={form.monthPublished}
@@ -253,7 +255,7 @@ function SourceHandler() {
                 placeholder='Month'
                 updateForm={updateFormDate}
                 cols={4}
-                data-test={'input-month-published'}
+                dataTest={'input-month-published'}
             />
             <TextInput
                 formValue={form.yearPublished}
@@ -262,7 +264,7 @@ function SourceHandler() {
                 placeholder='Year'
                 updateForm={updateForm}
                 cols={4}
-                data-test={'input-year-published'}
+                dataTest={'input-year-published'}
             />
 
             {/* || Date accessed */}
@@ -276,7 +278,7 @@ function SourceHandler() {
                         updateForm={updateForm}
                         cols={4}
                         contentLeft={<UseTodayDate />}
-                        data-test={'input-day-accessed'}
+                        dataTest={'input-day-accessed'}
                     />
                     <DropdownInput
                         formValue={form.monthAccessed}
@@ -285,7 +287,7 @@ function SourceHandler() {
                         placeholder='Month'
                         updateForm={updateFormDate}
                         cols={4}
-                        data-test={'input-month-accessed'}
+                        dataTest={'input-month-accessed'}
                     />
                     <TextInput
                         formValue={form.yearAccessed}
@@ -294,7 +296,7 @@ function SourceHandler() {
                         placeholder='Year'
                         updateForm={updateForm}
                         cols={4}
-                        data-test={'input-year-accessed'}
+                        dataTest={'input-year-accessed'}
                     />
                 </>
             )}

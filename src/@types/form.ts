@@ -50,10 +50,12 @@ export interface formProps {
     label?: string;
     placeholder?: string;
     id?: string;
+    dataTest?: string;
 }
 
 export interface tooltipProps {
     tooltipMessage: string;
+    dataTest?: string;
 }
 
 // Interface for other contributors

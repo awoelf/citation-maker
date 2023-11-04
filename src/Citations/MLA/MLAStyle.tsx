@@ -120,7 +120,7 @@ function MLAStyle(props: citationProps) {
         return (
             <>
                 {data.number ? data.number : null}
-                {data.number && data.issue ? ', ' : '. '}
+                {data.number && data.issue ? ', ' : data.number ? '. ' : null}
                 {data.issue ? data.issue + '. ' : null}
             </>
         );
@@ -136,7 +136,9 @@ function MLAStyle(props: citationProps) {
                     : DatePublished()}
                 {data.datePublished && (data.doi || data.url || data.pageStart || data.pageEnd)
                     ? ', '
-                    : '. '}
+                    : data.publisher || data.datePublished
+                    ? '. '
+                    : null}
             </>
         );
     }
