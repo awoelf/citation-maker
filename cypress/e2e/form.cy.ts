@@ -11,7 +11,7 @@ describe('form', () => {
         cy.dataTest('theme-button-moon').click();
         cy.get('html').should('have.class', 'light-theme');
     });
-    it('should visit citation page when button is clicked', () => {
+    it('should visit citation page when the button is clicked', () => {
         cy.dataTest('citations-button').should('exist').click();
         cy.location('pathname').should('equal', '/citations');
         cy.dataTest('home-button').should('exist').click();
@@ -58,8 +58,8 @@ describe('form', () => {
             cy.dataTest('input-title').type(form.articleTitle);
             cy.dataTest('input-url').type(form.url);
             cy.dataTest('input-source').type(form.websiteName);
-            cy.dataTest('input-first').type(form.authorFirst);
-            cy.dataTest('input-last').type(form.authorLast);
+            cy.dataTest('input-first').type(form.first);
+            cy.dataTest('input-last').type(form.last);
             cy.dataTest('input-publisher').type(form.publisher);
             cy.dataTest('input-day-published').type(form.dayPublished);
             cy.dataTest('input-month-published').click();
@@ -74,7 +74,7 @@ describe('form', () => {
             });
             cy.dataTest('input-year-accessed').type(form.yearAccessed);
             cy.dataTest('form-page-submit-button').click();
-            cy.contains(form.citation);
+            cy.contains(form.citation).should('exist');
         });
     });
     it('should clear form contents when the clear form button is clicked', () => {

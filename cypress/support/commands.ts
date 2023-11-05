@@ -74,8 +74,8 @@ Cypress.Commands.add('websiteCitation', (submit: boolean = true) => {
         cy.dataTest('input-title').type(form.articleTitle);
         cy.dataTest('input-url').type(form.url);
         cy.dataTest('input-source').type(form.websiteName);
-        cy.dataTest('input-first').type(form.authorFirst);
-        cy.dataTest('input-last').type(form.authorLast);
+        cy.dataTest('input-first').type(form.first);
+        cy.dataTest('input-last').type(form.last);
         cy.dataTest('input-publisher').type(form.publisher);
         cy.dataTest('input-day-published').type(form.dayPublished);
         cy.dataTest('input-month-published').click();
@@ -99,8 +99,8 @@ Cypress.Commands.add('miscCitation', (submit: boolean = true) => {
         cy.dataTest('input-title').type(form.articleTitle);
         cy.dataTest('input-url').type(form.url);
         cy.dataTest('input-source').type(form.websiteName);
-        cy.dataTest('input-first').type(form.authorFirst);
-        cy.dataTest('input-last').type(form.authorLast);
+        cy.dataTest('input-first').type(form.first);
+        cy.dataTest('input-last').type(form.last);
         cy.dataTest('input-publisher').type(form.publisher);
         cy.dataTest('input-day-published').type(form.dayPublished);
         cy.dataTest('input-month-published').click();
@@ -138,11 +138,11 @@ Cypress.Commands.add('removeContributor', (contributor: contributor) => {
 Cypress.Commands.add('checkCitations', (exists: boolean = true) => {
     cy.fixture('citations-formatted').then((citations) => {
         if (exists) {
-            cy.contains(citations.data[0]).should('exist');
-            cy.contains(citations.data[1]).should('exist');
+            cy.contains(citations.bartels).should('exist');
+            cy.contains(citations.coleman).should('exist');
         } else {
-            cy.contains(citations.data[0]).should('not.exist');
-            cy.contains(citations.data[1]).should('not.exist');
+            cy.contains(citations.bartels).should('not.exist');
+            cy.contains(citations.coleman).should('not.exist');
         }
     });
 });

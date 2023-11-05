@@ -18,9 +18,13 @@ function Header() {
     }, []);
 
     return mounted ? (
-        <div className='justify-between py-3 flex sm:grid sm:grid-cols-6 sm:justify-normal header' data-test='header'>
+        <div
+            className='justify-between py-3 flex sm:grid sm:grid-cols-6 sm:justify-normal header'
+            data-test='header'
+        >
             <div className='col-span-1 hidden sm:grid' />
             <Link
+                data-test='header-text-link'
                 href={'/'}
                 className='text-3xl pl-2 sm:pl-1 sm:text-4xl header text-inherit sm:text-center sm:col-span-4'
             >
@@ -30,9 +34,9 @@ function Header() {
                 {router.route === '/citations' ? (
                     <Link href={'/'}>
                         <Button
-                            className='home-button'
+                            data-test={'home-button'}
                             icon={
-                                <House data-test='home-button' className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />
+                                <House className='h-6 w-auto transition ease-in-out hover:-translate-y-1 hover:scale-110' />
                             }
                             auto
                             light
@@ -44,11 +48,17 @@ function Header() {
                         className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
                     >
                         <Badge
+                            data-test={'citations-badge'}
                             color='primary'
                             size='md'
                             content={citations?.length ? citations?.length : <></>}
                         >
-                            <Button data-test='citations-button' icon={<BlockquoteRight className='h-6 w-auto ' />} auto light />
+                            <Button
+                                data-test='citations-button'
+                                icon={<BlockquoteRight className='h-6 w-auto ' />}
+                                auto
+                                light
+                            />
                         </Badge>
                     </Link>
                 )}
