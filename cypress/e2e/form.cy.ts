@@ -1,5 +1,5 @@
 import * as dayjs from 'dayjs';
-describe('template spec', () => {
+describe('form', () => {
     beforeEach(() => {
         cy.visit('/');
     });
@@ -78,7 +78,9 @@ describe('template spec', () => {
         });
     });
     it('should clear form contents when the clear form button is clicked', () => {
-        cy.inputData();
+        // Input data for a misc citation, but do not automatically submit it
+        const submitData = false;
+        cy.miscCitation(submitData);
         cy.dataTest('input-title').should('not.have.value', '');
         cy.dataTest('input-url').should('not.have.value', '');
         cy.dataTest('input-source').should('not.have.value', '');
@@ -122,7 +124,8 @@ describe('template spec', () => {
         });
     });
     it.only('should input contributors to the list and remove them', () => {
-        cy.inputData();
+        const submitData = false;
+        cy.miscCitation(submitData);
         cy.fixture('form-contributors').then((data) => {
             cy.dataTest('other-contributors-dropdown').click();
             cy.addContributor(data.contributors[0]);
