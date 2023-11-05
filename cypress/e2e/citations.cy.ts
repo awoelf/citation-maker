@@ -85,7 +85,7 @@ describe('citations', () => {
         cy.visit('/');
         cy.dataTest('citations-badge').should('contain', '2');
     });
-    it.only('should fill the form with current values when the edit button is clicked', () => {
+    it('should fill the form with current values when the edit button is clicked', () => {
         cy.fixture('citations-storage').then((citations) => {
             cy.dataTest(`edit-citation-button-${citations.coleman.id}`).click();
             cy.dataTest('input-title').should('have.value', citations.coleman.title);

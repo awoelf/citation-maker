@@ -123,7 +123,7 @@ describe('form', () => {
             cy.contains(tooltip.suffix).should('exist');
         });
     });
-    it.only('should input contributors to the list and remove them', () => {
+    it('should input contributors to the list and remove them', () => {
         const submitData = false;
         cy.miscCitation(submitData);
         cy.fixture('form-contributors').then((data) => {
