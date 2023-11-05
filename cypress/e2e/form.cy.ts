@@ -124,7 +124,15 @@ describe('template spec', () => {
     it.only('should input contributors to the list and remove them', () => {
         cy.inputData();
         cy.fixture('form-contributors').then((data) => {
+            cy.dataTest('other-contributors-dropdown').click();
+            cy.addContributor(data.contributors[0]);
+            cy.addContributor(data.contributors[1]);
+            cy.addContributor(data.contributors[2]);
 
+            cy.removeContributor(data.contributors[0]);
+
+            cy.dataTest('form-page-submit-button').click();
+            cy.contains(data.citation).should('exist');
         })
     });
 });

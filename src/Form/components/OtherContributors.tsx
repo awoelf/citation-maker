@@ -51,9 +51,10 @@ function OtherContributors(props: formProps) {
     }
 
     return (
-        <div data-test='other-contributors-dropdown' className='min-w-full'>
+        <div className='min-w-full'>
             <Collapse.Group bordered borderWeight={'normal'} className='m-2 mt-4'>
                 <Collapse
+                    data-test='other-contributors-dropdown'
                     title={<Text size='$sm'>Other Contributors</Text>}
                 >
                     <div

@@ -43,8 +43,16 @@ declare global {
             dataTest(dataTestSelector: string): Chainable<JQuery<HTMLElement>>;
             selectSource(type: string): void;
             inputData(): void;
+            addContributor(contributor: contributor): void;
+            removeContributor(contributor: contributor): void;
         }
     }
+}
+
+interface contributor {
+    first: string;
+    middle: string;
+    last: string;
 }
 
 Cypress.Commands.add('dataTest', (dataTestSelector) => {
@@ -60,24 +68,37 @@ Cypress.Commands.add('selectSource', (type) => {
 
 Cypress.Commands.add('inputData', () => {
     cy.selectSource('Miscellaneous');
-        cy.fixture('form-misc').then((form) => {
-            cy.dataTest('input-title').type(form.articleTitle);
-            cy.dataTest('input-url').type(form.url);
-            cy.dataTest('input-source').type(form.websiteName);
-            cy.dataTest('input-first').type(form.authorFirst);
-            cy.dataTest('input-last').type(form.authorLast);
-            cy.dataTest('input-publisher').type(form.publisher);
-            cy.dataTest('input-day-published').type(form.dayPublished);
-            cy.dataTest('input-month-published').click();
-            cy.dataTest('input-month-published-menu').within(() => {
-                cy.contains(`${form.monthPublished} - `).click();
-            });
-            cy.dataTest('input-year-published').type(form.yearPublished);
-            cy.dataTest('input-day-accessed').type(form.dayAccessed);
-            cy.dataTest('input-month-accessed').click();
-            cy.dataTest('input-month-accessed-menu').within(() => {
-                cy.contains(`${form.monthAccessed} - `).click();
-            });
-            cy.dataTest('input-year-accessed').type(form.yearAccessed);
+    cy.fixture('form-misc').then((form) => {
+        cy.dataTest('input-title').type(form.articleTitle);
+        cy.dataTest('input-url').type(form.url);
+        cy.dataTest('input-source').type(form.websiteName);
+        cy.dataTest('input-first').type(form.authorFirst);
+        cy.dataTest('input-last').type(form.authorLast);
+        cy.dataTest('input-publisher').type(form.publisher);
+        cy.dataTest('input-day-published').type(form.dayPublished);
+        cy.dataTest('input-month-published').click();
+        cy.dataTest('input-month-published-menu').within(() => {
+            cy.contains(`${form.monthPublished} - `).click();
         });
+        cy.dataTest('input-year-published').type(form.yearPublished);
+        cy.dataTest('input-day-accessed').type(form.dayAccessed);
+        cy.dataTest('input-month-accessed').click();
+        cy.dataTest('input-month-accessed-menu').within(() => {
+            cy.contains(`${form.monthAccessed} - `).click();
+        });
+        cy.dataTest('input-year-accessed').type(form.yearAccessed);
+    });
+});
+
+Cypress.Commands.add('addContributor', (contributor: contributor) => {
+    cy.dataTest('other-contributors-first').type(contributor.first);
+    cy.dataTest('other-contributors-middle').type(contributor.middle);
+    cy.dataTest('other-contributors-last').type(contributor.last);
+    cy.dataTest('add-contributor-button').click();
+    cy.contains(`${contributor.first} ${contributor.middle}. ${contributor.last}`).should('exist');
+});
+
+Cypress.Commands.add('removeContributor', (contributor: contributor) => {
+    cy.dataTest(`remove-contributor-button-${contributor.first}-${contributor.middle}-${contributor.last}`).click();
+    cy.contains(`${contributor.first} ${contributor.middle}. ${contributor.last}`).should('not.exist');
 })
