@@ -12,7 +12,6 @@ function ConfirmDelete(): ReactNode {
                 padding: '0.75rem',
                 maxWidth: '330px',
             }}
-            data-test='confirm-delete-button'
         >
             <Text>
                 Are you sure you want to delete all of your citations? This cannot be undone.
@@ -24,7 +23,12 @@ function ConfirmDelete(): ReactNode {
                     </Button>
                 </Grid>
                 <Grid>
-                    <Button size='sm' color='error' onPress={removeItem}>
+                    <Button
+                        data-test='confirm-delete-button'
+                        size='sm'
+                        color='error'
+                        onPress={removeItem}
+                    >
                         Delete
                     </Button>
                 </Grid>

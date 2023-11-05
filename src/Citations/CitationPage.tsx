@@ -39,12 +39,12 @@ function CitationPage() {
                                         trigger='hover'
                                     >
                                         <Button
-                                            data-test='citation-copy-button'
                                             icon={<Clipboard />}
                                             auto
                                             light
                                             className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
                                             onPress={() => copyCitation(item.id)}
+                                            data-test={`copy-citation-button-${item.id}`}
                                         />
                                     </Tooltip>
                                     <Tooltip
@@ -53,7 +53,7 @@ function CitationPage() {
                                         trigger='hover'
                                     >
                                         <Button
-                                            data-test='citation-edit-button'
+                                            
                                             icon={<Pencil />}
                                             auto
                                             light
@@ -62,6 +62,7 @@ function CitationPage() {
                                                 setForm(item);
                                                 router.push('/');
                                             }}
+                                            data-test={`edit-citation-button-${item.id}`}
                                         />
                                     </Tooltip>
                                     <Tooltip
@@ -70,12 +71,12 @@ function CitationPage() {
                                         trigger='hover'
                                     >
                                         <Button
-                                            data-test='citation-delete-button'
                                             icon={<Trash />}
                                             auto
                                             light
                                             className='transition ease-in-out hover:-translate-y-1 hover:scale-110'
                                             onPress={() => deleteCitationById(item.id)}
+                                            data-test={`delete-citation-button-${item.id}`}
                                         />
                                     </Tooltip>
                                 </Grid>

@@ -1,5 +1,5 @@
 import * as dayjs from 'dayjs';
-describe('template spec', () => {
+describe('form', () => {
     beforeEach(() => {
         cy.visit('/');
     });
@@ -11,7 +11,7 @@ describe('template spec', () => {
         cy.dataTest('theme-button-moon').click();
         cy.get('html').should('have.class', 'light-theme');
     });
-    it('should visit citation page when button is clicked', () => {
+    it('should visit citation page when the button is clicked', () => {
         cy.dataTest('citations-button').should('exist').click();
         cy.location('pathname').should('equal', '/citations');
         cy.dataTest('home-button').should('exist').click();
@@ -58,8 +58,8 @@ describe('template spec', () => {
             cy.dataTest('input-title').type(form.articleTitle);
             cy.dataTest('input-url').type(form.url);
             cy.dataTest('input-source').type(form.websiteName);
-            cy.dataTest('input-first').type(form.authorFirst);
-            cy.dataTest('input-last').type(form.authorLast);
+            cy.dataTest('input-first').type(form.first);
+            cy.dataTest('input-last').type(form.last);
             cy.dataTest('input-publisher').type(form.publisher);
             cy.dataTest('input-day-published').type(form.dayPublished);
             cy.dataTest('input-month-published').click();
@@ -74,11 +74,13 @@ describe('template spec', () => {
             });
             cy.dataTest('input-year-accessed').type(form.yearAccessed);
             cy.dataTest('form-page-submit-button').click();
-            cy.contains(form.citation);
+            cy.contains(form.citation).should('exist');
         });
     });
     it('should clear form contents when the clear form button is clicked', () => {
-        cy.inputData();
+        // Input data for a misc citation, but do not automatically submit it
+        const submitData = false;
+        cy.miscCitation(submitData);
         cy.dataTest('input-title').should('not.have.value', '');
         cy.dataTest('input-url').should('not.have.value', '');
         cy.dataTest('input-source').should('not.have.value', '');
@@ -120,5 +122,20 @@ describe('template spec', () => {
             cy.dataTest('suffix-tooltip').click();
             cy.contains(tooltip.suffix).should('exist');
         });
+    });
+    it('should input contributors to the list and remove them', () => {
+        const submitData = false;
+        cy.miscCitation(submitData);
+        cy.fixture('form-contributors').then((data) => {
+            cy.dataTest('other-contributors-dropdown').click();
+            cy.addContributor(data.contributors[0]);
+            cy.addContributor(data.contributors[1]);
+            cy.addContributor(data.contributors[2]);
+
+            cy.removeContributor(data.contributors[0]);
+
+            cy.dataTest('form-page-submit-button').click();
+            cy.contains(data.citation).should('exist');
+        })
     });
 });

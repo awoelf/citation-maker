@@ -51,9 +51,10 @@ function OtherContributors(props: formProps) {
     }
 
     return (
-        <div data-test='other-contributors-dropdown' className='min-w-full'>
+        <div className='min-w-full'>
             <Collapse.Group bordered borderWeight={'normal'} className='m-2 mt-4'>
                 <Collapse
+                    data-test='other-contributors-dropdown'
                     title={<Text size='$sm'>Other Contributors</Text>}
                 >
                     <div
@@ -67,7 +68,7 @@ function OtherContributors(props: formProps) {
                             updateForm={updateContributor}
                             cols={4}
                             mobileCols={12}
-                            id={'other-contributors-first'}
+                            dataTest={'other-contributors-first'}
                         />
                         <TextInput
                             formValue={contributor.middleInitial}
@@ -75,7 +76,7 @@ function OtherContributors(props: formProps) {
                             updateForm={updateContributor}
                             cols={3}
                             mobileCols={12}
-                            id={'other-contributors-middle'}
+                            dataTest={'other-contributors-middle'}
                         />
                         <TextInput
                             formValue={contributor.lastName}
@@ -83,7 +84,7 @@ function OtherContributors(props: formProps) {
                             updateForm={updateContributor}
                             cols={4}
                             mobileCols={12}
-                            id={'other-contributors-last'}
+                            dataTest={'other-contributors-last'}
                         />
                         <TextInput
                             formValue={contributor.suffix}
@@ -91,7 +92,7 @@ function OtherContributors(props: formProps) {
                             updateForm={updateContributor}
                             cols={2}
                             mobileCols={12}
-                            id={'other-contributors-suffix'}
+                            dataTest={'other-contributors-suffix'}
                         />
                     </div>
                     <Button
@@ -117,7 +118,7 @@ function OtherContributors(props: formProps) {
                                         {item.lastName} {item.suffix}
                                     </p>
                                     <Button
-                                        data-test='remove-contributor-button'
+                                        data-test={`remove-contributor-button-${item.firstName}-${item.middleInitial}-${item.lastName}`}
                                         id={item.id}
                                         onPress={removeContributor}
                                         icon={
