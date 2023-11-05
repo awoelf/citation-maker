@@ -121,4 +121,10 @@ describe('template spec', () => {
             cy.contains(tooltip.suffix).should('exist');
         });
     });
+    it.only('should input contributors to the list and remove them', () => {
+        cy.inputData();
+        cy.fixture('form-contributors').then((data) => {
+
+        })
+    });
 });
